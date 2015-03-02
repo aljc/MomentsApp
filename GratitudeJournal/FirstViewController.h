@@ -10,6 +10,7 @@
 
 @interface FirstViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
 
 @end
 
