@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>62D1A077-F6C4-4D01-9C21-07E1DD67F83E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GratitudeJournal</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D16640180F6A7CE3F9B4F8E65B3BAC72A08A670E</key>
+		<string>https://github.com/uchicago-mobi/aljc-MPCS51030-Winter-2015-Project.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GratitudeJournal.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D16640180F6A7CE3F9B4F8E65B3BAC72A08A670E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/uchicago-mobi/aljc-MPCS51030-Winter-2015-Project.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D16640180F6A7CE3F9B4F8E65B3BAC72A08A670E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D16640180F6A7CE3F9B4F8E65B3BAC72A08A670E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>aljc-MPCS51030-Winter-2015-Project</string>
+		</dict>
+	</array>
+</dict>
+</plist>
