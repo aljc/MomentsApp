@@ -11,6 +11,6 @@
 @interface HomeViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
-@property (weak, nonatomic) IBOutlet UIView *submitView;
+@property (weak, nonatomic) IBOutlet UIButton *submit;
 
 @end

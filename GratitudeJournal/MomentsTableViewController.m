@@ -7,8 +7,11 @@
 //
 
 #import "MomentsTableViewController.h"
+#import "MomentsTableViewCell.h"
 
 @interface MomentsTableViewController ()
+
+@property NSMutableArray *moments;
 
 @end
 
@@ -16,12 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.moments = [[NSMutableArray alloc] init];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //sample cell - delete
+    NSDictionary *moment = @{
+                             @"Text" : @"Read a good book.",
+                             @"Date" : @"2/28/15"
+                             };
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.moments addObject:moment];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +38,26 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1; //1 section for now
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.moments count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    MomentsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"momentCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    NSDictionary *currentMoment = [self.moments objectAtIndex:indexPath.row];
+    cell.momentText = [currentMoment objectForKey:@"Text"];
+    cell.momentDate = [currentMoment objectForKey:@"Date"];
+    
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31581A8D1AA6D799002F73A5 /* HomeViewController.m */; };
 		31581A9A1AA6DB6B002F73A5 /* MomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31581A991AA6DB6B002F73A5 /* MomentsTableViewController.m */; };
+		316B48CC1AAD538000662406 /* MomentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 316B48CB1AAD538000662406 /* MomentsTableViewCell.m */; };
 		31D2C22E1AA503C100130173 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D2C22D1AA503C100130173 /* main.m */; };
 		31D2C2311AA503C100130173 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D2C2301AA503C100130173 /* AppDelegate.m */; };
 		31D2C23A1AA503C100130173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D2C2381AA503C100130173 /* Main.storyboard */; };
@@ -32,6 +33,8 @@
 		31581A8D1AA6D799002F73A5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		31581A981AA6DB6B002F73A5 /* MomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsTableViewController.h; sourceTree = "<group>"; };
 		31581A991AA6DB6B002F73A5 /* MomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsTableViewController.m; sourceTree = "<group>"; };
+		316B48CA1AAD538000662406 /* MomentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsTableViewCell.h; sourceTree = "<group>"; };
+		316B48CB1AAD538000662406 /* MomentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsTableViewCell.m; sourceTree = "<group>"; };
 		31D2C2281AA503C100130173 /* GratitudeJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GratitudeJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D2C22C1AA503C100130173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D2C22D1AA503C100130173 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				31D2C2301AA503C100130173 /* AppDelegate.m */,
 				31581A8C1AA6D799002F73A5 /* HomeViewController.h */,
 				31581A8D1AA6D799002F73A5 /* HomeViewController.m */,
+				316B48CA1AAD538000662406 /* MomentsTableViewCell.h */,
+				316B48CB1AAD538000662406 /* MomentsTableViewCell.m */,
 				31581A981AA6DB6B002F73A5 /* MomentsTableViewController.h */,
 				31581A991AA6DB6B002F73A5 /* MomentsTableViewController.m */,
 				31D2C2381AA503C100130173 /* Main.storyboard */,
@@ -228,6 +233,7 @@
 				31581A9A1AA6DB6B002F73A5 /* MomentsTableViewController.m in Sources */,
 				31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */,
 				31D2C22E1AA503C100130173 /* main.m in Sources */,
+				316B48CC1AAD538000662406 /* MomentsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
