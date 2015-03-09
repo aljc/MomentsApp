@@ -10,4 +10,6 @@
 
 @interface MomentsTableViewController : UITableViewController
 
+@property NSArray *moments;
+
 @end

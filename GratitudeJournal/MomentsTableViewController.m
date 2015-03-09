@@ -11,8 +11,6 @@
 
 @interface MomentsTableViewController ()
 
-@property NSArray *moments;
-
 @end
 
 @implementation MomentsTableViewController
@@ -51,8 +49,8 @@
     // Configure the cell...
     NSDictionary *currentMoment = [_moments objectAtIndex:indexPath.row];
     NSLog(@"current moment: %@", currentMoment);
-    cell.momentText = [currentMoment objectForKey:@"Text"];
-    cell.momentDate = [currentMoment objectForKey:@"Date"];
+    cell.momentText.text = [currentMoment objectForKey:@"Text"];
+    cell.momentDate.text = [currentMoment objectForKey:@"Date"];
     
     
     return cell;

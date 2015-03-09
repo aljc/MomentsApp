@@ -64,6 +64,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="dailyQuestion" destination="u6F-fb-HyN" id="wIP-Lf-hlC"/>
+                        <segue destination="oiS-aq-Tnr" kind="show" identifier="showMoments" id="E5X-vE-Dqb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -139,10 +140,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eap-iI-IJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773" y="354"/>
+            <point key="canvasLocation" x="774" y="436"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="E5X-vE-Dqb"/>
+    </inferredMetricsTieBreakers>
 </document>
