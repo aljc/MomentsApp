@@ -18,6 +18,7 @@
 @interface HomeViewController ()
 
 @property NSMutableArray *placeholderArray;
+@property NSMutableArray *moments;
 
 @end
 
@@ -36,6 +37,10 @@
     NSString *placeholderText = [_placeholderArray objectAtIndex:arc4random_uniform(4)]; //TODO: 0-8
     
     self.dailyQuestion.placeholder = placeholderText;
+    
+    _moments = [[NSMutableArray alloc] init];
+    
+    self.dailyQuestion.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,5 +57,34 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Caching
+
+- (IBAction)addMoment:(UIButton *)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSDictionary *todaysMoment = @{
+                                 @"Text" : self.dailyQuestion.text,
+                                 @"Date" : @"2/28/15" //TODO: update
+                                 };
+    
+    [_moments addObject:todaysMoment]; //TODO: make _ and self's consistent
+
+    
+    [defaults setObject:[NSArray arrayWithArray:_moments] forKey:@"moments"];
+    [defaults synchronize];
+    
+    NSLog(@"Moments:%@", [defaults objectForKey:@"moments"]);
+}
+
+#pragma mark - UITextField Delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

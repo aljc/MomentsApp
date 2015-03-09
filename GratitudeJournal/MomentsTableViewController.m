@@ -11,7 +11,7 @@
 
 @interface MomentsTableViewController ()
 
-@property NSMutableArray *moments;
+@property NSArray *moments;
 
 @end
 
@@ -19,15 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.moments = [[NSMutableArray alloc] init];
     
-    //sample cell - delete
-    NSDictionary *moment = @{
-                             @"Text" : @"Read a good book.",
-                             @"Date" : @"2/28/15"
-                             };
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _moments = [defaults objectForKey:@"moments"];
     
-    [self.moments addObject:moment];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,14 +40,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.moments count];
+    return [_moments count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MomentsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"momentCell" forIndexPath:indexPath];
     
+    NSLog(@"populating table view cells");
+    
     // Configure the cell...
-    NSDictionary *currentMoment = [self.moments objectAtIndex:indexPath.row];
+    NSDictionary *currentMoment = [_moments objectAtIndex:indexPath.row];
+    NSLog(@"current moment: %@", currentMoment);
     cell.momentText = [currentMoment objectForKey:@"Text"];
     cell.momentDate = [currentMoment objectForKey:@"Date"];
     

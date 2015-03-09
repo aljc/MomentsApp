@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
-@property (weak, nonatomic) IBOutlet UIButton *submit;
+- (IBAction)addMoment:(UIButton *)sender;
 
 @end

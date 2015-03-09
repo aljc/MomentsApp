@@ -40,6 +40,9 @@
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addMoment:" destination="9pv-A4-QxB" eventType="touchUpInside" id="GnQ-SO-fWb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.47240568186294607" green="0.35958127851265975" blue="1" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
@@ -61,7 +64,6 @@
                     <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="dailyQuestion" destination="u6F-fb-HyN" id="wIP-Lf-hlC"/>
-                        <outlet property="submit" destination="T7D-Hg-00K" id="FeW-Hx-Ueg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
