@@ -8,6 +8,7 @@
 
 #import "MomentsTableViewController.h"
 #import "MomentsTableViewCell.h"
+#import "Moment.h"
 
 @interface MomentsTableViewController ()
 
@@ -47,10 +48,20 @@
     NSLog(@"populating table view cells");
     
     // Configure the cell...
-    NSDictionary *currentMoment = [_moments objectAtIndex:indexPath.row];
-    NSLog(@"current moment: %@", currentMoment);
-    cell.momentText.text = [currentMoment objectForKey:@"Text"];
-    cell.momentDate.text = [currentMoment objectForKey:@"Date"];
+    //NSDictionary *currentMoment = [_moments objectAtIndex:indexPath.row];
+    NSData *currentMoment = [_moments objectAtIndex:indexPath.row];
+    
+    //DECODE DATA: NSDATA -> MOMENT
+    Moment *currentMomentRetrieved = (Moment*) [NSKeyedUnarchiver unarchiveObjectWithData:currentMoment];
+    
+    //NSLog(@"current moment: %@", currentMoment);
+//    cell.momentText.text = [currentMoment objectForKey:@"Text"];
+//    cell.momentDate.text = [currentMoment objectForKey:@"Date"];
+//    cell.imageView.image = [currentMoment objectForKey:@"Image"];
+    NSLog(@"RETRIEVE MOMENT: %@", cell.momentText.text = currentMomentRetrieved.text);
+    cell.momentText.text = currentMomentRetrieved.text;
+    cell.momentDate.text = currentMomentRetrieved.date;
+    cell.imageView.image = currentMomentRetrieved.image;
     
     
     return cell;

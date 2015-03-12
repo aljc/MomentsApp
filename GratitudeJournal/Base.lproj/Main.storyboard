@@ -35,7 +35,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rog-P6-Ih3">
                                 <rect key="frame" x="248" y="376" width="104" height="39"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7D-Hg-00K">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7D-Hg-00K">
                                         <rect key="frame" x="0.0" y="0.0" width="104" height="39"/>
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,6 +46,9 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.47240568186294607" green="0.35958127851265975" blue="1" alpha="0.78000000000000003" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="T7D-Hg-00K" secondAttribute="centerX" id="bSu-Zq-zmC"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -64,12 +67,36 @@
                     <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="dailyQuestion" destination="u6F-fb-HyN" id="wIP-Lf-hlC"/>
-                        <segue destination="oiS-aq-Tnr" kind="show" identifier="showMoments" id="E5X-vE-Dqb"/>
+                        <segue destination="h6T-Mp-dH9" kind="show" id="xF0-Hu-wFI"/>
+                        <segue destination="oiS-aq-Tnr" kind="show" identifier="showMoments" id="5X4-Xm-hB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="764" y="-228"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Rkw-aZ-dUK">
+            <objects>
+                <viewController id="h6T-Mp-dH9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="78g-98-A6N"/>
+                        <viewControllerLayoutGuide type="bottom" id="4J1-Gw-Btw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kht-XZ-7ng">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-Gk-AgJ">
+                                <rect key="frame" x="16" y="20" width="568" height="295"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEv-ku-rSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="-320"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -140,13 +167,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eap-iI-IJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="436"/>
+            <point key="canvasLocation" x="774" y="530"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E5X-vE-Dqb"/>
+        <segue reference="5X4-Xm-hB9"/>
     </inferredMetricsTieBreakers>
 </document>

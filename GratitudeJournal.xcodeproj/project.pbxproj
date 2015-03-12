@@ -36,6 +36,7 @@
 		31581A991AA6DB6B002F73A5 /* MomentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsTableViewController.m; sourceTree = "<group>"; };
 		316B48CA1AAD538000662406 /* MomentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsTableViewCell.h; sourceTree = "<group>"; };
 		316B48CB1AAD538000662406 /* MomentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsTableViewCell.m; sourceTree = "<group>"; };
+		3174D4FC1AB12D5500AE8A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		31C2D65E1AAE438200D0B5E8 /* Moment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
 		31C2D65F1AAE438200D0B5E8 /* Moment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moment.m; sourceTree = "<group>"; };
 		31D2C2281AA503C100130173 /* GratitudeJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GratitudeJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +73,7 @@
 		31D2C21F1AA503C100130173 = {
 			isa = PBXGroup;
 			children = (
+				3174D4FC1AB12D5500AE8A8F /* UIKit.framework */,
 				31D2C22A1AA503C100130173 /* GratitudeJournal */,
 				31D2C2471AA503C100130173 /* GratitudeJournalTests */,
 				31D2C2291AA503C100130173 /* Products */,

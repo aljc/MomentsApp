@@ -12,9 +12,11 @@
 @interface Moment : NSObject <NSCoding>
 
 @property NSString *text;
-@property UIImageView *imageView;
-@property NSDate *date;
+@property NSString *date; //TODO: change to NSDate
+@property UIImage *image;
 
-//you can save the entire model object to NSUserDefaults using NSCoding.  //Need to make it NSCoding compliant in order to store this custom object.
+//you can save the entire model object to NSUserDefaults using NSCoding. (way to encode/decode instances of custom classes)
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+- (id)initWithCoder:(NSCoder *)aDecoder;
 
 @end
