@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -143,16 +144,21 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWG-LE-AUK">
-                                            <rect key="frame" x="182" y="2" width="255" height="255"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XWG-LE-AUK">
+                                            <rect key="frame" x="185" y="14" width="231" height="231"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="XWG-LE-AUK" secondAttribute="height" multiplier="1:1" id="gHO-D3-CfS"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="hSb-H0-NY1" secondAttribute="bottom" constant="12" id="4nJ-Aq-riA"/>
                                         <constraint firstItem="hSb-H0-NY1" firstAttribute="leading" secondItem="c9C-ta-yPf" secondAttribute="leading" id="Cwo-Hq-pI9"/>
                                         <constraint firstItem="hSb-H0-NY1" firstAttribute="leading" secondItem="iTz-gj-nmw" secondAttribute="leadingMargin" constant="7" id="DoQ-17-mcU"/>
+                                        <constraint firstItem="XWG-LE-AUK" firstAttribute="top" secondItem="iTz-gj-nmw" secondAttribute="topMargin" constant="6" id="a6V-3t-M0j"/>
                                         <constraint firstItem="c9C-ta-yPf" firstAttribute="leading" secondItem="iTz-gj-nmw" secondAttribute="leadingMargin" constant="7" id="ezq-1e-8he"/>
                                         <constraint firstItem="c9C-ta-yPf" firstAttribute="top" secondItem="iTz-gj-nmw" secondAttribute="topMargin" constant="12" id="hJo-lW-on3"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="XWG-LE-AUK" secondAttribute="bottom" constant="6" id="ptu-nP-O59"/>
                                         <constraint firstAttribute="centerX" secondItem="XWG-LE-AUK" secondAttribute="centerX" id="r8A-UB-GqX"/>
                                         <constraint firstAttribute="centerY" secondItem="XWG-LE-AUK" secondAttribute="centerY" id="rpr-jw-gnm"/>
                                     </constraints>

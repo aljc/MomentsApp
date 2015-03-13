@@ -9,7 +9,6 @@
 #import "HomeViewController.h"
 #import "MomentsTableViewController.h"
 #import "Moment.h"
-//#import "UIImage+Resize.h" //???? @@@not found?
 
 /* TODOS
  instagram integration!!
@@ -28,8 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //[self resetNSUserDefaults];
-    // Do any additional setup after loading the view, typically from a nib.
     
     _placeholderArray = [[NSMutableArray alloc] init];
     [_placeholderArray addObject:@"What made you smile today?"];
@@ -84,6 +83,7 @@
 #pragma mark - Caching
 
 - (IBAction)loadImagePicker:(UIButton *)sender {
+   
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.modalPresentationStyle = UIModalPresentationCurrentContext;
     picker.delegate = self;
@@ -94,12 +94,12 @@
     {
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         NSLog(@"show image picker: photo gallery available");
+
+        
+        
     }
     
     [self presentViewController:picker animated:YES completion:nil];
-    
-    NSLog(@"finished loading image picker"); 
-    
 }
 
 - (void)addMomentToDefaults {
@@ -131,16 +131,36 @@
      NSLog(@"did finish picking");
     
     //get the image from the dictionary
-    _image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    _image = [info objectForKey:UIImagePickerControllerEditedImage]; //EDITED image for the crop!
     
-    //now that you have the image reference, create the full moment and add to NSUserDefaults
-    [self addMomentToDefaults];
+    //if user did not sufficiently crop their image to a sqaure, crop it for them
+    if (_image.size.height != _image.size.width) {
+        //Crop the image to a square
+        //Source: http://stackoverflow.com/questions/17712797/ios-custom-uiimagepickercontroller-camera-crop-to-square
+        CGSize imageSize = _image.size;
+        CGFloat width = imageSize.width;
+        CGFloat height = imageSize.height;
+        if (width != height) {
+            CGFloat newDimension = MIN(width, height);
+            CGFloat widthOffset = (width - newDimension) / 2;
+            CGFloat heightOffset = (height - newDimension) / 2;
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
+            [_image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+                      blendMode:kCGBlendModeCopy
+                          alpha:1.];
+            _image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        }
+    }
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    //after user has selected a photo, we must create the moment, add it to NSUserDefaults, and segue to the Moments tab
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self addMomentToDefaults];
+        //[self performSegueWithIdentifier:@"showMoments" sender:self];
+        [self performSegueWithIdentifier:@"showMoments" sender:self];
+    }];
     
     NSLog(@"dismissed picker");
-    //call the showMoments segue programmatically AFTER done adding this moment to cache
-    [self performSegueWithIdentifier:@"showMoments" sender:self];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
