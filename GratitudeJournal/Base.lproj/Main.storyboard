@@ -41,7 +41,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="addMoment:" destination="9pv-A4-QxB" eventType="touchUpInside" id="GnQ-SO-fWb"/>
+                                            <action selector="loadImagePicker:" destination="9pv-A4-QxB" eventType="touchUpInside" id="tmi-yZ-E7M"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -121,12 +121,12 @@
         <scene sceneID="O2a-QM-aic">
             <objects>
                 <tableViewController id="oiS-aq-Tnr" customClass="MomentsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" id="G6m-yz-GEX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="260" sectionHeaderHeight="22" sectionFooterHeight="22" id="G6m-yz-GEX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="momentCell" rowHeight="89" id="Jnb-iO-920" customClass="MomentsTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="momentCell" rowHeight="260" id="Jnb-iO-920" customClass="MomentsTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jnb-iO-920" id="iTz-gj-nmw">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -143,6 +143,9 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWG-LE-AUK">
+                                            <rect key="frame" x="182" y="2" width="255" height="255"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="hSb-H0-NY1" secondAttribute="bottom" constant="12" id="4nJ-Aq-riA"/>
@@ -150,9 +153,12 @@
                                         <constraint firstItem="hSb-H0-NY1" firstAttribute="leading" secondItem="iTz-gj-nmw" secondAttribute="leadingMargin" constant="7" id="DoQ-17-mcU"/>
                                         <constraint firstItem="c9C-ta-yPf" firstAttribute="leading" secondItem="iTz-gj-nmw" secondAttribute="leadingMargin" constant="7" id="ezq-1e-8he"/>
                                         <constraint firstItem="c9C-ta-yPf" firstAttribute="top" secondItem="iTz-gj-nmw" secondAttribute="topMargin" constant="12" id="hJo-lW-on3"/>
+                                        <constraint firstAttribute="centerX" secondItem="XWG-LE-AUK" secondAttribute="centerX" id="r8A-UB-GqX"/>
+                                        <constraint firstAttribute="centerY" secondItem="XWG-LE-AUK" secondAttribute="centerY" id="rpr-jw-gnm"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="imageView1" destination="XWG-LE-AUK" id="F8U-PB-voF"/>
                                     <outlet property="momentDate" destination="hSb-H0-NY1" id="R76-08-EMz"/>
                                     <outlet property="momentText" destination="c9C-ta-yPf" id="sou-JB-UcX"/>
                                 </connections>
@@ -167,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eap-iI-IJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="530"/>
+            <point key="canvasLocation" x="774" y="529"/>
         </scene>
     </scenes>
     <resources>

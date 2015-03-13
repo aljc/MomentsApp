@@ -14,6 +14,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property UIImage *image;
 
-- (IBAction)addMoment:(UIButton *)sender;
+- (IBAction)loadImagePicker:(UIButton *)sender;
 
 @end

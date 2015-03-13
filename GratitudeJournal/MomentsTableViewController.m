@@ -48,20 +48,16 @@
     NSLog(@"populating table view cells");
     
     // Configure the cell...
-    //NSDictionary *currentMoment = [_moments objectAtIndex:indexPath.row];
     NSData *currentMoment = [_moments objectAtIndex:indexPath.row];
     
     //DECODE DATA: NSDATA -> MOMENT
     Moment *currentMomentRetrieved = (Moment*) [NSKeyedUnarchiver unarchiveObjectWithData:currentMoment];
     
-    //NSLog(@"current moment: %@", currentMoment);
-//    cell.momentText.text = [currentMoment objectForKey:@"Text"];
-//    cell.momentDate.text = [currentMoment objectForKey:@"Date"];
-//    cell.imageView.image = [currentMoment objectForKey:@"Image"];
     NSLog(@"RETRIEVE MOMENT: %@", cell.momentText.text = currentMomentRetrieved.text);
     cell.momentText.text = currentMomentRetrieved.text;
     cell.momentDate.text = currentMomentRetrieved.date;
-    cell.imageView.image = currentMomentRetrieved.image;
+    NSLog(@"rendering image, %@", currentMomentRetrieved.image);
+    [cell.imageView1 setImage:currentMomentRetrieved.image];
     
     
     return cell;

@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *momentText;
 @property (weak, nonatomic) IBOutlet UILabel *momentDate;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView1;
 
 @end
