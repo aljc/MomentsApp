@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3103C1B21AB375D000EE0F65 /* FilterImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3103C1B11AB375D000EE0F65 /* FilterImageViewController.m */; };
 		31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31581A8D1AA6D799002F73A5 /* HomeViewController.m */; };
 		31581A9A1AA6DB6B002F73A5 /* MomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31581A991AA6DB6B002F73A5 /* MomentsTableViewController.m */; };
 		316B48CC1AAD538000662406 /* MomentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 316B48CB1AAD538000662406 /* MomentsTableViewCell.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3103C1B01AB375D000EE0F65 /* FilterImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterImageViewController.h; sourceTree = "<group>"; };
+		3103C1B11AB375D000EE0F65 /* FilterImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterImageViewController.m; sourceTree = "<group>"; };
 		31581A8C1AA6D799002F73A5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		31581A8D1AA6D799002F73A5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		31581A981AA6DB6B002F73A5 /* MomentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsTableViewController.h; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				31D2C2301AA503C100130173 /* AppDelegate.m */,
 				31581A8C1AA6D799002F73A5 /* HomeViewController.h */,
 				31581A8D1AA6D799002F73A5 /* HomeViewController.m */,
+				3103C1B01AB375D000EE0F65 /* FilterImageViewController.h */,
+				3103C1B11AB375D000EE0F65 /* FilterImageViewController.m */,
 				31C2D65E1AAE438200D0B5E8 /* Moment.h */,
 				31C2D65F1AAE438200D0B5E8 /* Moment.m */,
 				316B48CA1AAD538000662406 /* MomentsTableViewCell.h */,
@@ -237,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31D2C2311AA503C100130173 /* AppDelegate.m in Sources */,
+				3103C1B21AB375D000EE0F65 /* FilterImageViewController.m in Sources */,
 				31581A9A1AA6DB6B002F73A5 /* MomentsTableViewController.m in Sources */,
 				31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */,
 				31D2C22E1AA503C100130173 /* main.m in Sources */,
