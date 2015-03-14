@@ -10,8 +10,8 @@
 
 @interface FilterImageViewController ()
 
-@property NSMutableArray *filterImgViews;
 @property NSArray *filters;
+@property NSArray *filterLabels;
 @property int prevChosenFilterIndex;
 @property BOOL doubleTapped;
 
@@ -28,9 +28,9 @@
     self.prevChosenFilterIndex = -1;
     self.doubleTapped = NO;
     
-    self.filterScrollView.contentSize = CGSizeMake(900, 100);
-    self.filterImgViews = [[NSMutableArray alloc] initWithCapacity:8];
-    self.filters = [NSArray arrayWithObjects:@"CILinearToSRGBToneCurve", @"CIPhotoEffectChrome", @"CIPhotoEffectFade", @"CIPhotoEffectInstant", @"CIPhotoEffectNoir", @"CIPhotoEffectProcess", @"CIPhotoEffectTransfer", @"CISRGBToneCurveToLinear", @"CIVignetteEffect", nil];
+    self.filterScrollView.contentSize = CGSizeMake(800, 120);
+    self.filters = [NSArray arrayWithObjects:@"CIPhotoEffectChrome", @"CIPhotoEffectFade", @"CIPhotoEffectInstant", @"CIPhotoEffectNoir", @"CIPhotoEffectMono", @"CIPhotoEffectProcess", @"CIPhotoEffectTransfer", @"CIVignetteEffect", nil];
+    self.filterLabels = [NSArray arrayWithObjects:@"Chrome", @"Fade", @"Instant", @"Noir", @"Mono", @"Process", @"Transfer", @"Vignette", nil];
 
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.clipsToBounds = YES;
@@ -38,7 +38,7 @@
     //initially display the original, un-filtered image
     [self.imageView setImage:self.imageFullSize];
     
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 8; i++) {
         NSLog(@"Applying filter: %@", [self.filters objectAtIndex:i]);
         
         //create raw CIImage
@@ -61,7 +61,13 @@
         [filterButton setBackgroundImage:filterImg forState:UIControlStateNormal];
         [self.filterScrollView addSubview:filterButton];
         
-        NSLog (@"Adding UIButton to scroll view");
+        UILabel *filterLabel = [[UILabel alloc] initWithFrame:CGRectMake(i*100, 102, 100, 13)];
+        filterLabel.text = [self.filterLabels objectAtIndex:i];
+        filterLabel.font = [filterLabel.font fontWithSize:12];
+        filterLabel.textAlignment = NSTextAlignmentCenter;
+        [self.filterScrollView addSubview:filterLabel];
+        
+        NSLog (@"Adding UIButton and UILabel to scroll view");
     }
 }
 
