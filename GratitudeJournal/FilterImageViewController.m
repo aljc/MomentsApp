@@ -12,6 +12,8 @@
 
 @property NSMutableArray *filterImgViews;
 @property NSArray *filters;
+@property int prevChosenFilterIndex;
+@property BOOL doubleTapped;
 
 @end
 
@@ -19,16 +21,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.imageFullSize = [self imageWithImage:[UIImage imageNamed:@"sample"] scaledToSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)]; //resize the image to the bounds of the imageView
+    self.imageThumbnail = [self imageWithImage:self.imageFullSize scaledToSize:CGSizeMake(100, 100)]; //create the filter preview thumbnail version of the image
+    
+    self.prevChosenFilterIndex = -1;
+    self.doubleTapped = NO;
     
     self.filterScrollView.contentSize = CGSizeMake(900, 100);
     self.filterImgViews = [[NSMutableArray alloc] initWithCapacity:8];
     self.filters = [NSArray arrayWithObjects:@"CILinearToSRGBToneCurve", @"CIPhotoEffectChrome", @"CIPhotoEffectFade", @"CIPhotoEffectInstant", @"CIPhotoEffectNoir", @"CIPhotoEffectProcess", @"CIPhotoEffectTransfer", @"CISRGBToneCurveToLinear", @"CIVignetteEffect", nil];
+
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.clipsToBounds = YES;
     
-    self.imageFullSize = [UIImage imageNamed:@"sample"];
-    self.imageThumbnail = [self imageWithImage:[UIImage imageNamed:@"sample"] scaledToSize:CGSizeMake(100, 100)];
+    //initially display the original, un-filtered image
+    [self.imageView setImage:self.imageFullSize];
     
-    //@@@why does this take so long to load?!!
     for (int i = 0; i < 9; i++) {
         NSLog(@"Applying filter: %@", [self.filters objectAtIndex:i]);
         
@@ -80,13 +89,42 @@ scaledToSize:(CGSize)newSize
     //i've got a tag to refer to each button and to know which button was pressed.  can map to index of my
     //filter name array and apply that filter to the full image.
     
-    unsigned long filterIndex = sender.tag-100;
-    NSLog(@"chose filter %lu", filterIndex);
+    int chosenFilterIndex = (int)sender.tag-100;
+    NSLog(@"Chose %@ filter", [self.filters objectAtIndex:chosenFilterIndex]);
     
-    //CIImage *rawImageData = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"sample"]];
-    
-    
-    //[self.imageView setImage:
+    //If a user double taps a filter preview, then remove that filter
+    if (self.prevChosenFilterIndex == chosenFilterIndex && !self.doubleTapped) {
+        self.doubleTapped = YES;
+        
+        //remove the border around chosen thumbnail
+        [[sender layer] setBorderWidth:0.0f];
+        
+        [self.imageView setImage:self.imageFullSize]; //un-filter the image
+    }
+    else { //filter the image
+        
+        //remove border around previously chosen thumbnail
+        UIButton *prevSender = (UIButton *)[self.view viewWithTag:(NSInteger)(self.prevChosenFilterIndex + 100)];
+        [[prevSender layer] setBorderWidth:0.0f];
+        
+        //draw border around chosen thumbnail
+        [[sender layer] setBorderWidth:3.0f];
+        [[sender layer] setBorderColor:[UIColor blueColor].CGColor];
+        
+        CIImage *rawImageData = [[CIImage alloc] initWithImage:self.imageFullSize];
+        CIFilter *filter = [CIFilter filterWithName:[self.filters objectAtIndex:chosenFilterIndex]];
+        [filter setDefaults];
+        [filter setValue:rawImageData forKey:@"inputImage"];
+        
+        CIImage *filterImgData = [filter valueForKey:@"outputImage"];
+        UIImage *filterImg = [UIImage imageWithCIImage:filterImgData];
+        
+        [self.imageView setImage:filterImg];
+        
+        //reset these variables
+        self.prevChosenFilterIndex = chosenFilterIndex;
+        self.doubleTapped = NO;
+    }
 }
 
 /*

@@ -58,7 +58,7 @@
     cell.momentDate.text = currentMomentRetrieved.date;
     
     cell.imageView1.contentMode = UIViewContentModeScaleAspectFit;
-    cell.imageView1.clipsToBounds =YES;
+    cell.imageView1.clipsToBounds = YES;
     [cell.imageView1 setImage:currentMomentRetrieved.image];
     
     
