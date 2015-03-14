@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "MomentsTableViewController.h"
 #import "Moment.h"
+#import "FilterImageViewController.h"
 
 /* TODOS
  instagram integration!!
@@ -30,17 +31,17 @@
     
     //[self resetNSUserDefaults];
     
-    _placeholderArray = [[NSMutableArray alloc] init];
-    [_placeholderArray addObject:@"What made you smile today?"];
-    [_placeholderArray addObject:@"Who did something nice for you today?"];
-    [_placeholderArray addObject:@"Did you eat anything yummy today?"];
-    [_placeholderArray addObject:@"Did you see anyone special today?"];
+    self.placeholderArray = [[NSMutableArray alloc] init];
+    [self.placeholderArray addObject:@"What made you smile today?"];
+    [self.placeholderArray addObject:@"What are you happy about today?"];
+    [self.placeholderArray addObject:@"What are you grateful for today?"];
+    [self.placeholderArray addObject:@"What made you happy today?"];
     
-    NSString *placeholderText = [_placeholderArray objectAtIndex:arc4random_uniform(4)]; //TODO: 0-8
+    NSString *placeholderText = [self.placeholderArray objectAtIndex:arc4random_uniform(4)]; //TODO: 0-8
     
     self.dailyQuestion.placeholder = placeholderText;
     
-    _moments = [[NSMutableArray alloc] init];
+    self.moments = [[NSMutableArray alloc] init];
     
     self.dailyQuestion.delegate = self;
 }
@@ -59,10 +60,20 @@
     
     if ([[segue identifier] isEqualToString:@"showMoments"])
     {
+        NSLog(@"Performing showMoments segue");
         //every time you submit a new moment, automatically update the moments array in the table view controller
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        MomentsTableViewController *mtvc = [segue destinationViewController];
-        mtvc.moments = [defaults objectForKey:@"moments"];
+        MomentsTableViewController *mvc = [segue destinationViewController];
+        mvc.moments = [defaults objectForKey:@"moments"];
+    }
+    else if ([[segue identifier] isEqualToString:@"showFilters"])
+    {
+        NSLog(@"Performing showFilters segue");
+        //Note: this segue goes to the navigation controller, not the filters view controller, in order to show the nav bar.
+        //BUT, in order to pass along the image to the FVC itself, we can retrieve the FVC from the NVC by using nvc.topViewController.
+        UINavigationController *nvc = [segue destinationViewController];
+        FilterImageViewController *fvc = (FilterImageViewController*) nvc.topViewController; //NOW you can pass along the image to this view controller's property
+        fvc.imageFullSize = self.image;
     }
 }
 
@@ -94,9 +105,6 @@
     {
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         NSLog(@"show image picker: photo gallery available");
-
-        
-        
     }
     
     [self presentViewController:picker animated:YES completion:nil];
@@ -108,17 +116,17 @@
     Moment *todaysMoment = [[Moment alloc] init];
     todaysMoment.text = self.dailyQuestion.text;
     todaysMoment.date = @"2/28/15";
-    todaysMoment.image = _image;
-    //[self.view addSubview:[[UIImageView alloc] initWithImage:_image]];
+    todaysMoment.image = self.image;
+    //[self.view addSubview:[[UIImageView alloc] initWithImage:self.image]];
     
     //ENCODE THE DATA: MOMENT -> NSDATA
     
     NSData *todaysMomentData = [NSKeyedArchiver archivedDataWithRootObject:todaysMoment];
     //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
-    _moments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //make sure _moments property is up to date
-    [_moments insertObject:todaysMomentData atIndex:0]; //then add today's moment to it
+    self.moments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //make sure self.moments property is up to date
+    [self.moments insertObject:todaysMomentData atIndex:0]; //then add today's moment to it
 
-    [defaults setObject:[NSArray arrayWithArray:_moments] forKey:@"moments"]; //then cast _moments to an NSArray and refresh the user defaults
+    [defaults setObject:[NSArray arrayWithArray:self.moments] forKey:@"moments"]; //then cast self.moments to an NSArray and refresh the user defaults
     [defaults synchronize];
 
 }
@@ -131,13 +139,13 @@
      NSLog(@"did finish picking");
     
     //get the image from the dictionary
-    _image = [info objectForKey:UIImagePickerControllerEditedImage]; //EDITED image for the crop!
+    self.image = [info objectForKey:UIImagePickerControllerEditedImage]; //EDITED image for the crop!
     
     //if user did not sufficiently crop their image to a sqaure, crop it for them
-    if (_image.size.height != _image.size.width) {
+    if (self.image.size.height != self.image.size.width) {
         //Crop the image to a square
         //Source: http://stackoverflow.com/questions/17712797/ios-custom-uiimagepickercontroller-camera-crop-to-square
-        CGSize imageSize = _image.size;
+        CGSize imageSize = self.image.size;
         CGFloat width = imageSize.width;
         CGFloat height = imageSize.height;
         if (width != height) {
@@ -145,10 +153,10 @@
             CGFloat widthOffset = (width - newDimension) / 2;
             CGFloat heightOffset = (height - newDimension) / 2;
             UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
-            [_image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+            [self.image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
                       blendMode:kCGBlendModeCopy
                           alpha:1.];
-            _image = UIGraphicsGetImageFromCurrentImageContext();
+            self.image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
         }
     }
@@ -157,7 +165,7 @@
     [picker dismissViewControllerAnimated:YES completion:^{
         [self addMomentToDefaults];
         //[self performSegueWithIdentifier:@"showMoments" sender:self];
-        [self performSegueWithIdentifier:@"showMoments" sender:self];
+        [self performSegueWithIdentifier:@"showFilters" sender:self];
     }];
     
     NSLog(@"dismissed picker");

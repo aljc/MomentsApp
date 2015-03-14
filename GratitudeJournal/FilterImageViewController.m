@@ -22,9 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //don't let navigation bar cover top of view
+    //navigation bar should not cover top of view
     self.navigationController.navigationBar.translucent = NO;
-    self.imageFullSize = [self imageWithImage:[UIImage imageNamed:@"sample"] scaledToSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)]; //resize the image to the bounds of the imageView
+    //self.navigationController.navigationItem.title = @"FILTERS"; //@@@how to set nav bar title?
+    
+    self.imageFullSize = [self imageWithImage:self.imageFullSize scaledToSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)]; //resize the image that was passed from the segue to the bounds of the imageView
     self.imageThumbnail = [self imageWithImage:self.imageFullSize scaledToSize:CGSizeMake(100, 100)]; //create the filter preview thumbnail version of the image
     
     self.prevChosenFilterIndex = -1;

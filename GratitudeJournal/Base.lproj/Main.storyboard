@@ -51,22 +51,12 @@
                                     <constraint firstAttribute="centerX" secondItem="T7D-Hg-00K" secondAttribute="centerX" id="bSu-Zq-zmC"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJG-1i-QTO">
-                                <rect key="frame" x="483" y="117" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="V2t-jN-H8y" kind="show" id="LIh-5U-LNa"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="rog-P6-Ih3" secondAttribute="centerX" id="IlX-xh-NbJ"/>
                             <constraint firstAttribute="centerX" secondItem="rog-P6-Ih3" secondAttribute="centerX" id="JQw-M9-Hdq"/>
                             <constraint firstAttribute="centerY" secondItem="rog-P6-Ih3" secondAttribute="centerY" id="Lpf-qz-8Oc"/>
-                            <constraint firstAttribute="centerX" secondItem="RJG-1i-QTO" secondAttribute="centerX" id="dmv-R5-xEK"/>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="trailing" secondItem="bok-Gm-Yc9" secondAttribute="trailing" id="fH4-oF-ouj"/>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="lfo-wq-kTN"/>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="top" secondItem="bok-Gm-Yc9" secondAttribute="bottom" constant="33" id="rhs-It-P8C"/>
@@ -78,8 +68,8 @@
                     <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="dailyQuestion" destination="u6F-fb-HyN" id="wIP-Lf-hlC"/>
-                        <segue destination="V2t-jN-H8y" kind="show" id="xF0-Hu-wFI"/>
                         <segue destination="oiS-aq-Tnr" kind="show" identifier="showMoments" id="5X4-Xm-hB9"/>
+                        <segue destination="V2t-jN-H8y" kind="presentation" identifier="showFilters" id="fbm-ja-4Jf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -98,18 +88,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-pD-vcJ">
-                                <rect key="frame" x="0.0" y="416" width="600" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="xGT-fc-dGd"/>
-                                </constraints>
-                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-Gk-AgJ">
                                 <rect key="frame" x="0.0" y="20" width="392" height="392"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ewm-Gk-AgJ" secondAttribute="height" multiplier="1:1" id="tki-F8-Sxl"/>
                                 </constraints>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-pD-vcJ">
+                                <rect key="frame" x="-6" y="414" width="600" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="xGT-fc-dGd"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.20513731060606055" green="0.20513731060606055" blue="0.20513731060606055" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -135,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEv-ku-rSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="-129"/>
+            <point key="canvasLocation" x="2264" y="-19"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -235,14 +225,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjs-Js-mGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="-320"/>
+            <point key="canvasLocation" x="1567" y="-176"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xF0-Hu-wFI"/>
         <segue reference="5X4-Xm-hB9"/>
     </inferredMetricsTieBreakers>
 </document>
