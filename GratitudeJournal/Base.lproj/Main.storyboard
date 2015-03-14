@@ -105,13 +105,19 @@
                                     <constraint firstAttribute="width" constant="349" id="h9R-PB-G02"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-pD-vcJ">
-                                <rect key="frame" x="0.0" y="423" width="600" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-pD-vcJ">
+                                <rect key="frame" x="0.0" y="451" width="600" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="xGT-fc-dGd"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rPY-pD-vcJ" firstAttribute="leading" secondItem="Kht-XZ-7ng" secondAttribute="leadingMargin" constant="-16" id="2ji-O0-ciR"/>
                             <constraint firstItem="ewm-Gk-AgJ" firstAttribute="top" secondItem="Kht-XZ-7ng" secondAttribute="topMargin" constant="20" id="AON-cX-ZJc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rPY-pD-vcJ" secondAttribute="trailing" constant="-16" id="Np7-i4-Ef9"/>
+                            <constraint firstItem="4J1-Gw-Btw" firstAttribute="top" secondItem="rPY-pD-vcJ" secondAttribute="bottom" id="uiq-O2-dVk"/>
                             <constraint firstAttribute="centerX" secondItem="ewm-Gk-AgJ" secondAttribute="centerX" id="vpV-Y1-zAm"/>
                         </constraints>
                     </view>
