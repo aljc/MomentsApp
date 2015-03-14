@@ -7,6 +7,7 @@
 //
 
 #import "FilterImageViewController.h"
+#import "TextEffectsViewController.h"
 
 @interface FilterImageViewController ()
 
@@ -24,9 +25,8 @@
 
     //navigation bar should not cover top of view
     self.navigationController.navigationBar.translucent = NO;
-    //self.navigationController.navigationItem.title = @"FILTERS"; //@@@how to set nav bar title?
     
-    self.imageFullSize = [self imageWithImage:self.imageFullSize scaledToSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)]; //resize the image that was passed from the segue to the bounds of the imageView
+    self.imageFullSize = [self imageWithImage:self.moment.image scaledToSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)]; //resize the image that was passed from the segue to the bounds of the imageView
     self.imageThumbnail = [self imageWithImage:self.imageFullSize scaledToSize:CGSizeMake(100, 100)]; //create the filter preview thumbnail version of the image
     
     self.prevChosenFilterIndex = -1;
@@ -142,14 +142,22 @@ scaledToSize:(CGSize)newSize
     }
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"addText"])
+    {
+        NSLog(@"Performing addText segue");
+        
+        //replace image with filtered image in Moment object
+        self.moment.image = self.imageView.image;
+        
+        //pass updated Moment object with filtered image to Text Effects View Controller
+        TextEffectsViewController *tvc = (TextEffectsViewController*) [segue destinationViewController];
+        tvc.moment = self.moment;
+    }
+
 }
-*/
 
 @end

@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="764" y="-228"/>
         </scene>
-        <!--Filter Image View Controller-->
+        <!--Filters-->
         <scene sceneID="Rkw-aZ-dUK">
             <objects>
                 <viewController id="h6T-Mp-dH9" customClass="FilterImageViewController" sceneMemberID="viewController">
@@ -114,8 +114,12 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="vHe-mo-bh6">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="FjP-qL-iwd"/>
+                    <navigationItem key="navigationItem" title="Filters" id="kdp-Xa-SDr">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="MKc-94-Gzv">
+                            <connections>
+                                <segue destination="epW-EP-Qdz" kind="show" identifier="addText" id="ahm-OQ-zdp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -125,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEv-ku-rSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2264" y="-19"/>
+            <point key="canvasLocation" x="1523" y="593"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -207,7 +211,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eap-iI-IJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="529"/>
+            <point key="canvasLocation" x="749" y="901"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hep-QW-Bve">
@@ -226,6 +230,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjs-Js-mGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1567" y="-176"/>
+        </scene>
+        <!--Add Text-->
+        <scene sceneID="PyO-cs-D2w">
+            <objects>
+                <viewController id="epW-EP-Qdz" customClass="TextEffectsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="upz-bM-Sbo"/>
+                        <viewControllerLayoutGuide type="bottom" id="dUO-Xb-OH5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UJ3-iq-ne4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-fH-39S">
+                                <rect key="frame" x="0.0" y="20" width="392" height="392"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="height" multiplier="1:1" id="6n4-lF-i7S"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q37-My-Qvm">
+                                <rect key="frame" x="-6" y="414" width="600" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="qXc-vQ-euO"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moment Text Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6j-pc-WtY">
+                                <rect key="frame" x="59" y="116" width="274" height="57"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20513731060000001" green="0.20513731060000001" blue="0.20513731060000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Q37-My-Qvm" firstAttribute="top" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="4" id="3BF-JS-lAo"/>
+                            <constraint firstItem="dUO-Xb-OH5" firstAttribute="top" secondItem="Q37-My-Qvm" secondAttribute="bottom" constant="20" id="4ek-dF-lRJ"/>
+                            <constraint firstItem="uYL-fH-39S" firstAttribute="top" secondItem="UJ3-iq-ne4" secondAttribute="topMargin" constant="20" id="Pzo-n7-ME6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q37-My-Qvm" secondAttribute="trailing" constant="-16" id="c0X-Dq-cFr"/>
+                            <constraint firstAttribute="centerX" secondItem="uYL-fH-39S" secondAttribute="centerX" id="cOH-Jd-SeV"/>
+                            <constraint firstItem="Q37-My-Qvm" firstAttribute="top" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="4" id="cXp-pV-vmf"/>
+                            <constraint firstItem="uYL-fH-39S" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="dLB-Is-RC9"/>
+                            <constraint firstItem="Q37-My-Qvm" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="rfN-6N-i3f"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Text" id="cfK-fn-aE3">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="N3X-dt-UKu"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="uYL-fH-39S" id="ZN3-KT-r4O"/>
+                        <outlet property="momentTextLabel" destination="Q6j-pc-WtY" id="mgT-P0-NOq"/>
+                        <outlet property="textEffectsScrollView" destination="Q37-My-Qvm" id="BUk-GN-sn6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQl-Vg-3Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1556" y="1364"/>
         </scene>
     </scenes>
     <resources>

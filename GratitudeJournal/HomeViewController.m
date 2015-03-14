@@ -8,7 +8,6 @@
 
 #import "HomeViewController.h"
 #import "MomentsTableViewController.h"
-#import "Moment.h"
 #import "FilterImageViewController.h"
 
 /* TODOS
@@ -21,6 +20,7 @@
 
 @property NSMutableArray *placeholderArray;
 @property NSMutableArray *moments;
+@property UIImage *image;
 
 @end
 
@@ -69,15 +69,16 @@
     else if ([[segue identifier] isEqualToString:@"showFilters"])
     {
         NSLog(@"Performing showFilters segue");
+        //pass Moment object to Filter Image View Controller
         //Note: this segue goes to the navigation controller, not the filters view controller, in order to show the nav bar.
         //BUT, in order to pass along the image to the FVC itself, we can retrieve the FVC from the NVC by using nvc.topViewController.
         UINavigationController *nvc = [segue destinationViewController];
-        FilterImageViewController *fvc = (FilterImageViewController*) nvc.topViewController; //NOW you can pass along the image to this view controller's property
-        fvc.imageFullSize = self.image;
+        FilterImageViewController *fvc = (FilterImageViewController*) nvc.topViewController; //NOW you can pass along the moment to this view controller's property
+        fvc.moment = self.moment;
     }
 }
 
-#pragma mark - NS User Defaults
+#pragma mark - Saving Moments
 
 //for testing purposes - reset user defaults
 //Source: http://stackoverflow.com/questions/6358737/nsuserdefaults-reset
@@ -90,8 +91,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
-
-#pragma mark - Caching
 
 - (IBAction)loadImagePicker:(UIButton *)sender {
    
@@ -117,11 +116,12 @@
     todaysMoment.text = self.dailyQuestion.text;
     todaysMoment.date = @"2/28/15";
     todaysMoment.image = self.image;
-    //[self.view addSubview:[[UIImageView alloc] initWithImage:self.image]];
     
     //ENCODE THE DATA: MOMENT -> NSDATA
     
     NSData *todaysMomentData = [NSKeyedArchiver archivedDataWithRootObject:todaysMoment];
+    self.moment = todaysMoment;
+    
     //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
     self.moments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //make sure self.moments property is up to date
     [self.moments insertObject:todaysMomentData atIndex:0]; //then add today's moment to it
@@ -133,7 +133,7 @@
 
 #pragma mark - Image picker delegate methods
 
-//http://www.raywenderlich.com/13541/how-to-create-an-app-like-instagram-with-a-web-service-backend-part-22
+//Source: http://www.raywenderlich.com/13541/how-to-create-an-app-like-instagram-with-a-web-service-backend-part-22
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
      NSLog(@"did finish picking");
@@ -164,7 +164,6 @@
     //after user has selected a photo, we must create the moment, add it to NSUserDefaults, and segue to the Moments tab
     [picker dismissViewControllerAnimated:YES completion:^{
         [self addMomentToDefaults];
-        //[self performSegueWithIdentifier:@"showMoments" sender:self];
         [self performSegueWithIdentifier:@"showFilters" sender:self];
     }];
     

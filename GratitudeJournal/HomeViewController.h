@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Moment.h"
 
 @interface HomeViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property UIImage *image;
+@property Moment *moment;
 
 - (IBAction)loadImagePicker:(UIButton *)sender;
 

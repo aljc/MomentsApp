@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Moment.h"
 
 @interface FilterImageViewController : UIViewController
 
@@ -14,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *filterScrollView;
 @property UIImage *imageFullSize;
 @property UIImage *imageThumbnail;
+@property Moment *moment;
 
 - (IBAction)chooseFilter:(UIButton *)sender;
 

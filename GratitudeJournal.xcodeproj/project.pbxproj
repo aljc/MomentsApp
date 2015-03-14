@@ -12,6 +12,7 @@
 		31581A9A1AA6DB6B002F73A5 /* MomentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31581A991AA6DB6B002F73A5 /* MomentsTableViewController.m */; };
 		316B48CC1AAD538000662406 /* MomentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 316B48CB1AAD538000662406 /* MomentsTableViewCell.m */; };
 		31C2D6601AAE438200D0B5E8 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C2D65F1AAE438200D0B5E8 /* Moment.m */; };
+		31C98BB71AB4F00F00651E13 /* TextEffectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C98BB61AB4F00F00651E13 /* TextEffectsViewController.m */; };
 		31D2C22E1AA503C100130173 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D2C22D1AA503C100130173 /* main.m */; };
 		31D2C2311AA503C100130173 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D2C2301AA503C100130173 /* AppDelegate.m */; };
 		31D2C23A1AA503C100130173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D2C2381AA503C100130173 /* Main.storyboard */; };
@@ -42,6 +43,8 @@
 		3174D4FC1AB12D5500AE8A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		31C2D65E1AAE438200D0B5E8 /* Moment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
 		31C2D65F1AAE438200D0B5E8 /* Moment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moment.m; sourceTree = "<group>"; };
+		31C98BB51AB4F00F00651E13 /* TextEffectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEffectsViewController.h; sourceTree = "<group>"; };
+		31C98BB61AB4F00F00651E13 /* TextEffectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEffectsViewController.m; sourceTree = "<group>"; };
 		31D2C2281AA503C100130173 /* GratitudeJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GratitudeJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D2C22C1AA503C100130173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D2C22D1AA503C100130173 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				31581A8D1AA6D799002F73A5 /* HomeViewController.m */,
 				3103C1B01AB375D000EE0F65 /* FilterImageViewController.h */,
 				3103C1B11AB375D000EE0F65 /* FilterImageViewController.m */,
+				31C98BB51AB4F00F00651E13 /* TextEffectsViewController.h */,
+				31C98BB61AB4F00F00651E13 /* TextEffectsViewController.m */,
 				31C2D65E1AAE438200D0B5E8 /* Moment.h */,
 				31C2D65F1AAE438200D0B5E8 /* Moment.m */,
 				316B48CA1AAD538000662406 /* MomentsTableViewCell.h */,
@@ -243,6 +248,7 @@
 			files = (
 				31D2C2311AA503C100130173 /* AppDelegate.m in Sources */,
 				3103C1B21AB375D000EE0F65 /* FilterImageViewController.m in Sources */,
+				31C98BB71AB4F00F00651E13 /* TextEffectsViewController.m in Sources */,
 				31581A9A1AA6DB6B002F73A5 /* MomentsTableViewController.m in Sources */,
 				31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */,
 				31D2C22E1AA503C100130173 /* main.m in Sources */,
