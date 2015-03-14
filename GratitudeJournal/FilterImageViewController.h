@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *filterScrollView;
+@property UIImage *imageFullSize;
+@property UIImage *imageThumbnail;
 
 - (IBAction)chooseFilter:(UIButton *)sender;
 

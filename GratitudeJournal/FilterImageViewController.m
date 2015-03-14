@@ -25,11 +25,15 @@
     self.filterImgViews = [[NSMutableArray alloc] initWithCapacity:8];
     self.filters = [NSArray arrayWithObjects:@"CILinearToSRGBToneCurve", @"CIPhotoEffectChrome", @"CIPhotoEffectFade", @"CIPhotoEffectInstant", @"CIPhotoEffectNoir", @"CIPhotoEffectProcess", @"CIPhotoEffectTransfer", @"CISRGBToneCurveToLinear", @"CIVignetteEffect", nil];
     
+    self.imageFullSize = [UIImage imageNamed:@"sample"];
+    self.imageThumbnail = [self imageWithImage:[UIImage imageNamed:@"sample"] scaledToSize:CGSizeMake(100, 100)];
+    
     //@@@why does this take so long to load?!!
     for (int i = 0; i < 9; i++) {
-        NSLog(@"filter %d: %@", i, [self.filters objectAtIndex:i]);
+        NSLog(@"Applying filter: %@", [self.filters objectAtIndex:i]);
+        
         //create raw CIImage
-        CIImage *rawImageData = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"sample"]];
+        CIImage *rawImageData = [[CIImage alloc] initWithImage:self.imageThumbnail];
         
         CIFilter *filter = [CIFilter filterWithName:[self.filters objectAtIndex:i]];
         [filter setDefaults];
@@ -37,28 +41,18 @@
         //set raw CIImage as input image
         [filter setValue:rawImageData forKey:@"inputImage"];
         //store filtered CIImage
-        CIImage *filteredImgData = [filter valueForKey:@"outputImage"];
+        CIImage *filterImgData = [filter valueForKey:@"outputImage"];
         //create filtered UIImage with filtered CIImage
-        UIImage *filteredImg = [UIImage imageWithCIImage:filteredImgData];
-        //UIImageView *filterImgView = [[UIImageView alloc]initWithFrame:CGRectMake(i*100, 0, 100, 100)];
-        //filterImgView.contentMode = UIViewContentModeScaleAspectFit;
-        //filterImgView.clipsToBounds = YES;
-        UIImage *filteredImgResized = [self imageWithImage:filteredImg scaledToSize:CGSizeMake(100, 100)];
-        
-        
-        //[filterImgView setImage:filteredImgResized];
-        //[self.filterScrollView addSubview:filterImgView];
-        
-        //NSLog(@"image height: %f", filterImgView.image.size.height);
-        
+        UIImage *filterImg = [UIImage imageWithCIImage:filterImgData];
+  
         //create a button to overlay over the frame of the image
         UIButton *filterButton = [[UIButton alloc] initWithFrame:CGRectMake(i*100, 0, 100, 100)];
         filterButton.tag = i + 100;
         [filterButton addTarget:self action:@selector(chooseFilter:) forControlEvents:UIControlEventTouchUpInside];
-        [filterButton setBackgroundImage:filteredImgResized forState:UIControlStateNormal];
+        [filterButton setBackgroundImage:filterImg forState:UIControlStateNormal];
         [self.filterScrollView addSubview:filterButton];
         
-        NSLog (@"button image height: %f", filterButton.currentBackgroundImage.size.height);
+        NSLog (@"Adding UIButton to scroll view");
     }
 }
 
@@ -82,7 +76,17 @@ scaledToSize:(CGSize)newSize
 }
 
 - (IBAction)chooseFilter:(UIButton *)sender {
-    NSLog(@"chose filter %lu", sender.tag - 100);
+    
+    //i've got a tag to refer to each button and to know which button was pressed.  can map to index of my
+    //filter name array and apply that filter to the full image.
+    
+    unsigned long filterIndex = sender.tag-100;
+    NSLog(@"chose filter %lu", filterIndex);
+    
+    //CIImage *rawImageData = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"sample"]];
+    
+    
+    //[self.imageView setImage:
 }
 
 /*
