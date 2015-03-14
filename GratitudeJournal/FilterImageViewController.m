@@ -22,49 +22,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //don't let navigation bar cover top of view
+    self.navigationController.navigationBar.translucent = NO;
     self.imageFullSize = [self imageWithImage:[UIImage imageNamed:@"sample"] scaledToSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)]; //resize the image to the bounds of the imageView
     self.imageThumbnail = [self imageWithImage:self.imageFullSize scaledToSize:CGSizeMake(100, 100)]; //create the filter preview thumbnail version of the image
     
     self.prevChosenFilterIndex = -1;
     self.doubleTapped = NO;
     
-    self.filterScrollView.contentSize = CGSizeMake(800, 120);
+    self.filterScrollView.contentSize = CGSizeMake(832, 120);
     self.filters = [NSArray arrayWithObjects:@"CIPhotoEffectChrome", @"CIPhotoEffectFade", @"CIPhotoEffectInstant", @"CIPhotoEffectNoir", @"CIPhotoEffectMono", @"CIPhotoEffectProcess", @"CIPhotoEffectTransfer", @"CIVignetteEffect", nil];
     self.filterLabels = [NSArray arrayWithObjects:@"Chrome", @"Fade", @"Instant", @"Noir", @"Mono", @"Process", @"Transfer", @"Vignette", nil];
 
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.clipsToBounds = YES;
+    self.imageView.backgroundColor = [UIColor whiteColor];
     
     //initially display the original, un-filtered image
     [self.imageView setImage:self.imageFullSize];
     
     for (int i = 0; i < 8; i++) {
-        NSLog(@"Applying filter: %@", [self.filters objectAtIndex:i]);
+        NSLog(@"Creating thumbnail for %@ filter", [self.filters objectAtIndex:i]);
         
         //create raw CIImage
-        CIImage *rawImageData = [[CIImage alloc] initWithImage:self.imageThumbnail];
+        CIImage *rawThumbnailData = [[CIImage alloc] initWithImage:self.imageThumbnail];
         
         CIFilter *filter = [CIFilter filterWithName:[self.filters objectAtIndex:i]];
         [filter setDefaults];
         
         //set raw CIImage as input image
-        [filter setValue:rawImageData forKey:@"inputImage"];
+        [filter setValue:rawThumbnailData forKey:@"inputImage"];
         //store filtered CIImage
-        CIImage *filterImgData = [filter valueForKey:@"outputImage"];
+        CIImage *filterThumbnailData = [filter valueForKey:@"outputImage"];
         //create filtered UIImage with filtered CIImage
-        UIImage *filterImg = [UIImage imageWithCIImage:filterImgData];
+        UIImage *filterThumbnail = [UIImage imageWithCIImage:filterThumbnailData];
   
         //create a button to overlay over the frame of the image
-        UIButton *filterButton = [[UIButton alloc] initWithFrame:CGRectMake(i*100, 0, 100, 100)];
+        UIButton *filterButton = [[UIButton alloc] initWithFrame:CGRectMake(i*100 + i*4, 0, 100, 100)];
         filterButton.tag = i + 100;
+        filterButton.backgroundColor = [UIColor whiteColor];
         [filterButton addTarget:self action:@selector(chooseFilter:) forControlEvents:UIControlEventTouchUpInside];
-        [filterButton setBackgroundImage:filterImg forState:UIControlStateNormal];
+        [filterButton setBackgroundImage:filterThumbnail forState:UIControlStateNormal];
         [self.filterScrollView addSubview:filterButton];
         
-        UILabel *filterLabel = [[UILabel alloc] initWithFrame:CGRectMake(i*100, 102, 100, 13)];
+        UILabel *filterLabel = [[UILabel alloc] initWithFrame:CGRectMake(i*100 + i*4, 102, 100, 13)];
         filterLabel.text = [self.filterLabels objectAtIndex:i];
         filterLabel.font = [filterLabel.font fontWithSize:12];
         filterLabel.textAlignment = NSTextAlignmentCenter;
+        filterLabel.backgroundColor = [UIColor clearColor];
+        filterLabel.textColor = [UIColor lightGrayColor];
+        
         [self.filterScrollView addSubview:filterLabel];
         
         NSLog (@"Adding UIButton and UILabel to scroll view");
