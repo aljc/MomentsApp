@@ -163,6 +163,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="oiS-aq-Tnr" kind="relationship" relationship="viewControllers" id="SG4-9I-Eln"/>
+                        <segue destination="9u4-vB-mVr" kind="relationship" relationship="viewControllers" id="Vg9-Nn-PCj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -173,7 +174,7 @@
         <scene sceneID="A3v-LS-3Io">
             <objects>
                 <collectionViewController id="9u4-vB-mVr" customClass="MomentsCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1Am-cH-Agi">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" tag="301" contentMode="scaleToFill" dataMode="prototypes" id="1Am-cH-Agi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pPD-Vw-glK">
@@ -183,20 +184,23 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="recipeCell" id="DR5-MM-cYW">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="momentsCell" id="DR5-MM-cYW" customClass="MomentsCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="300" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4g-R2-6P0">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4g-R2-6P0">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <size key="customSize" width="150" height="150"/>
+                                <connections>
+                                    <outlet property="imageView" destination="M4g-R2-6P0" id="aqg-Pf-Eyy"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -448,7 +452,8 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5X4-Xm-hB9"/>
-        <segue reference="38f-fh-h3C"/>
+        <segue reference="Vg9-Nn-PCj"/>
+        <segue reference="SG4-9I-Eln"/>
+        <segue reference="DHc-nQ-9Cf"/>
     </inferredMetricsTieBreakers>
 </document>

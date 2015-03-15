@@ -18,7 +18,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *momentDateLabel;
 @property (strong, nonatomic) Moment *moment;
 
-- (IBAction)chooseFont:(UIButton *)sender;
-- (IBAction)chooseColor:(UIButton *)sender;
-
 @end

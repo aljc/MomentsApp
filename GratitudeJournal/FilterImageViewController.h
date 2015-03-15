@@ -17,6 +17,4 @@
 @property UIImage *imageThumbnail;
 @property (strong, nonatomic) Moment *moment;
 
-- (IBAction)chooseFilter:(UIButton *)sender;
-
 @end
