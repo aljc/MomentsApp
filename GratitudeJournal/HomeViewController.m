@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "MomentsTableViewController.h"
+#import "MomentsCollectionViewController.h"
 #import "FilterImageViewController.h"
 
 /* TODOS
@@ -62,7 +62,7 @@
         NSLog(@"Performing showMoments segue");
         //every time you submit a new moment, automatically update the moments array in the table view controller
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        MomentsTableViewController *mvc = [segue destinationViewController];
+        MomentsCollectionViewController *mvc = [segue destinationViewController];
         mvc.savedMoments = [defaults objectForKey:@"moments"];
     }
     else if ([[segue identifier] isEqualToString:@"showFilters"])

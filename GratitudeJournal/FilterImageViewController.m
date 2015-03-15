@@ -8,7 +8,6 @@
 
 #import "FilterImageViewController.h"
 #import "TextEffectsViewController.h"
-#import "MomentsTableViewController.h"
 
 @interface FilterImageViewController ()
 

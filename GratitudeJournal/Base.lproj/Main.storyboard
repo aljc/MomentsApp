@@ -87,7 +87,6 @@
                     <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="dailyQuestion" destination="u6F-fb-HyN" id="wIP-Lf-hlC"/>
-                        <segue destination="oiS-aq-Tnr" kind="show" identifier="showMoments" id="5X4-Xm-hB9"/>
                         <segue destination="V2t-jN-H8y" kind="presentation" identifier="showFilters" id="fbm-ja-4Jf"/>
                     </connections>
                 </viewController>
@@ -148,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEv-ku-rSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2305" y="45"/>
+            <point key="canvasLocation" x="2797" y="-891"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -162,7 +161,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="oiS-aq-Tnr" kind="relationship" relationship="viewControllers" id="SG4-9I-Eln"/>
                         <segue destination="9u4-vB-mVr" kind="relationship" relationship="viewControllers" id="Vg9-Nn-PCj"/>
                     </connections>
                 </tabBarController>
@@ -212,65 +210,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhf-K4-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="989"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="O2a-QM-aic">
-            <objects>
-                <tableViewController id="oiS-aq-Tnr" customClass="MomentsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="260" sectionHeaderHeight="22" sectionFooterHeight="22" id="G6m-yz-GEX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="momentCell" rowHeight="260" id="Jnb-iO-920" customClass="MomentsTableViewCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jnb-iO-920" id="iTz-gj-nmw">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWG-LE-AUK">
-                                            <rect key="frame" x="62" y="14" width="231" height="231"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="XWG-LE-AUK" secondAttribute="height" multiplier="1:1" id="gHO-D3-CfS"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n0e-SP-OrB">
-                                            <rect key="frame" x="308" y="14" width="231" height="231"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="n0e-SP-OrB" secondAttribute="height" multiplier="1:1" id="hMl-rU-zJF"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="n0e-SP-OrB" firstAttribute="width" secondItem="XWG-LE-AUK" secondAttribute="width" id="1Lc-cc-UYA"/>
-                                        <constraint firstAttribute="centerX" secondItem="XWG-LE-AUK" secondAttribute="centerX" constant="151.5" id="4ow-3m-8AD"/>
-                                        <constraint firstItem="n0e-SP-OrB" firstAttribute="bottom" secondItem="XWG-LE-AUK" secondAttribute="bottom" id="Afi-zF-LDB"/>
-                                        <constraint firstItem="XWG-LE-AUK" firstAttribute="top" secondItem="iTz-gj-nmw" secondAttribute="topMargin" constant="6" id="a6V-3t-M0j"/>
-                                        <constraint firstItem="n0e-SP-OrB" firstAttribute="width" secondItem="n0e-SP-OrB" secondAttribute="height" multiplier="1:1" id="bE1-EN-ZE3"/>
-                                        <constraint firstAttribute="centerY" secondItem="n0e-SP-OrB" secondAttribute="centerY" id="c4D-S5-cdb"/>
-                                        <constraint firstItem="n0e-SP-OrB" firstAttribute="leading" secondItem="XWG-LE-AUK" secondAttribute="trailing" constant="15" id="dCa-ke-sZF"/>
-                                        <constraint firstAttribute="centerY" secondItem="XWG-LE-AUK" secondAttribute="centerY" id="oUB-nO-eWO"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="XWG-LE-AUK" secondAttribute="bottom" constant="6" id="ptu-nP-O59"/>
-                                        <constraint firstAttribute="centerX" secondItem="n0e-SP-OrB" secondAttribute="centerX" constant="-94.5" id="tim-Hi-aJz"/>
-                                        <constraint firstItem="n0e-SP-OrB" firstAttribute="height" secondItem="XWG-LE-AUK" secondAttribute="height" id="xY1-mZ-ZNJ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="imageView1" destination="XWG-LE-AUK" id="F8U-PB-voF"/>
-                                    <outlet property="imageView2" destination="n0e-SP-OrB" id="HYe-Rb-vtI"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="oiS-aq-Tnr" id="p5H-ys-jKs"/>
-                            <outlet property="delegate" destination="oiS-aq-Tnr" id="8ji-Ij-aT2"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="VSG-Z1-UzU"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eap-iI-IJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1030" y="772"/>
+            <point key="canvasLocation" x="1273" y="-71"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hep-QW-Bve">
@@ -288,7 +228,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjs-Js-mGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2071" y="-756"/>
+            <point key="canvasLocation" x="2103" y="-897"/>
         </scene>
         <!--Add Text-->
         <scene sceneID="PyO-cs-D2w">
@@ -375,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQl-Vg-3Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1903" y="786"/>
+            <point key="canvasLocation" x="2811" y="-8"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SoA-bA-eY7">
@@ -456,7 +396,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SG4-9I-Eln"/>
         <segue reference="DHc-nQ-9Cf"/>
         <segue reference="yoq-B8-9xX"/>
     </inferredMetricsTieBreakers>
