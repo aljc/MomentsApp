@@ -8,6 +8,7 @@
 
 #import "FilterImageViewController.h"
 #import "TextEffectsViewController.h"
+#import "MomentsTableViewController.h"
 
 @interface FilterImageViewController ()
 
@@ -43,7 +44,7 @@
     //initially display the original, un-filtered image
     [self.imageView setImage:self.imageFullSize];
     
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < [self.filters count]; i++) {
         NSLog(@"Creating thumbnail for %@ filter", [self.filters objectAtIndex:i]);
         
         //create raw CIImage
@@ -157,7 +158,6 @@ scaledToSize:(CGSize)newSize
         TextEffectsViewController *tvc = (TextEffectsViewController*) [segue destinationViewController];
         tvc.moment = self.moment;
     }
-
 }
 
 @end

@@ -51,12 +51,22 @@
                                     <constraint firstAttribute="centerX" secondItem="T7D-Hg-00K" secondAttribute="centerX" id="bSu-Zq-zmC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Y5-17-5Zb">
+                                <rect key="frame" x="277" y="0.0" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="epW-EP-Qdz" kind="show" id="38f-fh-h3C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="rog-P6-Ih3" secondAttribute="centerX" id="IlX-xh-NbJ"/>
                             <constraint firstAttribute="centerX" secondItem="rog-P6-Ih3" secondAttribute="centerX" id="JQw-M9-Hdq"/>
                             <constraint firstAttribute="centerY" secondItem="rog-P6-Ih3" secondAttribute="centerY" id="Lpf-qz-8Oc"/>
+                            <constraint firstAttribute="centerX" secondItem="5Y5-17-5Zb" secondAttribute="centerX" id="aHi-i9-jQy"/>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="trailing" secondItem="bok-Gm-Yc9" secondAttribute="trailing" id="fH4-oF-ouj"/>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="lfo-wq-kTN"/>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="top" secondItem="bok-Gm-Yc9" secondAttribute="bottom" constant="33" id="rhs-It-P8C"/>
@@ -117,7 +127,7 @@
                     <navigationItem key="navigationItem" title="Filters" id="kdp-Xa-SDr">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="MKc-94-Gzv">
                             <connections>
-                                <segue destination="epW-EP-Qdz" kind="show" identifier="addText" id="ahm-OQ-zdp"/>
+                                <segue destination="epW-EP-Qdz" kind="show" identifier="addText" id="DHc-nQ-9Cf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -243,57 +253,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-fH-39S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-fH-39S">
                                 <rect key="frame" x="0.0" y="20" width="392" height="392"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="height" multiplier="1:1" id="6n4-lF-i7S"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q37-My-Qvm">
-                                <rect key="frame" x="-6" y="414" width="600" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="qXc-vQ-euO"/>
-                                </constraints>
-                            </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moment Text Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6j-pc-WtY">
-                                <rect key="frame" x="59" y="116" width="274" height="57"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moment Text Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6j-pc-WtY">
+                                <rect key="frame" x="59" y="149" width="274" height="57"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YDF-wt-UrW">
+                                <rect key="frame" x="0.0" y="426" width="600" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="x3o-V8-Xuc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITi-xb-IzO">
+                                <rect key="frame" x="0.0" y="484" width="600" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Tz7-nE-CqB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20513731060000001" green="0.20513731060000001" blue="0.20513731060000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Q37-My-Qvm" firstAttribute="top" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="4" id="3BF-JS-lAo"/>
-                            <constraint firstItem="dUO-Xb-OH5" firstAttribute="top" secondItem="Q37-My-Qvm" secondAttribute="bottom" constant="20" id="4ek-dF-lRJ"/>
+                            <constraint firstItem="ITi-xb-IzO" firstAttribute="top" secondItem="YDF-wt-UrW" secondAttribute="bottom" constant="15" id="I0Q-yJ-8nV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ITi-xb-IzO" secondAttribute="trailing" constant="-16" id="J4n-Ar-grj"/>
+                            <constraint firstItem="ITi-xb-IzO" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="L3o-wB-O5z"/>
                             <constraint firstItem="uYL-fH-39S" firstAttribute="top" secondItem="UJ3-iq-ne4" secondAttribute="topMargin" constant="20" id="Pzo-n7-ME6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Q37-My-Qvm" secondAttribute="trailing" constant="-16" id="c0X-Dq-cFr"/>
                             <constraint firstAttribute="centerX" secondItem="uYL-fH-39S" secondAttribute="centerX" id="cOH-Jd-SeV"/>
-                            <constraint firstItem="Q37-My-Qvm" firstAttribute="top" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="4" id="cXp-pV-vmf"/>
                             <constraint firstItem="uYL-fH-39S" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="dLB-Is-RC9"/>
-                            <constraint firstItem="Q37-My-Qvm" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="rfN-6N-i3f"/>
+                            <constraint firstItem="YDF-wt-UrW" firstAttribute="top" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="10" id="dgf-16-gM7"/>
+                            <constraint firstItem="YDF-wt-UrW" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="eJn-oE-Z04"/>
+                            <constraint firstItem="ITi-xb-IzO" firstAttribute="top" secondItem="YDF-wt-UrW" secondAttribute="bottom" constant="15" id="wLa-Mx-zLz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YDF-wt-UrW" secondAttribute="trailing" constant="-16" id="xoH-gs-Rhr"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Text" id="cfK-fn-aE3">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="N3X-dt-UKu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="N3X-dt-UKu">
+                            <connections>
+                                <segue destination="oiS-aq-Tnr" kind="show" identifier="submitMoment" id="Y02-qk-yRS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="colorsView" destination="ITi-xb-IzO" id="UZu-bA-Qk7"/>
+                        <outlet property="fontsView" destination="YDF-wt-UrW" id="4wd-1T-bQK"/>
                         <outlet property="imageView" destination="uYL-fH-39S" id="ZN3-KT-r4O"/>
                         <outlet property="momentTextLabel" destination="Q6j-pc-WtY" id="mgT-P0-NOq"/>
-                        <outlet property="textEffectsScrollView" destination="Q37-My-Qvm" id="BUk-GN-sn6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQl-Vg-3Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="1364"/>
+            <point key="canvasLocation" x="1376" y="1413"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5X4-Xm-hB9"/>
+        <segue reference="38f-fh-h3C"/>
+        <segue reference="Y02-qk-yRS"/>
     </inferredMetricsTieBreakers>
 </document>

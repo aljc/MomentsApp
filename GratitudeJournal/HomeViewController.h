@@ -13,7 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property Moment *moment;
+@property (strong, nonatomic) Moment *moment;
 
 - (IBAction)loadImagePicker:(UIButton *)sender;
 

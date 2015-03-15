@@ -20,7 +20,6 @@
 
 @property NSMutableArray *placeholderArray;
 @property NSMutableArray *moments;
-@property UIImage *image;
 
 @end
 
@@ -64,7 +63,7 @@
         //every time you submit a new moment, automatically update the moments array in the table view controller
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         MomentsTableViewController *mvc = [segue destinationViewController];
-        mvc.moments = [defaults objectForKey:@"moments"];
+        mvc.savedMoments = [defaults objectForKey:@"moments"];
     }
     else if ([[segue identifier] isEqualToString:@"showFilters"])
     {
@@ -93,7 +92,6 @@
 }
 
 - (IBAction)loadImagePicker:(UIButton *)sender {
-   
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.modalPresentationStyle = UIModalPresentationCurrentContext;
     picker.delegate = self;
@@ -109,43 +107,37 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-- (void)addMomentToDefaults {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    Moment *todaysMoment = [[Moment alloc] init];
-    todaysMoment.text = self.dailyQuestion.text;
-    todaysMoment.date = @"2/28/15";
-    todaysMoment.image = self.image;
-    
-    //ENCODE THE DATA: MOMENT -> NSDATA
-    
-    NSData *todaysMomentData = [NSKeyedArchiver archivedDataWithRootObject:todaysMoment];
-    self.moment = todaysMoment;
-    
-    //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
-    self.moments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //make sure self.moments property is up to date
-    [self.moments insertObject:todaysMomentData atIndex:0]; //then add today's moment to it
-
-    [defaults setObject:[NSArray arrayWithArray:self.moments] forKey:@"moments"]; //then cast self.moments to an NSArray and refresh the user defaults
-    [defaults synchronize];
-
-}
+//- (void)addMomentToDefaults {
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    
+//    //ENCODE THE DATA: MOMENT -> NSDATA
+//    
+//    NSData *todaysMomentData = [NSKeyedArchiver archivedDataWithRootObject:self.moment];
+//    
+//    //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
+//    self.moments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //make sure self.moments property is up to date
+//    [self.moments insertObject:todaysMomentData atIndex:0]; //then add today's moment to it
+//
+//    [defaults setObject:[NSArray arrayWithArray:self.moments] forKey:@"moments"]; //then cast self.moments to an NSArray and refresh the user defaults
+//    [defaults synchronize];
+//
+//}
 
 #pragma mark - Image picker delegate methods
 
 //Source: http://www.raywenderlich.com/13541/how-to-create-an-app-like-instagram-with-a-web-service-backend-part-22
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-     NSLog(@"did finish picking");
+     NSLog(@"Did finish picking image");
     
     //get the image from the dictionary
-    self.image = [info objectForKey:UIImagePickerControllerEditedImage]; //EDITED image for the crop!
+    UIImage *chosenImage = [info objectForKey:UIImagePickerControllerEditedImage]; //save the EDITED, cropped image!
     
     //if user did not sufficiently crop their image to a sqaure, crop it for them
-    if (self.image.size.height != self.image.size.width) {
+    if (chosenImage.size.height != chosenImage.size.width) {
         //Crop the image to a square
         //Source: http://stackoverflow.com/questions/17712797/ios-custom-uiimagepickercontroller-camera-crop-to-square
-        CGSize imageSize = self.image.size;
+        CGSize imageSize = chosenImage.size;
         CGFloat width = imageSize.width;
         CGFloat height = imageSize.height;
         if (width != height) {
@@ -153,17 +145,23 @@
             CGFloat widthOffset = (width - newDimension) / 2;
             CGFloat heightOffset = (height - newDimension) / 2;
             UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
-            [self.image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+            [chosenImage drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
                       blendMode:kCGBlendModeCopy
                           alpha:1.];
-            self.image = UIGraphicsGetImageFromCurrentImageContext();
+            chosenImage = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
         }
     }
     
-    //after user has selected a photo, we must create the moment, add it to NSUserDefaults, and segue to the Moments tab
+    //after user has selected a photo, we must create the moment and segue to Filters
     [picker dismissViewControllerAnimated:YES completion:^{
-        [self addMomentToDefaults];
+        Moment *todaysMoment = [[Moment alloc] init];
+        todaysMoment.text = self.dailyQuestion.text;
+        todaysMoment.date = @"2/28/15";
+        todaysMoment.image = chosenImage;
+        
+        self.moment = todaysMoment;
+        //[self addMomentToDefaults];
         [self performSegueWithIdentifier:@"showFilters" sender:self];
     }];
     

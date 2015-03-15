@@ -8,7 +8,6 @@
 
 #import "MomentsTableViewController.h"
 #import "MomentsTableViewCell.h"
-#import "Moment.h"
 
 @interface MomentsTableViewController ()
 
@@ -19,8 +18,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //[self.view addSubview:[[UIImageView alloc] initWithImage:self.moment.image]];
+    
+    //if we arrived at this view controller from the submitMoment segue
+    if (self.moment != NULL) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        self.savedMoments = [defaults objectForKey:@"moments"];
+        NSLog (@"BEFORE COUNT: %lu", (unsigned long)[self.savedMoments count]);
+        
+        NSLog(@"Adding moment to user defaults");
+        NSLog(@"IMAGE: %@", self.moment.image);
+        self.navigationItem.hidesBackButton = YES;
+        self.navigationItem.title = @"Moments";
+        [self addMomentToDefaults];
+    }
+    
+    NSLog(@"updating savedMoments");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _moments = [defaults objectForKey:@"moments"];
+    self.savedMoments = [defaults objectForKey:@"moments"];
+    NSLog (@"AFTER COUNT: %lu", (unsigned long)[self.savedMoments count]);
     
     [self.tableView reloadData];
 }
@@ -28,6 +44,32 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - NSUserDefaults
+
+- (void)addMomentToDefaults {
+    //if a Moment object was passed in, that means a new moment was just created and must be added to NSUserDefaults.
+    //(aka we arrived at this view controller via the "Submit" button and not the tab bar controller.)
+    if (self.moment != NULL) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        //@@@WHY AREN'T FILTERED IMAGES ENCODING PROPERLY?!?!? *********
+        //ENCODE THE DATA: MOMENT -> NSDATA
+        NSData *momentData = [NSKeyedArchiver archivedDataWithRootObject:self.moment];
+        
+        //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
+        NSMutableArray *tempMoments = [[NSMutableArray alloc] init];
+        tempMoments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //NSArray -> NSMutableArray
+        [tempMoments insertObject:momentData atIndex:0]; //then add the new moment to it
+        
+        self.savedMoments = [NSArray arrayWithArray:tempMoments]; //NSMutableArray -> NSArray
+        
+        [defaults setObject:self.savedMoments forKey:@"moments"];
+        [defaults synchronize];
+        
+        NSLog(@"Finished adding new moment to defaults");
+    }
 }
 
 #pragma mark - Table view data source
@@ -39,7 +81,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [_moments count];
+    return [self.savedMoments count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,7 +90,7 @@
     NSLog(@"populating table view cells");
     
     // Configure the cell...
-    NSData *currentMoment = [_moments objectAtIndex:indexPath.row];
+    NSData *currentMoment = [self.savedMoments objectAtIndex:indexPath.row];
     
     //DECODE DATA: NSDATA -> MOMENT
     Moment *currentMomentDecoded= (Moment*) [NSKeyedUnarchiver unarchiveObjectWithData:currentMoment];
@@ -59,6 +101,7 @@
     
     cell.imageView1.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView1.clipsToBounds = YES;
+    NSLog(@"IMAGE NOW: %@, height: %f", currentMomentDecoded.image, currentMomentDecoded.image.size.height);
     [cell.imageView1 setImage:currentMomentDecoded.image];
     
     

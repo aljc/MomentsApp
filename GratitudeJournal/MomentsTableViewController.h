@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Moment.h"
 
 @interface MomentsTableViewController : UITableViewController
 
-@property NSArray *moments;
+@property NSArray *savedMoments;
+@property (strong, nonatomic) Moment *moment;
 
 @end
