@@ -19,6 +19,8 @@
 		31D2C23C1AA503C100130173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D2C23B1AA503C100130173 /* Images.xcassets */; };
 		31D2C23F1AA503C100130173 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D2C23D1AA503C100130173 /* LaunchScreen.xib */; };
 		31D2C24B1AA503C100130173 /* GratitudeJournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D2C24A1AA503C100130173 /* GratitudeJournalTests.m */; };
+		31FF6D321AB61F39007A8F3D /* MomentsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF6D311AB61F39007A8F3D /* MomentsCollectionViewController.m */; };
+		31FF6D351AB6219D007A8F3D /* MomentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF6D341AB6219D007A8F3D /* MomentsCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		31D2C2441AA503C100130173 /* GratitudeJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GratitudeJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D2C2491AA503C100130173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D2C24A1AA503C100130173 /* GratitudeJournalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GratitudeJournalTests.m; sourceTree = "<group>"; };
+		31FF6D301AB61F39007A8F3D /* MomentsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsCollectionViewController.h; sourceTree = "<group>"; };
+		31FF6D311AB61F39007A8F3D /* MomentsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsCollectionViewController.m; sourceTree = "<group>"; };
+		31FF6D331AB6219D007A8F3D /* MomentsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsCollectionViewCell.h; sourceTree = "<group>"; };
+		31FF6D341AB6219D007A8F3D /* MomentsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,10 @@
 				31581A981AA6DB6B002F73A5 /* MomentsTableViewController.h */,
 				31581A991AA6DB6B002F73A5 /* MomentsTableViewController.m */,
 				31D2C2381AA503C100130173 /* Main.storyboard */,
+				31FF6D301AB61F39007A8F3D /* MomentsCollectionViewController.h */,
+				31FF6D311AB61F39007A8F3D /* MomentsCollectionViewController.m */,
+				31FF6D331AB6219D007A8F3D /* MomentsCollectionViewCell.h */,
+				31FF6D341AB6219D007A8F3D /* MomentsCollectionViewCell.m */,
 				31D2C23B1AA503C100130173 /* Images.xcassets */,
 				31D2C23D1AA503C100130173 /* LaunchScreen.xib */,
 				31D2C22B1AA503C100130173 /* Supporting Files */,
@@ -252,7 +262,9 @@
 				31581A9A1AA6DB6B002F73A5 /* MomentsTableViewController.m in Sources */,
 				31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */,
 				31D2C22E1AA503C100130173 /* main.m in Sources */,
+				31FF6D351AB6219D007A8F3D /* MomentsCollectionViewCell.m in Sources */,
 				316B48CC1AAD538000662406 /* MomentsTableViewCell.m in Sources */,
+				31FF6D321AB61F39007A8F3D /* MomentsCollectionViewController.m in Sources */,
 				31C2D6601AAE438200D0B5E8 /* Moment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
