@@ -24,7 +24,6 @@
     if (self.moment != NULL) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         self.savedMoments = [defaults objectForKey:@"moments"];
-        NSLog (@"BEFORE COUNT: %lu", (unsigned long)[self.savedMoments count]);
         
         NSLog(@"Adding moment to user defaults");
         NSLog(@"IMAGE: %@", self.moment.image);
@@ -36,7 +35,12 @@
     NSLog(@"updating savedMoments");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.savedMoments = [defaults objectForKey:@"moments"];
-    NSLog (@"AFTER COUNT: %lu", (unsigned long)[self.savedMoments count]);
+    
+    //refresh control
+    UIRefreshControl *pullToRefresh = [[UIRefreshControl alloc] init];
+    [pullToRefresh addTarget:self action:@selector(refreshTable)
+            forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = pullToRefresh;
     
     [self.tableView reloadData];
 }
@@ -44,6 +48,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refreshTable {
+    NSLog(@"Pull To Refresh");
+    
+    //Reload the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.savedMoments = [defaults objectForKey:@"moments"];
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
 }
 
 #pragma mark - NSUserDefaults
@@ -68,6 +82,7 @@
         [defaults setObject:self.savedMoments forKey:@"moments"];
         [defaults synchronize];
         
+        [self.tableView reloadData];
         NSLog(@"Finished adding new moment to defaults");
     }
 }
