@@ -36,6 +36,69 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    //if we arrived at this view controller from the submitMoment segue
+    if (self.moment != NULL) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        self.savedMoments = [defaults objectForKey:@"moments"];
+        
+        NSLog(@"Adding moment to user defaults");
+        NSLog(@"IMAGE: %@", self.moment.image);
+        self.navigationItem.hidesBackButton = YES;
+        self.navigationItem.title = @"Moments";
+        [self addMomentToDefaults];
+    }
+    
+    NSLog(@"updating savedMoments");
+    self.savedMoments = [defaults objectForKey:@"moments"];
+    
+    //refresh control
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tag = 303;
+    refreshControl.tintColor = [UIColor grayColor];
+    [refreshControl addTarget:self action:@selector(refreshCollection) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    self.collectionView.alwaysBounceVertical = YES;
+    
+    [self.collectionView reloadData];
+}
+
+- (void)refreshCollection {
+    NSLog(@"Pull To Refresh");
+    
+    //Reload the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.savedMoments = [defaults objectForKey:@"moments"];
+    UIRefreshControl *refreshControl = (UIRefreshControl *)[self.view viewWithTag:303];
+    
+    [refreshControl endRefreshing];
+    [self.collectionView reloadData];
+}
+
+#pragma mark - NSUserDefaults
+
+- (void)addMomentToDefaults {
+    //if a Moment object was passed in, that means a new moment was just created and must be added to NSUserDefaults.
+    //(aka we arrived at this view controller via the "Submit" button and not the tab bar controller.)
+    if (self.moment != NULL) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        //@@@WHY AREN'T FILTERED IMAGES ENCODING PROPERLY?!?!? *********
+        //ENCODE THE DATA: MOMENT -> NSDATA
+        NSData *momentData = [NSKeyedArchiver archivedDataWithRootObject:self.moment];
+        
+        //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
+        NSMutableArray *tempMoments = [[NSMutableArray alloc] init];
+        tempMoments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //NSArray -> NSMutableArray
+        [tempMoments insertObject:momentData atIndex:0]; //then add the new moment to it
+        
+        self.savedMoments = [NSArray arrayWithArray:tempMoments]; //NSMutableArray -> NSArray
+        
+        [defaults setObject:self.savedMoments forKey:@"moments"];
+        [defaults synchronize];
+        
+        [self.collectionView reloadData];
+        NSLog(@"Finished adding new moment to defaults");
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,7 +7,7 @@
 //
 
 #import "TextEffectsViewController.h"
-#import "MomentsTableViewController.h"
+#import "MomentsCollectionViewController.h"
 
 @interface TextEffectsViewController ()
 
@@ -122,7 +122,7 @@
         //self.moment.image = self.imageView.image; //TODO: burn label to image first
         
         //pass updated Moment object with text overlay to MomentsTableViewController
-        MomentsTableViewController *mvc = (MomentsTableViewController*) [segue destinationViewController];
+        MomentsCollectionViewController *mvc = (MomentsCollectionViewController*) [segue destinationViewController];
         mvc.moment = self.moment;
         
         NSLog(@"IMAGE PRE SEGUE: %@, height: %f", self.moment.image, self.moment.image.size.height);
