@@ -21,15 +21,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //auto-resize UILabel
+    [self.momentTextLabel sizeToFit];
+    
     //[self.imageView setImage:self.moment.image];
     [self.imageView setImage:[UIImage imageNamed:@"sample"]];
     self.imageView.backgroundColor = [UIColor whiteColor];
     [self addGestureRecognizersToPiece:self.momentTextLabel];
     
     self.fonts = [NSArray arrayWithObjects:@"American Typewriter", @"Futura", @"Gill Sans", @"Marker Felt", @"SnellRoundhand", nil];
-    self.colors = [NSArray arrayWithObjects:[UIColor redColor], [UIColor orangeColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor whiteColor], [UIColor blackColor], nil];
     
-    //TODO: CHANGE THESE TO SCROLL VIEWS 
+    //TODO: if time, more color options
+    UIColor *pinkColor = [UIColor colorWithRed:1 green:0.6 blue:0.6 alpha:1];
+    UIColor *orangeColor = [UIColor colorWithRed:1 green:0.722 blue:0.439 alpha:1];
+    UIColor *yellowColor = [UIColor colorWithRed:1 green:1 blue:0.8 alpha:1];
+    UIColor *greenColor = [UIColor colorWithRed:0.8 green:1 blue:0.698 alpha:1];
+    UIColor *blueColor = [UIColor colorWithRed:0.58 green:0.722 blue:1 alpha:1];
+    UIColor *purpleColor = [UIColor colorWithRed:0.8 green:0.6 blue:1 alpha:1];
+    self.colors = [NSArray arrayWithObjects:[UIColor whiteColor], [UIColor blackColor], pinkColor, orangeColor, yellowColor, greenColor, blueColor, purpleColor, nil];
+
+    
+    self.fontsScrollView.contentSize = CGSizeMake(250, 50);
+    self.colorsScrollView.contentSize = CGSizeMake(500, 50);
     
     //Create font buttons
     for (int i = 0; i < [self.fonts count]; i++) {
@@ -44,7 +57,7 @@
         [[fontButton layer] setBorderColor:[UIColor whiteColor].CGColor];
         [fontButton.titleLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:i] size:25.0]];
         [fontButton addTarget:self action:@selector(chooseFont:) forControlEvents:UIControlEventTouchUpInside];
-        [self.fontsView addSubview:fontButton];
+        [self.fontsScrollView addSubview:fontButton];
         NSLog(@"Created and added %@ font button", [self.fonts objectAtIndex:i]);
     }
     
@@ -56,20 +69,24 @@
         colorButton.clipsToBounds = YES;
         colorButton.backgroundColor = [self.colors objectAtIndex:i];
         [colorButton addTarget:self action:@selector(chooseColor:) forControlEvents:UIControlEventTouchUpInside];
-        [self.colorsView addSubview:colorButton];
+        [self.colorsScrollView addSubview:colorButton];
         NSLog(@"Created and added color button");
     }
     
 }
 
 - (IBAction)chooseFont:(UIButton *)sender {
-    int chosenTextEffectIndex = (int)sender.tag-100;
-    NSLog(@"Chose font #%d", chosenTextEffectIndex);
+    int chosenFontIndex = (int)sender.tag-100;
+    NSLog(@"Chose font #%d", chosenFontIndex);
+    [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:chosenFontIndex] size:25.0]];
+    //after changing font, auto-resize UILabel
+    [self.momentTextLabel sizeToFit];
 }
 
 - (IBAction)chooseColor:(UIButton *)sender {
-    int chosenTextEffectIndex = (int)sender.tag-200;
-    NSLog(@"Chose color #%d", chosenTextEffectIndex);
+    int chosenColorIndex = (int)sender.tag-200;
+    NSLog(@"Chose color #%d", chosenColorIndex);
+    self.momentTextLabel.textColor = [self.colors objectAtIndex:chosenColorIndex];
 }
 
 - (void)didReceiveMemoryWarning {

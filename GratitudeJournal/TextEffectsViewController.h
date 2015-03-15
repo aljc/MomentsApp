@@ -12,9 +12,8 @@
 @interface TextEffectsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
-@property (weak, nonatomic) IBOutlet UIView *fontsView;
-@property (weak, nonatomic) IBOutlet UIView *colorsView;
+@property (weak, nonatomic) IBOutlet UIScrollView *fontsScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *colorsScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *momentTextLabel;
 @property (strong, nonatomic) Moment *moment;
 
