@@ -110,15 +110,15 @@
     //DECODE DATA: NSDATA -> MOMENT
     Moment *currentMomentDecoded= (Moment*) [NSKeyedUnarchiver unarchiveObjectWithData:currentMoment];
     
-    NSLog(@"DECODED MOMENT: %@", cell.momentText.text = currentMomentDecoded.text);
-    cell.momentText.text = currentMomentDecoded.text;
-    cell.momentDate.text = currentMomentDecoded.date;
+    NSLog(@"DECODED MOMENT: %@", currentMomentDecoded.text);
     
     cell.imageView1.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView1.clipsToBounds = YES;
-    NSLog(@"IMAGE NOW: %@, height: %f", currentMomentDecoded.image, currentMomentDecoded.image.size.height);
     [cell.imageView1 setImage:currentMomentDecoded.image];
     
+    cell.imageView2.contentMode = UIViewContentModeScaleAspectFit;
+    cell.imageView2.clipsToBounds = YES;
+    [cell.imageView2 setImage:currentMomentDecoded.image];
     
     return cell;
 }

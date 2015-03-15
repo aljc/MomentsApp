@@ -10,8 +10,7 @@
 
 @interface MomentsTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *momentText;
-@property (weak, nonatomic) IBOutlet UILabel *momentDate;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView1;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView2;
 
 @end

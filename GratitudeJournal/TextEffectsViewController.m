@@ -21,17 +21,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //auto-resize UILabel
+    //load image and label text
+    if (self.moment != nil) {
+        [self.imageView setImage:self.moment.image];
+    } else {
+        [self.imageView setImage:[UIImage imageNamed:@"sample"]];
+    }
+    self.momentTextLabel.text = self.moment.text;
+    
+    //auto-resize moment text
     [self.momentTextLabel sizeToFit];
     
-    //[self.imageView setImage:self.moment.image];
-    [self.imageView setImage:[UIImage imageNamed:@"sample"]];
+    //[self.imageView setImage:[UIImage imageNamed:@"sample"]];
     self.imageView.backgroundColor = [UIColor whiteColor];
     [self addGestureRecognizersToPiece:self.momentTextLabel];
     
-    self.fonts = [NSArray arrayWithObjects:@"American Typewriter", @"Futura", @"Gill Sans", @"Marker Felt", @"SnellRoundhand", nil];
+    self.fonts = [NSArray arrayWithObjects:@"Avenir", @"American Typewriter", @"Avenir-HeavyOblique", @"Noteworthy-Bold", @"BradleyHandITCTT-Bold", @"Didot-Italic", nil];
     
-    //TODO: if time, more color options
     UIColor *pinkColor = [UIColor colorWithRed:1 green:0.6 blue:0.6 alpha:1];
     UIColor *orangeColor = [UIColor colorWithRed:1 green:0.722 blue:0.439 alpha:1];
     UIColor *yellowColor = [UIColor colorWithRed:1 green:1 blue:0.8 alpha:1];
@@ -39,6 +45,10 @@
     UIColor *blueColor = [UIColor colorWithRed:0.58 green:0.722 blue:1 alpha:1];
     UIColor *purpleColor = [UIColor colorWithRed:0.8 green:0.6 blue:1 alpha:1];
     self.colors = [NSArray arrayWithObjects:[UIColor whiteColor], [UIColor blackColor], pinkColor, orangeColor, yellowColor, greenColor, blueColor, purpleColor, nil];
+    
+    //set default font
+    [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:0] size:25.0]];
+    [self.momentDateLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:0] size:17.0]];
 
     
     self.fontsScrollView.contentSize = CGSizeMake(250, 50);
@@ -81,12 +91,18 @@
     [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:chosenFontIndex] size:25.0]];
     //after changing font, auto-resize UILabel
     [self.momentTextLabel sizeToFit];
+    
+    //update date font as well
+    [self.momentDateLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:chosenFontIndex] size:17.0]];
 }
 
 - (IBAction)chooseColor:(UIButton *)sender {
     int chosenColorIndex = (int)sender.tag-200;
     NSLog(@"Chose color #%d", chosenColorIndex);
     self.momentTextLabel.textColor = [self.colors objectAtIndex:chosenColorIndex];
+    
+    //update date color as well
+    self.momentDateLabel.textColor = [self.colors objectAtIndex:chosenColorIndex];
 }
 
 - (void)didReceiveMemoryWarning {
