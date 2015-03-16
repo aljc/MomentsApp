@@ -15,8 +15,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
 @property (strong, nonatomic) Moment *moment;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIButton *infoViewButton;
 
 - (IBAction)presentInfo:(UIButton *)sender;
+- (IBAction)dismissInfo:(UIButton *)sender;
 - (IBAction)loadImagePicker:(UIButton *)sender;
 
 @end

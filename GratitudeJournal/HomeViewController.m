@@ -32,7 +32,7 @@
     
     self.placeholderArray = [[NSMutableArray alloc] init];
     [self.placeholderArray addObject:@"What made you smile today?"];
-    [self.placeholderArray addObject:@"Little things count too!ChnS"];
+    [self.placeholderArray addObject:@"Little things count too!"];
     [self.placeholderArray addObject:@"What made you happy today?"];
     
     NSString *placeholderText = [self.placeholderArray objectAtIndex:arc4random_uniform((int)[self.placeholderArray count])];
@@ -43,12 +43,14 @@
     
     self.dailyQuestion.delegate = self;
     
-    //set display properties of the submit button
-    self.submitButton.layer.cornerRadius = 20;
-    [[self.submitButton layer] setBorderWidth:1.0f];
-    [[self.submitButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    //set display properties
+    self.submitButton.layer.cornerRadius = 10;
     [self.submitButton.titleLabel setFont:[UIFont fontWithName:@"Avenir" size:17.0]];
     self.submitButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1]; /*#a091ed*/
+    
+    self.infoViewButton.layer.cornerRadius = 10;
+    
+    self.infoView.layer.cornerRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,21 +102,26 @@
 #pragma mark - Target Action
 
 - (IBAction)presentInfo:(UIButton *)sender {
-    CGRect orig = self.infoView.frame;
-    int width = self.infoView.frame.size.width;
-    int height = self.infoView.frame.size.height;
-    
-    //move info offscreen before making it visible
-    [self.infoView setFrame:CGRectMake(orig.origin.x, -500, width, height)];
-    self.infoView.hidden = NO;
-    
-    //fall-down animation
-    [UIView animateWithDuration:1.0
-                     animations:^{
-                         [self.infoView setFrame:CGRectMake(orig.origin.x, orig.origin.y, width, height)];
-                     }
-                     completion:nil];
+    //if the info view is not already showing
+    if (self.infoView.hidden==YES) {
+        
+        self.infoView.alpha = 0;
+        self.infoView.hidden = NO;
+        
+        [UIView animateWithDuration:0.5 animations:
+         ^{
+             self.infoView.alpha = 1.0;
+         } completion:nil];
+    }
+}
 
+- (IBAction)dismissInfo:(UIButton *)sender {
+    [UIView animateWithDuration:0.5 animations:
+     ^{
+         self.infoView.alpha = 0;
+     } completion:^(BOOL finished) {
+         self.infoView.hidden = YES;
+     }];
 }
 
 - (IBAction)loadImagePicker:(UIButton *)sender {
