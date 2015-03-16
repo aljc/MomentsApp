@@ -20,11 +20,15 @@
 
 @property NSMutableArray *placeholderArray;
 @property NSMutableArray *moments;
-@property BOOL didPresentSplashScreen;
+//@property BOOL didPresentSplashScreen;
 
 @end
 
 @implementation HomeViewController
+
+- (void)setDidPresent:(BOOL)didPresentSplashScreen {
+    self.didPresentSplashScreen = didPresentSplashScreen;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

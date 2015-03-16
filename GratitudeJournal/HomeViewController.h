@@ -17,9 +17,12 @@
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UIButton *infoViewButton;
+@property BOOL didPresentSplashScreen; ////
 
 - (IBAction)presentInfo:(UIButton *)sender;
 - (IBAction)dismissInfo:(UIButton *)sender;
 - (IBAction)loadImagePicker:(UIButton *)sender;
+
+- (void)setDidPresent:(BOOL)didPresentSplashScreen; ///
 
 @end
