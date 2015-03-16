@@ -20,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+}
+
+//**use viewdidload to initalize all views and layouts, etc, but puteverything that takes time (image processing, etc) in either viewwillappear viewdidappear.
+
+- (void)viewWillAppear:(BOOL)animated {
     //load image and label text
     if (self.moment != nil) {
         [self.imageView setImage:self.moment.image];
@@ -50,7 +54,7 @@
     //set default font
     [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:0] size:25.0]];
     [self.momentDateLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:0] size:17.0]];
-
+    
     
     self.fontsScrollView.contentSize = CGSizeMake(250, 50);
     self.colorsScrollView.contentSize = CGSizeMake(500, 50);
@@ -83,7 +87,7 @@
         [self.colorsScrollView addSubview:colorButton];
         NSLog(@"Created and added color button");
     }
-    
+
 }
 
 #pragma mark - Target Actions

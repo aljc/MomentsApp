@@ -15,17 +15,17 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you grateful for today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bok-Gm-Yc9">
-                                <rect key="frame" x="16" y="195" width="568" height="28"/>
+                                <rect key="frame" x="16" y="171" width="568" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What made you smile today?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u6F-fb-HyN">
-                                <rect key="frame" x="16" y="247" width="568" height="30"/>
+                                <rect key="frame" x="16" y="223" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MJS-6g-RxW"/>
                                 </constraints>
@@ -34,7 +34,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7D-Hg-00K">
-                                <rect key="frame" x="225" y="307" width="150" height="50"/>
+                                <rect key="frame" x="225" y="283" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.67803246096771708" green="0.56971017529359735" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4JX-vc-KHp"/>
@@ -56,8 +56,8 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-ko-aCr">
                                 <rect key="frame" x="150" y="100" width="300" height="301"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01v-no-MmW">
-                                        <rect key="frame" x="100" y="235" width="100" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01v-no-MmW">
+                                        <rect key="frame" x="100" y="236" width="100" height="30"/>
                                         <color key="backgroundColor" red="0.38344871831477878" green="0.25292171174289335" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="D93-hR-hEY"/>
@@ -82,7 +82,6 @@
                                 <color key="backgroundColor" red="0.74197118299233167" green="0.63156047207684674" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="hrm-PV-C5q" firstAttribute="top" secondItem="7xP-ko-aCr" secondAttribute="top" constant="22" id="Cjr-m2-3ye"/>
-                                    <constraint firstAttribute="centerX" secondItem="hrm-PV-C5q" secondAttribute="centerX" constant="-9" id="HVy-Zp-lhU"/>
                                     <constraint firstAttribute="centerX" secondItem="hrm-PV-C5q" secondAttribute="centerX" id="QsL-E0-lgo"/>
                                     <constraint firstAttribute="width" constant="300" id="a62-NK-zVi"/>
                                     <constraint firstAttribute="centerX" secondItem="01v-no-MmW" secondAttribute="centerX" id="kVj-no-ouv"/>
@@ -122,7 +121,7 @@
             </objects>
             <point key="canvasLocation" x="231" y="-1220"/>
         </scene>
-        <!--Filters-->
+        <!--Apply Filter-->
         <scene sceneID="Rkw-aZ-dUK">
             <objects>
                 <viewController id="h6T-Mp-dH9" customClass="FilterImageViewController" sceneMemberID="viewController">
@@ -160,7 +159,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Filters" id="kdp-Xa-SDr">
+                    <navigationItem key="navigationItem" title="Apply Filter" id="kdp-Xa-SDr">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="MKc-94-Gzv">
                             <connections>
                                 <segue destination="epW-EP-Qdz" kind="show" identifier="addText" id="DHc-nQ-9Cf"/>
@@ -182,10 +181,9 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -269,7 +267,27 @@
                     <view key="view" contentMode="scaleToFill" id="JtW-Ya-8Bz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93656024609627064" green="0.17162080201980123" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryA-13-pIY">
+                                <rect key="frame" x="205" y="253" width="191" height="62"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alice Sea" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2h-0y-8Js">
+                                <rect key="frame" x="265" y="323" width="71" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.74197118299999998" green="0.63156047209999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="ryA-13-pIY" secondAttribute="centerY" constant="16" id="BJj-Xx-vOG"/>
+                            <constraint firstAttribute="centerX" secondItem="c2h-0y-8Js" secondAttribute="centerX" id="JHO-4w-pP5"/>
+                            <constraint firstItem="c2h-0y-8Js" firstAttribute="top" secondItem="ryA-13-pIY" secondAttribute="bottom" constant="8" id="aZL-XC-Op6"/>
+                            <constraint firstAttribute="centerX" secondItem="ryA-13-pIY" secondAttribute="centerX" id="gZd-cv-vS7"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eX-et-V4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -382,6 +400,6 @@
         <image name="home" width="30" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vg9-Nn-PCj"/>
+        <segue reference="yoq-B8-9xX"/>
     </inferredMetricsTieBreakers>
 </document>

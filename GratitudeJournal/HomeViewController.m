@@ -20,6 +20,7 @@
 
 @property NSMutableArray *placeholderArray;
 @property NSMutableArray *moments;
+@property BOOL didPresentSplashScreen;
 
 @end
 
@@ -35,8 +36,7 @@
 //    [self presentViewController:splashScreen animated:NO completion:^{
 //        NSLog(@"Splash screen is showing");
 //    }];
-    
-    
+
     
     self.placeholderArray = [[NSMutableArray alloc] init];
     [self.placeholderArray addObject:@"What made you smile today?"];
@@ -62,10 +62,13 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController* splashScreen = [storyboard instantiateViewControllerWithIdentifier:@"splashScreen"];
-    
-    [self.tabBarController presentViewController:splashScreen animated:NO completion:nil];
+    if (!self.didPresentSplashScreen) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController* splashScreen = [storyboard instantiateViewControllerWithIdentifier:@"splashScreen"];
+        
+        [self.tabBarController presentViewController:splashScreen animated:NO completion:nil];
+        self.didPresentSplashScreen = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
