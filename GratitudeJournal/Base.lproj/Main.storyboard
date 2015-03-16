@@ -108,7 +108,7 @@
                             <constraint firstAttribute="centerX" secondItem="7xP-ko-aCr" secondAttribute="centerX" id="vlH-sV-bFM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="dailyQuestion" destination="u6F-fb-HyN" id="wIP-Lf-hlC"/>
                         <outlet property="infoButton" destination="BHg-CN-TJJ" id="7hh-XU-uU7"/>
@@ -196,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="-482" y="-1015"/>
         </scene>
-        <!--Moments Collection View Controller-->
+        <!--Moments-->
         <scene sceneID="A3v-LS-3Io">
             <objects>
                 <collectionViewController id="9u4-vB-mVr" customClass="MomentsCollectionViewController" sceneMemberID="viewController">
@@ -234,7 +234,7 @@
                             <outlet property="delegate" destination="9u4-vB-mVr" id="dDS-XT-CPY"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="pS9-LU-g75"/>
+                    <tabBarItem key="tabBarItem" title="Moments" image="heart" selectedImage="first" id="pS9-LU-g75"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhf-K4-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,8 +361,10 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="heart" width="30" height="30"/>
+        <image name="home" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yoq-B8-9xX"/>
+        <segue reference="Vg9-Nn-PCj"/>
     </inferredMetricsTieBreakers>
 </document>
