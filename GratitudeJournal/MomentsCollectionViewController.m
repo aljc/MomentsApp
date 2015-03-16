@@ -223,14 +223,6 @@ static NSString * const reuseIdentifier = @"Cell";
     zoomImage.frame = zoomFrameFrom;
     zoomImage.alpha = 0.2;
     
-    [UIView animateWithDuration:0.2 animations:
-     ^{
-         zoomImage.frame = zoomFrameTo;
-         zoomImage.alpha = 1;
-     } completion:nil];
-    
-    self.zoomFrame = zoomFrameFrom;
-    
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 60, 25)];
     backButton.tag = 304;
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
@@ -244,6 +236,7 @@ static NSString * const reuseIdentifier = @"Cell";
     backButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
     backButton.titleLabel.textColor = [UIColor whiteColor];
     [backButton addTarget:self action:@selector(dismissCell:) forControlEvents:UIControlEventTouchUpInside];
+    backButton.alpha = 0;
     [self.view addSubview:backButton];
     
     UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 50, 60, 25)];
@@ -259,7 +252,18 @@ static NSString * const reuseIdentifier = @"Cell";
     shareButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
     shareButton.titleLabel.textColor = [UIColor whiteColor];
     [shareButton addTarget:self action:@selector(configureSocial:) forControlEvents:UIControlEventTouchUpInside];
+    shareButton.alpha = 0;
     [self.view addSubview:shareButton];
+    
+    [UIView animateWithDuration:0.3 animations:
+     ^{
+         zoomImage.frame = zoomFrameTo;
+         zoomImage.alpha = 1;
+         backButton.alpha = 1;
+         shareButton.alpha = 1;
+     } completion:nil];
+    
+    self.zoomFrame = zoomFrameFrom;
 }
 
 - (IBAction)dismissCell:(UIButton *)sender {

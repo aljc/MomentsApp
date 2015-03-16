@@ -20,10 +20,29 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:@"Alice Sea" forKey:@"Developer"];
     [defaults setValue:[NSDate date] forKey:@"Initial Launch"];
+    
+    NSNumber *launchNumber = [defaults objectForKey:@"Launch Number"];
+    NSLog(@"%@", launchNumber);
+    //first launch
+    if (launchNumber == nil) {
+        [defaults setValue:[NSNumber numberWithInt:1] forKey:@"Launch Number"];
+    }
+    else {
+        [defaults setValue:[NSNumber numberWithInt:([launchNumber intValue]+1)] forKey:@"Launch Number"];
+    }
     [defaults synchronize];
     
     NSLog(@"Developer: %@", [defaults objectForKey:@"Developer"]);
     NSLog(@"Initial Launch: %@", [defaults objectForKey:@"Initial Launch"]);
+    NSNumber *launchNumberNow = [defaults objectForKey:@"Launch Number"];
+    NSLog(@"Launch Number: %@", launchNumberNow);
+    
+    if ([launchNumberNow intValue] == 5) {
+        NSLog(@"Rate us in the app store - alert view");
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Like us?" message:@"Rate us in the app store!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+        [alertView show];
+    }
+    
 //    UIViewController *splashScreen = [[UIViewController alloc] init];
 //    splashScreen.view.backgroundColor = [UIColor purpleColor];
 //    [self.window.rootViewController presentViewController:splashScreen animated:NO completion:nil];
