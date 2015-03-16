@@ -14,7 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
 @property (strong, nonatomic) Moment *moment;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
 
+- (IBAction)presentInfo:(UIButton *)sender;
 - (IBAction)loadImagePicker:(UIButton *)sender;
 
 @end

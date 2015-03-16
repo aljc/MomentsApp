@@ -194,7 +194,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self zoomToSelectedImage:indexPath];
 }
 
-
+//Source: http://stackoverflow.com/questions/24741597/uicollectionview-full-screen-zoom-on-uicollectionviewcell
 - (void)zoomToSelectedImage:(NSIndexPath *)indexPath
 
 {

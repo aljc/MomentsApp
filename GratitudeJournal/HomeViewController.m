@@ -97,6 +97,26 @@
     
 }
 
+#pragma mark - Target Action
+
+- (IBAction)presentInfo:(UIButton *)sender {
+    CGRect orig = self.infoView.frame;
+    int width = self.infoView.frame.size.width;
+    int height = self.infoView.frame.size.height;
+    
+    //move info offscreen before making it visible
+    [self.infoView setFrame:CGRectMake(orig.origin.x, -500, width, height)];
+    self.infoView.hidden = NO;
+    
+    //fall-down animation
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         [self.infoView setFrame:CGRectMake(orig.origin.x, orig.origin.y, width, height)];
+                     }
+                     completion:nil];
+
+}
+
 - (IBAction)loadImagePicker:(UIButton *)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.modalPresentationStyle = UIModalPresentationCurrentContext;
@@ -112,22 +132,6 @@
     
     [self presentViewController:picker animated:YES completion:nil];
 }
-
-//- (void)addMomentToDefaults {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    //ENCODE THE DATA: MOMENT -> NSDATA
-//    
-//    NSData *todaysMomentData = [NSKeyedArchiver archivedDataWithRootObject:self.moment];
-//    
-//    //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
-//    self.moments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //make sure self.moments property is up to date
-//    [self.moments insertObject:todaysMomentData atIndex:0]; //then add today's moment to it
-//
-//    [defaults setObject:[NSArray arrayWithArray:self.moments] forKey:@"moments"]; //then cast self.moments to an NSArray and refresh the user defaults
-//    [defaults synchronize];
-//
-//}
 
 #pragma mark - Image picker delegate methods
 
