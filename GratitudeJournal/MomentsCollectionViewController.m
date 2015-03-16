@@ -9,6 +9,7 @@
 #import "MomentsCollectionViewController.h"
 #import "MomentsCollectionViewCell.h"
 #import <sys/utsname.h>
+#import <Social/Social.h>
 
 @interface MomentsCollectionViewController ()
 
@@ -80,11 +81,9 @@ static NSString * const reuseIdentifier = @"Cell";
     if (self.moment != NULL) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
-        //@@@WHY AREN'T FILTERED IMAGES ENCODING PROPERLY?!?!? *********
-        //ENCODE THE DATA: MOMENT -> NSDATA
+        //Encode the data: Moment -> NSData
         NSData *momentData = [NSKeyedArchiver archivedDataWithRootObject:self.moment];
         
-        //MOMENTS IS AN NSMUTABLEARRAY OF TYPE NSDATA
         NSMutableArray *tempMoments = [[NSMutableArray alloc] init];
         tempMoments = [NSMutableArray arrayWithArray:[defaults objectForKey:@"moments"]]; //NSArray -> NSMutableArray
         [tempMoments insertObject:momentData atIndex:0]; //then add the new moment to it
@@ -244,6 +243,21 @@ static NSString * const reuseIdentifier = @"Cell";
     backButton.titleLabel.textColor = [UIColor whiteColor];
     [backButton addTarget:self action:@selector(dismissCell:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
+    
+    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 50, 60, 25)];
+    shareButton.tag = 305;
+    [shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    shareButton.layer.cornerRadius = 10;
+    shareButton.clipsToBounds = YES;
+    shareButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    shareButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [[shareButton layer] setBorderWidth:1.0f];
+    [[shareButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    [shareButton.titleLabel setFont:[UIFont fontWithName:@"Avenir" size:17.0]];
+    shareButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
+    shareButton.titleLabel.textColor = [UIColor whiteColor];
+    [shareButton addTarget:self action:@selector(configureSocial:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:shareButton];
 }
 
 - (IBAction)dismissCell:(UIButton *)sender {
@@ -265,9 +279,16 @@ static NSString * const reuseIdentifier = @"Cell";
     }];
 }
 
+//Displays a twitter sheet to allow user to tweet about article
+//Source: http://pinkstone.co.uk/how-to-post-to-facebook-and-twitter-using-social-framework/
+- (IBAction)configureSocial:(UIBarButtonItem *)sender {
 
-
-
+    SLComposeViewController *socialController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    // present controller
+    [self presentViewController:socialController animated:YES completion:nil];
+    
+}
 
 #pragma mark <UICollectionViewDelegate>
 

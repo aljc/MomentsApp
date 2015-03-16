@@ -53,7 +53,7 @@
                                     <action selector="presentInfo:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qLN-sJ-oHK"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" tag="305" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-ko-aCr">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-ko-aCr">
                                 <rect key="frame" x="150" y="100" width="300" height="301"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01v-no-MmW">
@@ -291,18 +291,15 @@
                                             <constraint firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="height" multiplier="1:1" id="6n4-lF-i7S"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moment Text Goes Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6j-pc-WtY">
-                                        <rect key="frame" x="1" y="131" width="396" height="30"/>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moment Text Goes Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6j-pc-WtY">
+                                        <rect key="frame" x="0.0" y="129" width="396" height="35"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="25"/>
                                         <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2/28/15" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-Vu-6Jc">
-                                        <rect key="frame" x="-12" y="347" width="100" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="BA7-9h-uP4"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/28/15" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-Vu-6Jc">
+                                        <rect key="frame" x="0.0" y="372" width="60" height="24"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -312,8 +309,13 @@
                                 <constraints>
                                     <constraint firstItem="uYL-fH-39S" firstAttribute="leading" secondItem="Eas-wm-ghR" secondAttribute="leading" id="5bv-Z8-J0h"/>
                                     <constraint firstAttribute="bottom" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="18" id="EZ9-Vl-rNh"/>
+                                    <constraint firstItem="uYL-fH-39S" firstAttribute="leading" secondItem="dDm-Vu-6Jc" secondAttribute="leading" id="HS2-Hu-M9G"/>
+                                    <constraint firstAttribute="centerY" secondItem="Q6j-pc-WtY" secondAttribute="centerY" constant="52" id="Ln1-JH-9WK"/>
+                                    <constraint firstAttribute="centerX" secondItem="Q6j-pc-WtY" secondAttribute="centerX" id="N97-Fc-3Un"/>
                                     <constraint firstItem="uYL-fH-39S" firstAttribute="height" secondItem="Eas-wm-ghR" secondAttribute="height" id="PAu-2x-p4T"/>
+                                    <constraint firstItem="uYL-fH-39S" firstAttribute="width" secondItem="Q6j-pc-WtY" secondAttribute="width" id="TSW-xT-5OJ"/>
                                     <constraint firstAttribute="width" secondItem="Eas-wm-ghR" secondAttribute="height" multiplier="1:1" id="jZh-Oy-UuN"/>
+                                    <constraint firstItem="uYL-fH-39S" firstAttribute="bottom" secondItem="dDm-Vu-6Jc" secondAttribute="bottom" id="kh6-e1-VBs"/>
                                     <constraint firstAttribute="bottom" secondItem="uYL-fH-39S" secondAttribute="bottom" id="qs5-rf-HWG"/>
                                     <constraint firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="width" id="yVa-g2-L7o"/>
                                 </constraints>

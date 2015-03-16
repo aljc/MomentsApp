@@ -28,6 +28,7 @@
         [self.imageView setImage:[UIImage imageNamed:@"sample"]];
     }
     self.momentTextLabel.text = self.moment.text;
+    self.momentDateLabel.text = self.moment.date;
     
     //auto-resize moment text
     [self.momentTextLabel sizeToFit];

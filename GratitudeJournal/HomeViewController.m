@@ -30,6 +30,12 @@
     
     //[self resetNSUserDefaults];
     
+//    UIViewController *splashScreen = [[UIViewController alloc] init];
+//    splashScreen.view.backgroundColor = [UIColor purpleColor];
+//    [self presentViewController:splashScreen animated:NO completion:^{
+//        NSLog(@"Splash screen is showing");
+//    }];
+    
     self.placeholderArray = [[NSMutableArray alloc] init];
     [self.placeholderArray addObject:@"What made you smile today?"];
     [self.placeholderArray addObject:@"Little things count too!"];
@@ -102,7 +108,7 @@
 #pragma mark - Target Action
 
 - (IBAction)presentInfo:(UIButton *)sender {
-    //if the info view is not already showing
+    //show the info view if it is not already showing
     if (self.infoView.hidden==YES) {
         
         self.infoView.alpha = 0;
@@ -174,7 +180,12 @@
     [picker dismissViewControllerAnimated:YES completion:^{
         Moment *todaysMoment = [[Moment alloc] init];
         todaysMoment.text = self.dailyQuestion.text;
-        todaysMoment.date = @"2/28/15";
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-mm-dd"];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        NSString *todaysDate = [dateFormatter stringFromDate:[NSDate date]];
+        todaysMoment.date = todaysDate;
+        NSLog(@"today's date: %@", todaysDate);
         todaysMoment.image = chosenImage;
         
         self.moment = todaysMoment;

@@ -17,6 +17,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@"Alice Sea" forKey:@"Developer"];
+    [defaults setValue:[NSDate date] forKey:@"Initial Launch"];
+    [defaults synchronize];
+    
+    NSLog(@"Developer: %@", [defaults objectForKey:@"Developer"]);
+    NSLog(@"Initial Launch: %@", [defaults objectForKey:@"Initial Launch"]);
+//    UIViewController *splashScreen = [[UIViewController alloc] init];
+//    splashScreen.view.backgroundColor = [UIColor purpleColor];
+//    [self.window.rootViewController presentViewController:splashScreen animated:NO completion:nil];
+//    NSLog(@"presented splash screen");
+    
     return YES;
 }
 
