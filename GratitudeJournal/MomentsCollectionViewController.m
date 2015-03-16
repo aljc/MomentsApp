@@ -14,6 +14,7 @@
 @interface MomentsCollectionViewController ()
 
 @property CGRect zoomFrame;
+@property UIImage *zoomImage;
 
 @end
 
@@ -209,6 +210,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UIImageView *zoomImage = [[UIImageView alloc] initWithImage:selectedMoment.image];
     zoomImage.contentMode = UIViewContentModeScaleAspectFit;
     zoomImage.tag = 302;
+    self.zoomImage = zoomImage.image;
     
     CGRect zoomFrameTo = CGRectMake(0,0, self.view.frame.size.width,self.view.frame.size.height);
     UICollectionView *cv = (UICollectionView *)[self.view viewWithTag:301];
@@ -276,18 +278,27 @@ static NSString * const reuseIdentifier = @"Cell";
         cv.hidden = FALSE;
         UIButton *backButton =  (UIButton*)[self.view viewWithTag:304];
         [backButton removeFromSuperview];
+        UIButton *shareButton =  (UIButton*)[self.view viewWithTag:305];
+        [shareButton removeFromSuperview];
+        self.zoomImage = nil;
     }];
 }
 
-//Displays a twitter sheet to allow user to tweet about article
+//Displays a Facebook sheet to allow user to share moment
 //Source: http://pinkstone.co.uk/how-to-post-to-facebook-and-twitter-using-social-framework/
 - (IBAction)configureSocial:(UIBarButtonItem *)sender {
 
     SLComposeViewController *socialController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     
+    // add initial text
+    [socialController setInitialText:@"Check out today's moment!"];
+    
+    // add an image
+    [socialController addImage:self.zoomImage];
+
+    
     // present controller
     [self presentViewController:socialController animated:YES completion:nil];
-    
 }
 
 #pragma mark <UICollectionViewDelegate>
