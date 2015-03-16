@@ -234,7 +234,7 @@
                             <outlet property="delegate" destination="9u4-vB-mVr" id="dDS-XT-CPY"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Moments" image="heart" selectedImage="first" id="pS9-LU-g75"/>
+                    <tabBarItem key="tabBarItem" title="Moments" image="hearttab" id="pS9-LU-g75"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhf-K4-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -360,9 +360,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="heart" width="30" height="30"/>
-        <image name="home" width="30" height="30"/>
+        <image name="hearttab" width="30" height="26"/>
+        <image name="home" width="30" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vg9-Nn-PCj"/>
