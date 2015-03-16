@@ -12,7 +12,7 @@
 
 /* TODOS
  instagram integration!!
- madlibs type input?  Today I saw ____.  My favorite moment was when ____.  My goal for tomorrow is ______. (next button, diff views)
+ collage/gif scroller (50 happy days, etc)
  
  */
 
@@ -32,17 +32,23 @@
     
     self.placeholderArray = [[NSMutableArray alloc] init];
     [self.placeholderArray addObject:@"What made you smile today?"];
-    [self.placeholderArray addObject:@"What are you happy about today?"];
-    [self.placeholderArray addObject:@"What are you grateful for today?"];
+    [self.placeholderArray addObject:@"Little things count too!ChnS"];
     [self.placeholderArray addObject:@"What made you happy today?"];
     
-    NSString *placeholderText = [self.placeholderArray objectAtIndex:arc4random_uniform(4)]; //TODO: 0-8
+    NSString *placeholderText = [self.placeholderArray objectAtIndex:arc4random_uniform((int)[self.placeholderArray count])];
     
     self.dailyQuestion.placeholder = placeholderText;
     
     self.moments = [[NSMutableArray alloc] init];
     
     self.dailyQuestion.delegate = self;
+    
+    //set display properties of the submit button
+    self.submitButton.layer.cornerRadius = 20;
+    [[self.submitButton layer] setBorderWidth:1.0f];
+    [[self.submitButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    [self.submitButton.titleLabel setFont:[UIFont fontWithName:@"Avenir" size:17.0]];
+    self.submitButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1]; /*#a091ed*/
 }
 
 - (void)didReceiveMemoryWarning {

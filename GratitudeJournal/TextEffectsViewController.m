@@ -134,9 +134,9 @@
         UIImage *imageWithText = [self snapshot:self.imageContainerView];
         
         
-        self.moment.image = imageWithText; //TODO: burn label to image first
+        self.moment.image = imageWithText;
         
-        //pass updated Moment object with text overlay to MomentsTableViewController
+        //pass updated Moment object with text overlay to MomentsCollectionViewController
         MomentsCollectionViewController *mvc = (MomentsCollectionViewController*) [segue destinationViewController];
         mvc.moment = self.moment;
     }

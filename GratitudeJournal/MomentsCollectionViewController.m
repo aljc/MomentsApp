@@ -12,7 +12,6 @@
 
 @interface MomentsCollectionViewController ()
 
-@property NSArray *recipePhotos;
 @property CGRect zoomFrame;
 
 @end
@@ -24,10 +23,10 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _recipePhotos = [NSArray arrayWithObjects:@"creme_brelee.png", @"egg_benedict.png", @"full_breakfast.png", @"green_tea.png", @"ham_and_cheese_panini.png", nil];
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.savedMoments = [defaults objectForKey:@"moments"];
+    
+    NSLog(@"COUNT: %d", (int)self.savedMoments.count);
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,7 +37,6 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
     //if we arrived at this view controller from the submitMoment segue
     if (self.moment != NULL) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         self.savedMoments = [defaults objectForKey:@"moments"];
         
         NSLog(@"Adding moment to user defaults");
@@ -242,7 +240,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [[backButton layer] setBorderWidth:1.0f];
     [[backButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     [backButton.titleLabel setFont:[UIFont fontWithName:@"Avenir" size:17.0]];
-    backButton.backgroundColor = [UIColor blueColor];
+    backButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
     backButton.titleLabel.textColor = [UIColor whiteColor];
     [backButton addTarget:self action:@selector(dismissCell:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];

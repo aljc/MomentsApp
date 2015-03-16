@@ -11,8 +11,8 @@
 
 @interface HomeViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) Moment *moment;
 
 - (IBAction)loadImagePicker:(UIButton *)sender;
