@@ -93,9 +93,6 @@
     [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:chosenFontIndex] size:25.0]];
     //after changing font, auto-resize UILabel
     [self.momentTextLabel sizeToFit];
-    
-    //update date font as well
-    [self.momentDateLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:chosenFontIndex] size:17.0]];
 }
 
 - (IBAction)chooseColor:(UIButton *)sender {

@@ -168,13 +168,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    //UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"recipeCell" forIndexPath:indexPath];
     MomentsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"momentsCell" forIndexPath:indexPath];
-    
-//    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:300];
-//    //recipeImageView.contentMode = UIViewContentModeScaleAspectFit;
-//    recipeImageView.clipsToBounds = YES;
-//    recipeImageView.image = [UIImage imageNamed:[_recipePhotos objectAtIndex:indexPath.row]];
     
     // Configure the cell
     
@@ -239,6 +233,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.zoomFrame = zoomFrameFrom;
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 60, 25)];
+    backButton.tag = 304;
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
     backButton.layer.cornerRadius = 10;
     backButton.clipsToBounds = YES;
@@ -267,6 +262,8 @@ static NSString * const reuseIdentifier = @"Cell";
         [zoomImage removeFromSuperview];
         UICollectionView *cv = (UICollectionView *)[self.view viewWithTag:301];
         cv.hidden = FALSE;
+        UIButton *backButton =  (UIButton*)[self.view viewWithTag:304];
+        [backButton removeFromSuperview];
     }];
 }
 
