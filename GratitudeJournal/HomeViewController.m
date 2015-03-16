@@ -36,6 +36,8 @@
 //        NSLog(@"Splash screen is showing");
 //    }];
     
+    
+    
     self.placeholderArray = [[NSMutableArray alloc] init];
     [self.placeholderArray addObject:@"What made you smile today?"];
     [self.placeholderArray addObject:@"Little things count too!"];
@@ -57,6 +59,13 @@
     self.infoViewButton.layer.cornerRadius = 10;
     
     self.infoView.layer.cornerRadius = 10;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController* splashScreen = [storyboard instantiateViewControllerWithIdentifier:@"splashScreen"];
+    
+    [self.tabBarController presentViewController:splashScreen animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

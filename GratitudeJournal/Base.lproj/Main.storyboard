@@ -140,8 +140,8 @@
                                     <constraint firstAttribute="width" secondItem="ewm-Gk-AgJ" secondAttribute="height" multiplier="1:1" id="tki-F8-Sxl"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-pD-vcJ">
-                                <rect key="frame" x="-6" y="414" width="600" height="120"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-pD-vcJ">
+                                <rect key="frame" x="0.0" y="416" width="600" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="xGT-fc-dGd"/>
                                 </constraints>
@@ -258,6 +258,24 @@
             </objects>
             <point key="canvasLocation" x="1089" y="-1293"/>
         </scene>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="FlQ-jE-o6a">
+            <objects>
+                <viewController storyboardIdentifier="splashScreen" id="EvP-ES-2jf" customClass="SplashScreenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="POZ-2x-jIC"/>
+                        <viewControllerLayoutGuide type="bottom" id="TDE-63-jN9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JtW-Ya-8Bz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93656024609627064" green="0.17162080201980123" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eX-et-V4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1046" y="-276"/>
+        </scene>
         <!--Add Text-->
         <scene sceneID="PyO-cs-D2w">
             <objects>
@@ -356,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQl-Vg-3Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="-404"/>
+            <point key="canvasLocation" x="1759" y="-409"/>
         </scene>
     </scenes>
     <resources>

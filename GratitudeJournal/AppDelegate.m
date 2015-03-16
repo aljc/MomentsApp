@@ -43,11 +43,6 @@
         [alertView show];
     }
     
-//    UIViewController *splashScreen = [[UIViewController alloc] init];
-//    splashScreen.view.backgroundColor = [UIColor purpleColor];
-//    [self.window.rootViewController presentViewController:splashScreen animated:NO completion:nil];
-//    NSLog(@"presented splash screen");
-    
     return YES;
 }
 
