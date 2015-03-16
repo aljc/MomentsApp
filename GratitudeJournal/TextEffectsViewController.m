@@ -85,6 +85,8 @@
     
 }
 
+#pragma mark - Target Actions
+
 - (IBAction)chooseFont:(UIButton *)sender {
     int chosenFontIndex = (int)sender.tag-100;
     NSLog(@"Chose font #%d", chosenFontIndex);
@@ -105,6 +107,19 @@
     self.momentDateLabel.textColor = [self.colors objectAtIndex:chosenColorIndex];
 }
 
+#pragma mark - Screenshot
+
+//Source: https://developer.apple.com/library/ios/qa/qa1817/_index.html
+- (UIImage *)snapshot:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -118,15 +133,15 @@
     {
         NSLog(@"Performing submitMoment segue");
         
-        //replace image in Moment object
-        //self.moment.image = self.imageView.image; //TODO: burn label to image first
+        //take a screenshot of the main image view, to capture the added text
+        UIImage *imageWithText = [self snapshot:self.imageContainerView];
+        
+        
+        self.moment.image = imageWithText; //TODO: burn label to image first
         
         //pass updated Moment object with text overlay to MomentsTableViewController
         MomentsCollectionViewController *mvc = (MomentsCollectionViewController*) [segue destinationViewController];
         mvc.moment = self.moment;
-        
-        NSLog(@"IMAGE PRE SEGUE: %@, height: %f", self.moment.image, self.moment.image.size.height);
-        NSLog(@"IMAGE PRE SEGUE: %@, height: %f", mvc.moment.image, mvc.moment.image.size.height);
     }
 }
 

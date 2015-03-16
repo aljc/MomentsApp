@@ -242,19 +242,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-fH-39S">
-                                <rect key="frame" x="0.0" y="20" width="396" height="396"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="height" multiplier="1:1" id="6n4-lF-i7S"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Moment Text Goes Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6j-pc-WtY">
-                                <rect key="frame" x="0.0" y="152" width="396" height="30"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvz-no-udb">
                                 <rect key="frame" x="0.0" y="426" width="600" height="50"/>
                                 <constraints>
@@ -267,33 +254,56 @@
                                     <constraint firstAttribute="height" constant="50" id="gg3-Jy-cIx"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2/28/15" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-Vu-6Jc">
-                                <rect key="frame" x="0.0" y="395" width="100" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eas-wm-ghR">
+                                <rect key="frame" x="0.0" y="20" width="396" height="396"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-fH-39S">
+                                        <rect key="frame" x="0.0" y="0.0" width="396" height="396"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="height" multiplier="1:1" id="6n4-lF-i7S"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moment Text Goes Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6j-pc-WtY">
+                                        <rect key="frame" x="1" y="131" width="396" height="30"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2/28/15" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-Vu-6Jc">
+                                        <rect key="frame" x="-12" y="347" width="100" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="BA7-9h-uP4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="BA7-9h-uP4"/>
+                                    <constraint firstItem="uYL-fH-39S" firstAttribute="leading" secondItem="Eas-wm-ghR" secondAttribute="leading" id="5bv-Z8-J0h"/>
+                                    <constraint firstAttribute="bottom" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="18" id="EZ9-Vl-rNh"/>
+                                    <constraint firstItem="uYL-fH-39S" firstAttribute="height" secondItem="Eas-wm-ghR" secondAttribute="height" id="PAu-2x-p4T"/>
+                                    <constraint firstAttribute="width" secondItem="Eas-wm-ghR" secondAttribute="height" multiplier="1:1" id="jZh-Oy-UuN"/>
+                                    <constraint firstAttribute="bottom" secondItem="uYL-fH-39S" secondAttribute="bottom" id="qs5-rf-HWG"/>
+                                    <constraint firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="width" id="yVa-g2-L7o"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20513731060000001" green="0.20513731060000001" blue="0.20513731060000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="XhJ-lM-bV8" firstAttribute="top" secondItem="Gvz-no-udb" secondAttribute="bottom" constant="10" id="5Rk-CN-75j"/>
                             <constraint firstItem="XhJ-lM-bV8" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="5as-OK-QZb"/>
-                            <constraint firstItem="dDm-Vu-6Jc" firstAttribute="bottom" secondItem="uYL-fH-39S" secondAttribute="bottom" id="ECi-8c-q8u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XhJ-lM-bV8" secondAttribute="trailing" constant="-16" id="PQr-uN-wOu"/>
-                            <constraint firstItem="uYL-fH-39S" firstAttribute="top" secondItem="UJ3-iq-ne4" secondAttribute="topMargin" constant="20" id="Pzo-n7-ME6"/>
-                            <constraint firstItem="Gvz-no-udb" firstAttribute="top" secondItem="uYL-fH-39S" secondAttribute="bottom" constant="10" id="YXZ-pq-1Tr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gvz-no-udb" secondAttribute="trailing" constant="-16" id="ZNT-q8-w3F"/>
-                            <constraint firstAttribute="centerX" secondItem="uYL-fH-39S" secondAttribute="centerX" id="cOH-Jd-SeV"/>
-                            <constraint firstItem="uYL-fH-39S" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="dLB-Is-RC9"/>
-                            <constraint firstItem="Q6j-pc-WtY" firstAttribute="centerY" secondItem="uYL-fH-39S" secondAttribute="centerY" constant="-51.5" id="lrG-pr-Vrq"/>
-                            <constraint firstItem="dDm-Vu-6Jc" firstAttribute="leading" secondItem="uYL-fH-39S" secondAttribute="leading" id="oVd-eM-pQ3"/>
+                            <constraint firstItem="Gvz-no-udb" firstAttribute="top" secondItem="Eas-wm-ghR" secondAttribute="bottom" constant="10" id="dEb-NA-ysE"/>
+                            <constraint firstAttribute="centerX" secondItem="Eas-wm-ghR" secondAttribute="centerX" id="euw-Ag-jDr"/>
+                            <constraint firstItem="Eas-wm-ghR" firstAttribute="top" secondItem="UJ3-iq-ne4" secondAttribute="topMargin" constant="20" id="kRA-qO-kAP"/>
                             <constraint firstItem="XhJ-lM-bV8" firstAttribute="top" secondItem="Gvz-no-udb" secondAttribute="bottom" constant="10" id="p9p-F5-0E8"/>
                             <constraint firstItem="dUO-Xb-OH5" firstAttribute="top" secondItem="XhJ-lM-bV8" secondAttribute="bottom" constant="20" id="rUb-dc-54j"/>
                             <constraint firstItem="Gvz-no-udb" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="xF3-ep-gDZ"/>
-                            <constraint firstItem="Q6j-pc-WtY" firstAttribute="width" secondItem="uYL-fH-39S" secondAttribute="width" id="xcK-eU-9a3"/>
+                            <constraint firstItem="Eas-wm-ghR" firstAttribute="leading" secondItem="UJ3-iq-ne4" secondAttribute="leadingMargin" constant="-16" id="zZB-WA-zPc"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -308,6 +318,7 @@
                     <connections>
                         <outlet property="colorsScrollView" destination="XhJ-lM-bV8" id="ort-mi-4MS"/>
                         <outlet property="fontsScrollView" destination="Gvz-no-udb" id="ZrW-Cg-bWI"/>
+                        <outlet property="imageContainerView" destination="Eas-wm-ghR" id="PZZ-FU-Q8x"/>
                         <outlet property="imageView" destination="uYL-fH-39S" id="ZN3-KT-r4O"/>
                         <outlet property="momentDateLabel" destination="dDm-Vu-6Jc" id="kKf-CD-zPd"/>
                         <outlet property="momentTextLabel" destination="Q6j-pc-WtY" id="mgT-P0-NOq"/>
@@ -315,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQl-Vg-3Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2811" y="-8"/>
+            <point key="canvasLocation" x="2810" y="-8"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SoA-bA-eY7">
