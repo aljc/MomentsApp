@@ -20,26 +20,16 @@
 
 @property NSMutableArray *placeholderArray;
 @property NSMutableArray *moments;
-//@property BOOL didPresentSplashScreen;
+@property BOOL didPresentSplashScreen;
 
 @end
 
 @implementation HomeViewController
 
-- (void)setDidPresent:(BOOL)didPresentSplashScreen {
-    self.didPresentSplashScreen = didPresentSplashScreen;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //[self resetNSUserDefaults];
-    
-//    UIViewController *splashScreen = [[UIViewController alloc] init];
-//    splashScreen.view.backgroundColor = [UIColor purpleColor];
-//    [self presentViewController:splashScreen animated:NO completion:^{
-//        NSLog(@"Splash screen is showing");
-//    }];
 
     
     self.placeholderArray = [[NSMutableArray alloc] init];

@@ -10,7 +10,6 @@
 #import "MomentsCollectionViewCell.h"
 #import <sys/utsname.h>
 #import <Social/Social.h>
-#import "HomeViewController.h"
 
 @interface MomentsCollectionViewController ()
 
@@ -46,14 +45,6 @@ static NSString * const reuseIdentifier = @"Cell";
         NSLog(@"IMAGE: %@", self.moment.image);
         self.navigationItem.hidesBackButton = YES;
         self.navigationItem.title = @"Moments";
-        
-        //TODO: update the tab-bar functionality
-        UIBarButtonItem *homeButton = [[UIBarButtonItem alloc]
-                                       initWithTitle:@"Home"
-                                       style:UIBarButtonItemStylePlain
-                                       target:self
-                                       action:@selector(presentHomeView)];
-        self.navigationItem.rightBarButtonItem = homeButton;
         
         [self addMomentToDefaults];
     }
@@ -124,9 +115,6 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"showHome"]) {
-        HomeViewController *hvc = (HomeViewController *)[segue destinationViewController];
-    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

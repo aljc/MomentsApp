@@ -234,9 +234,6 @@
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Moments" image="hearttab" id="pS9-LU-g75"/>
                     <toolbarItems/>
-                    <connections>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="showHome" id="77D-1o-J4v"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhf-K4-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
