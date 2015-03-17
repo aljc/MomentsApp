@@ -53,7 +53,7 @@
                                     <action selector="presentInfo:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qLN-sJ-oHK"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-ko-aCr">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-ko-aCr">
                                 <rect key="frame" x="150" y="100" width="300" height="301"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01v-no-MmW">
@@ -72,9 +72,13 @@
                                             <action selector="dismissInfo:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Jvi-Vh-mHd"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrm-PV-C5q">
-                                        <rect key="frame" x="98" y="22" width="104" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Moments!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrm-PV-C5q">
+                                        <rect key="frame" x="30" y="22" width="240" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="BzS-L2-JPg"/>
+                                            <constraint firstAttribute="height" constant="200" id="Lc5-tm-r3x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -113,6 +117,7 @@
                         <outlet property="infoButton" destination="BHg-CN-TJJ" id="7hh-XU-uU7"/>
                         <outlet property="infoView" destination="7xP-ko-aCr" id="xgP-sS-p2w"/>
                         <outlet property="infoViewButton" destination="01v-no-MmW" id="xdt-9D-JbL"/>
+                        <outlet property="infoViewLabel" destination="hrm-PV-C5q" id="Dll-g8-72X"/>
                         <outlet property="submitButton" destination="T7D-Hg-00K" id="PwR-v9-cnx"/>
                         <segue destination="V2t-jN-H8y" kind="presentation" identifier="showFilters" id="fbm-ja-4Jf"/>
                     </connections>

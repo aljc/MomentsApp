@@ -51,7 +51,9 @@
     self.submitButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1]; /*#a091ed*/
     
     self.infoViewButton.layer.cornerRadius = 10;
-    
+    [self.infoViewLabel sizeToFit];
+    self.infoViewLabel.text = @"Welcome to Moments! \r\rIt can be so easy to get swept up in our daily routines and that we forget to appreciate the small things.  It's been proven that taking time each day to reflect and appreciate makes us happier and healthier. \r\rWith Moments, you can record your own personal photo journal of beautiful, visually engaging daily moments.  Come back each day to record another moment!";
+
     self.infoView.layer.cornerRadius = 10;
 }
 

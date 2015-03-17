@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UIButton *infoViewButton;
+@property (weak, nonatomic) IBOutlet UILabel *infoViewLabel;
 
 - (IBAction)presentInfo:(UIButton *)sender;
 - (IBAction)dismissInfo:(UIButton *)sender;
