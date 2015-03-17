@@ -111,7 +111,7 @@ static NSString * const reuseIdentifier = @"Cell";
     comeBackTomorrow.layer.cornerRadius = 10;
     NSLog(@"x: %f, y: %f", self.view.center.x, self.view.center.y);
     
-    [comeBackTomorrow setFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-75, 200, 150)];
+    [comeBackTomorrow setFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/4, 200, 150)];
     comeBackTomorrow.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
     comeBackTomorrow.alpha = 0;
     
