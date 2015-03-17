@@ -282,7 +282,7 @@ static NSString * const reuseIdentifier = @"Cell";
     backButton.alpha = 0;
     [self.view addSubview:backButton];
     
-    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 50, 60, 25)];
+    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-70, 20, 60, 25)];
     shareButton.tag = 305;
     [shareButton setTitle:@"Share" forState:UIControlStateNormal];
     shareButton.layer.cornerRadius = 10;
