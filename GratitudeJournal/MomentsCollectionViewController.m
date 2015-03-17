@@ -85,6 +85,8 @@ static NSString * const reuseIdentifier = @"Cell";
     //if a Moment object was passed in, that means a new moment was just created and must be added to NSUserDefaults.
     //(aka we arrived at this view controller via the "Submit" button and not the tab bar controller.)
     if (self.moment != NULL) {
+        [self presentComeBackTomorrow];
+        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
         //Encode the data: Moment -> NSData
@@ -102,6 +104,44 @@ static NSString * const reuseIdentifier = @"Cell";
         [self.collectionView reloadData];
         NSLog(@"Finished adding new moment to defaults");
     }
+}
+
+- (void) presentComeBackTomorrow {
+    UIView *comeBackTomorrow = [[UIView alloc] init];
+    comeBackTomorrow.layer.cornerRadius = 10;
+    NSLog(@"x: %f, y: %f", self.view.center.x, self.view.center.y);
+    
+    [comeBackTomorrow setFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-75, 200, 150)];
+    comeBackTomorrow.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
+    comeBackTomorrow.alpha = 0;
+    
+    UILabel *mainText = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, comeBackTomorrow.frame.size.width, 30)];
+    mainText.text = @"Great job!";
+    [mainText setFont:[UIFont fontWithName:@"Avenir-Heavy" size:25.0]];
+    mainText.textColor = [UIColor whiteColor];
+    mainText.textAlignment = NSTextAlignmentCenter;
+    UILabel *subtext = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, comeBackTomorrow.frame.size.width-10, 60)];
+    subtext.text = @"Come back tomorrow to record another moment!";
+    subtext.numberOfLines = 2;
+    [subtext setFont:[UIFont fontWithName:@"Avenir" size:14.0]];
+    subtext.textColor = [UIColor whiteColor];
+    subtext.textAlignment = NSTextAlignmentCenter;
+    
+    [comeBackTomorrow addSubview:mainText];
+    [comeBackTomorrow addSubview:subtext];
+    
+    [self.view addSubview:comeBackTomorrow];
+    
+    [UIView animateWithDuration:2.5 animations:^{
+        comeBackTomorrow.alpha = 1;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0 animations:^{
+            sleep(1.0); //keep the view on the screen for an extra 1.0 second
+            comeBackTomorrow.alpha = 0;
+        } completion:^(BOOL finished) {
+            [comeBackTomorrow removeFromSuperview];
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

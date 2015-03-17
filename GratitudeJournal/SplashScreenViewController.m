@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self performSelector:@selector(dismissSplashScreen) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(dismissSplashScreen) withObject:nil afterDelay:1.5];
 }
 
 - (void)didReceiveMemoryWarning {
