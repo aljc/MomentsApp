@@ -102,6 +102,8 @@ static NSString * const reuseIdentifier = @"Cell";
         [defaults synchronize];
         
         [self.collectionView reloadData];
+        
+        self.moment = nil;
         NSLog(@"Finished adding new moment to defaults");
     }
 }
@@ -115,7 +117,7 @@ static NSString * const reuseIdentifier = @"Cell";
     comeBackTomorrow.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
     comeBackTomorrow.alpha = 0;
     
-    UILabel *mainText = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, comeBackTomorrow.frame.size.width, 30)];
+    UILabel *mainText = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, comeBackTomorrow.frame.size.width, 30)];
     mainText.text = @"Great job!";
     [mainText setFont:[UIFont fontWithName:@"Avenir-Heavy" size:25.0]];
     mainText.textColor = [UIColor whiteColor];
@@ -132,7 +134,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.view addSubview:comeBackTomorrow];
     
-    [UIView animateWithDuration:2.5 animations:^{
+    [UIView animateWithDuration:2.0 animations:^{
         comeBackTomorrow.alpha = 1;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:1.0 animations:^{
@@ -338,7 +340,7 @@ static NSString * const reuseIdentifier = @"Cell";
     SLComposeViewController *socialController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     
     // add initial text
-    [socialController setInitialText:@"Check out today's moment!"];
+    [socialController setInitialText:@"Check out my daily moment!"];
     
     // add an image
     [socialController addImage:self.zoomImage];
