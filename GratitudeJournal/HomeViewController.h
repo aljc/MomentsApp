@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 ajchang. All rights reserved.
 //
 
-/* Show the home view embedded with a tab bar controller that allows the user to switch between Home and Moments. */
+/* Show the home view embedded in a tab bar controller that allows the user to switch between Home and Moments. */
 
 #import <UIKit/UIKit.h>
 #import "Moment.h"

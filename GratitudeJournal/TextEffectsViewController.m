@@ -119,8 +119,9 @@
 
 #pragma mark - Screenshot
 
+//Take a screenshow of a view and all its subviews.
 //Source: https://developer.apple.com/library/ios/qa/qa1817/_index.html
-- (UIImage *)snapshot:(UIView *)view
+- (UIImage *)takeScreenshot:(UIView *)view
 {
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0);
     [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
@@ -144,7 +145,7 @@
         NSLog(@"Performing submitMoment segue");
         
         //take a screenshot of the main image view, to capture the added text
-        UIImage *imageWithText = [self snapshot:self.imageContainerView];
+        UIImage *imageWithText = [self takeScreenshot:self.imageContainerView];
         
         self.moment.image = imageWithText;
         
