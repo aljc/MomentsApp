@@ -51,8 +51,6 @@
     self.submitButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1]; /*#a091ed*/
     
     self.infoViewButton.layer.cornerRadius = 10;
-    [self.infoViewLabel sizeToFit];
-    self.infoViewLabel.text = @"Welcome to Moments! \r\rIt can be so easy to get swept up in our daily routines and that we forget to appreciate the small things.  It's been proven that taking time each day to reflect and appreciate makes us happier and healthier. \r\rWith Moments, you can record your own personal photo journal of beautiful, visually engaging daily moments.  Come back each day to record another moment!";
 
     self.infoView.layer.cornerRadius = 10;
 }
@@ -64,6 +62,22 @@
         
         [self.tabBarController presentViewController:splashScreen animated:NO completion:nil];
         self.didPresentSplashScreen = YES;
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    
+    //need to adjust bottom space constraints if app is running older iPhone models to get all
+    //subviews to fit within the info view
+    if (screenBounds.size.height <= 480) {
+        NSLog(@"Running on a 4S");
+        self.infoViewBottomSpaceConstraint.constant = 50.0;
+        self.infoViewButtonBottomSpaceConstraint.constant = 15.0;
+    }
+    else if (screenBounds.size.height <= 568) {
+        NSLog(@"Running on a 5 or 5S");
+        self.infoViewBottomSpaceConstraint.constant = 100.0;
     }
 }
 

@@ -88,6 +88,27 @@
         NSLog(@"Created and added color button");
     }
 
+//    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+//    [self.imageContainerView removeFromSuperview];
+//    [self.imageContainerView setFrame:CGRectMake(0, 0, width, width)];
+//    [self.view addSubview:self.imageContainerView];
+//    [self.imageView setFrame:CGRectMake(0, 0, 10, 10)];
+//    //need to adjust leading space constraint for date label if running on
+//    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+//    
+//    //need to adjust bottom space constraints if app is running older iPhone models to get all
+//    //subviews to fit within the info view
+//    if (screenBounds.size.height <= 480) {
+//        NSLog(@"Running on a 4S");
+//        self.infoViewBottomSpaceConstraint.constant = 50.0;
+//        self.infoViewButtonBottomSpaceConstraint.constant = 15.0;
+//    }
+//    else if (screenBounds.size.height <= 568) {
+//        NSLog(@"Running on a 5 or 5S");
+//        self.infoViewBottomSpaceConstraint.constant = 100.0;
+//    }
+    
+
 }
 
 #pragma mark - Target Actions

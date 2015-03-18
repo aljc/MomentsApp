@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *momentTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *momentDateLabel;
 @property (strong, nonatomic) Moment *moment;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *momentDateLabelLeadingSpaceConstraint;
 
 @end
