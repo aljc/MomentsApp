@@ -58,6 +58,8 @@
     //set default font
     [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:0] size:25.0]];
     [self.momentDateLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:0] size:17.0]];
+    self.momentDateLabel.textColor = [UIColor whiteColor];
+    self.momentDateLabel.backgroundColor = [UIColor blackColor];
     
     
     self.fontsScrollView.contentSize = CGSizeMake(250, 50);
@@ -107,15 +109,12 @@
     [self.momentTextLabel sizeToFit];
 }
 
-//Once the user has chosen a text color, apply the color to the moment and date text.
+//Once the user has chosen a text color, apply the color to the moment text.
 - (IBAction)chooseColor:(UIButton *)sender {
     NSLog(@"Button pressed target action: chose color");
     int chosenColorIndex = (int)sender.tag-200;
     NSLog(@"Chose color #%d", chosenColorIndex);
     self.momentTextLabel.textColor = [self.colors objectAtIndex:chosenColorIndex];
-    
-    //update date color as well
-    self.momentDateLabel.textColor = [self.colors objectAtIndex:chosenColorIndex];
 }
 
 #pragma mark - Screenshot
