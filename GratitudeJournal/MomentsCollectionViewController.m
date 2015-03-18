@@ -129,7 +129,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //fade-in the view
     [UIView animateWithDuration:2.0 animations:^{
-        comeBackTomorrow.alpha = 1;
+        comeBackTomorrow.alpha = 0.9;
     } completion:^(BOOL finished) { //fade-out the view
         [UIView animateWithDuration:1.0 animations:^{
             sleep(1.0); //keep the view on the screen for an extra 1.0 second

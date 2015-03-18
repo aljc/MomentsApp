@@ -47,7 +47,13 @@
     UIColor *greenColor = [UIColor colorWithRed:0.8 green:1 blue:0.698 alpha:1];
     UIColor *blueColor = [UIColor colorWithRed:0.58 green:0.722 blue:1 alpha:1];
     UIColor *purpleColor = [UIColor colorWithRed:0.8 green:0.6 blue:1 alpha:1];
-    self.colors = [NSArray arrayWithObjects:[UIColor whiteColor], [UIColor blackColor], pinkColor, orangeColor, yellowColor, greenColor, blueColor, purpleColor, nil];
+    UIColor *darkPinkColor = [UIColor colorWithRed:0.675 green:0.122 blue:0.263 alpha:1]; /*#ac1f43*/
+    UIColor *darkOrangeColor = [UIColor colorWithRed:0.933 green:0.49 blue:0 alpha:1]; /*#ee7d00*/
+    UIColor *darkGreenColor = [UIColor colorWithRed:0 green:0.667 blue:0.392 alpha:1]; /*#00aa64*/
+    UIColor *darkBlueColor = [UIColor colorWithRed:0.008 green:0.173 blue:0.776 alpha:1]; /*#022cc6*/
+    UIColor *darkPurpleColor = [UIColor colorWithRed:0.333 green:0.122 blue:0.58 alpha:1]; /*#551f94*/
+    self.colors = [NSArray arrayWithObjects:[UIColor whiteColor], [UIColor blackColor], pinkColor, orangeColor, yellowColor, greenColor, blueColor, purpleColor,
+                   darkPinkColor, darkOrangeColor, darkGreenColor, darkBlueColor, darkPurpleColor, nil];
     
     //set default font
     [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:0] size:25.0]];
@@ -55,7 +61,7 @@
     
     
     self.fontsScrollView.contentSize = CGSizeMake(250, 50);
-    self.colorsScrollView.contentSize = CGSizeMake(500, 50);
+    self.colorsScrollView.contentSize = CGSizeMake(700, 50);
     
     //Create font buttons
     for (int i = 0; i < [self.fonts count]; i++) {

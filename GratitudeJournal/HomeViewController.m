@@ -204,14 +204,13 @@
         [dateFormatter setDateStyle:NSDateFormatterShortStyle];
         NSString *todaysDate = [dateFormatter stringFromDate:[NSDate date]];
         todaysMoment.date = todaysDate;
-        NSLog(@"today's date: %@", todaysDate);
         todaysMoment.image = chosenImage;
         
         self.moment = todaysMoment;
         [self performSegueWithIdentifier:@"showFilters" sender:self];
     }];
     
-    NSLog(@"dismissed picker");
+    NSLog(@"Dismissed image picker");
 }
 
 //If user presses cancel on the image picker view, dismiss the image picker controller.
