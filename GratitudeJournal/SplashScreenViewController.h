@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 ajchang. All rights reserved.
 //
 
+/* Dismiss the splash screen upon presentation. */
+
 #import <UIKit/UIKit.h>
 
 @interface SplashScreenViewController : UIViewController

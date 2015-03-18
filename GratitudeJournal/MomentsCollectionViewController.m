@@ -28,31 +28,26 @@ static NSString * const reuseIdentifier = @"Cell";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.savedMoments = [defaults objectForKey:@"moments"];
     
-    NSLog(@"COUNT: %d", (int)self.savedMoments.count);
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    //if we arrived at this view controller from the submitMoment segue
+    
+    //If we arrived at this view controller from the submitMoment segue, add the new moment to saved moments.
     if (self.moment != NULL) {
         self.savedMoments = [defaults objectForKey:@"moments"];
         
-        NSLog(@"Adding moment to user defaults");
-        NSLog(@"IMAGE: %@", self.moment.image);
+        NSLog(@"Adding submitted moment to user defaults");
         self.navigationItem.hidesBackButton = YES;
         self.navigationItem.title = @"Moments";
         
         [self addMomentToDefaults];
     }
     
-    NSLog(@"updating savedMoments");
+    NSLog(@"Updating savedMoments");
     self.savedMoments = [defaults objectForKey:@"moments"];
     
-    //refresh control
+    //Refresh control
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.tag = 303;
     refreshControl.tintColor = [UIColor grayColor];
@@ -63,10 +58,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView reloadData];
 }
 
-- (IBAction)presentHomeView {
-    [self performSegueWithIdentifier:@"showHome" sender:self];
-}
-
+//Refresh the data.
 - (void)refreshCollection {
     NSLog(@"Pull To Refresh");
     
@@ -81,9 +73,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - NSUserDefaults
 
+//Add newly submitted moment to user defaults and update savedMoments.
 - (void)addMomentToDefaults {
-    //if a Moment object was passed in, that means a new moment was just created and must be added to NSUserDefaults.
-    //(aka we arrived at this view controller via the "Submit" button and not the tab bar controller.)
     if (self.moment != NULL) {
         [self presentComeBackTomorrow];
         
@@ -108,10 +99,12 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 
+//Present the "Come back tomorrow" view after user has finished submitting daily moment.
 - (void) presentComeBackTomorrow {
+    NSLog(@"Presenting come back tomorrow");
+    
     UIView *comeBackTomorrow = [[UIView alloc] init];
     comeBackTomorrow.layer.cornerRadius = 10;
-    NSLog(@"x: %f, y: %f", self.view.center.x, self.view.center.y);
     
     [comeBackTomorrow setFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/4, 200, 150)];
     comeBackTomorrow.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
@@ -122,7 +115,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [mainText setFont:[UIFont fontWithName:@"Avenir-Heavy" size:25.0]];
     mainText.textColor = [UIColor whiteColor];
     mainText.textAlignment = NSTextAlignmentCenter;
-    UILabel *subtext = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, comeBackTomorrow.frame.size.width-10, 60)];
+    UILabel *subtext = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, comeBackTomorrow.frame.size.width-15, 60)];
     subtext.text = @"Come back tomorrow to record another moment!";
     subtext.numberOfLines = 2;
     [subtext setFont:[UIFont fontWithName:@"Avenir" size:14.0]];
@@ -134,9 +127,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.view addSubview:comeBackTomorrow];
     
+    //fade-in the view
     [UIView animateWithDuration:2.0 animations:^{
         comeBackTomorrow.alpha = 1;
-    } completion:^(BOOL finished) {
+    } completion:^(BOOL finished) { //fade-out the view
         [UIView animateWithDuration:1.0 animations:^{
             sleep(1.0); //keep the view on the screen for an extra 1.0 second
             comeBackTomorrow.alpha = 0;
@@ -166,9 +160,9 @@ static NSString * const reuseIdentifier = @"Cell";
     return CGSizeMake(140, 140);
 }
 
-- (UIEdgeInsets)collectionView:
-(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    NSLog(@"EDGE INSETS");
+//Adjust the edge insets of the cells based on the device type and model.
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    NSLog(@"Adjusting edge insets");
 
     UIEdgeInsets edgeInsets;
     
@@ -181,7 +175,6 @@ static NSString * const reuseIdentifier = @"Cell";
         NSLog(@"Current device is an iPhone");
         
         CGRect screenBounds = [[UIScreen mainScreen] bounds];
-        NSLog(@"Current device screen height: %f", screenBounds.size.height);
         
         //return these edge inset values for iPhone 5S or older
         if (screenBounds.size.height <= 568) {
@@ -207,7 +200,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.savedMoments count];
-    //return _recipePhotos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -215,14 +207,14 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Configure the cell
     
-    NSLog(@"populating collection view cells");
+    NSLog(@"Populating collection view cells");
     
     NSData *currentMoment = [self.savedMoments objectAtIndex:indexPath.row];
     
-    //DECODE DATA: NSDATA -> MOMENT
+    //Decode NSData -> Moment
     Moment *currentMomentDecoded= (Moment*) [NSKeyedUnarchiver unarchiveObjectWithData:currentMoment];
     
-    NSLog(@"DECODED MOMENT: %@", currentMomentDecoded.text);
+    NSLog(@"Decoded moment: %@", currentMomentDecoded.text);
     
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView.clipsToBounds = YES;
@@ -233,23 +225,23 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - Cell selection
 
+//If a cell is selected, zoom to the cell image.
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-
 {
     [self zoomToSelectedImage:indexPath];
 }
 
+//Animate the zoom to a cell image upon selection.
 //Source: http://stackoverflow.com/questions/24741597/uicollectionview-full-screen-zoom-on-uicollectionviewcell
 - (void)zoomToSelectedImage:(NSIndexPath *)indexPath
 
 {
-    NSLog(@"zoom image");
+    NSLog(@"Zooming to cell image");
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.savedMoments = [defaults objectForKey:@"moments"];
 
     NSData* selectedMomentData =[self.savedMoments objectAtIndex:indexPath.row];
-    
     Moment *selectedMoment= (Moment*) [NSKeyedUnarchiver unarchiveObjectWithData:selectedMomentData];
     
     UIImageView *zoomImage = [[UIImageView alloc] initWithImage:selectedMoment.image];
@@ -257,17 +249,19 @@ static NSString * const reuseIdentifier = @"Cell";
     zoomImage.tag = 302;
     self.zoomImage = zoomImage.image;
     
+    //Define the end frame of the zoom
     CGRect zoomFrameTo = CGRectMake(0,0, self.view.frame.size.width,self.view.frame.size.height);
     UICollectionView *cv = (UICollectionView *)[self.view viewWithTag:301];
     cv.hidden = TRUE;
     UICollectionViewCell *cellToZoom =(UICollectionViewCell *)[cv cellForItemAtIndexPath:indexPath];
+    //Define the begin frame of the zoom
     CGRect zoomFrameFrom = cellToZoom.frame;
     
-    NSLog(@"got here");
     [self.view addSubview:zoomImage];
     zoomImage.frame = zoomFrameFrom;
     zoomImage.alpha = 0.2;
     
+    //Create back button to return to grid view
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 60, 25)];
     backButton.tag = 304;
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
@@ -284,6 +278,7 @@ static NSString * const reuseIdentifier = @"Cell";
     backButton.alpha = 0;
     [self.view addSubview:backButton];
     
+    //Create share button to allow user to post selected image to Facebook
     UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-70, 20, 60, 25)];
     shareButton.tag = 305;
     [shareButton setTitle:@"Share" forState:UIControlStateNormal];
@@ -300,6 +295,7 @@ static NSString * const reuseIdentifier = @"Cell";
     shareButton.alpha = 0;
     [self.view addSubview:shareButton];
     
+    //Animate the zoom
     [UIView animateWithDuration:0.3 animations:
      ^{
          zoomImage.frame = zoomFrameTo;
@@ -308,10 +304,13 @@ static NSString * const reuseIdentifier = @"Cell";
          shareButton.alpha = 1;
      } completion:nil];
     
+    //Save the begin frame of the zoom for later zoom-out purposes
     self.zoomFrame = zoomFrameFrom;
 }
 
+//Zoom out to grid view upon user pressing "Back" button from a selected cell.
 - (IBAction)dismissCell:(UIButton *)sender {
+    NSLog(@"Button pressed target action: dismiss selected cell");
     [self zoomOutFromSelectedImage:self.zoomFrame];
 }
 
@@ -333,20 +332,12 @@ static NSString * const reuseIdentifier = @"Cell";
     }];
 }
 
-//Displays a Facebook sheet to allow user to share moment
-//Source: http://pinkstone.co.uk/how-to-post-to-facebook-and-twitter-using-social-framework/
+//Display a Facebook sheet to allow user to post moment to Facebook.
 - (IBAction)configureSocial:(UIBarButtonItem *)sender {
 
     SLComposeViewController *socialController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-    
-    // add initial text
     [socialController setInitialText:@"Check out my daily moment!"];
-    
-    // add an image
     [socialController addImage:self.zoomImage];
-
-    
-    // present controller
     [self presentViewController:socialController animated:YES completion:nil];
 }
 

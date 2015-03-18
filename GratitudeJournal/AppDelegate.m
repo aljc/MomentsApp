@@ -22,7 +22,6 @@
     [defaults setValue:[NSDate date] forKey:@"Initial Launch"];
     
     NSNumber *launchNumber = [defaults objectForKey:@"Launch Number"];
-    NSLog(@"%@", launchNumber);
     //first launch
     if (launchNumber == nil) {
         [defaults setValue:[NSNumber numberWithInt:1] forKey:@"Launch Number"];

@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //Display the splash screen view for 1.5 seconds upon launch.
     [self performSelector:@selector(dismissSplashScreen) withObject:nil afterDelay:1.5];
 }
 
@@ -26,6 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Dismiss the splash screen view controller.
 - (void) dismissSplashScreen {
     [self dismissViewControllerAnimated:NO completion:nil];
 }

@@ -75,37 +75,37 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Moments!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrm-PV-C5q">
                                         <rect key="frame" x="15" y="20" width="270" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5s-F2-5J7">
                                         <rect key="frame" x="15" y="52" width="270" height="20"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Choose a photo, filter, font, and color for your moment." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoE-6Z-krC">
-                                        <rect key="frame" x="15" y="125" width="270" height="33"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="15" y="118" width="270" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Browse and share any of your previous moments!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-ep-Kex">
-                                        <rect key="frame" x="15" y="168" width="270" height="33"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="15" y="159" width="270" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Come back the next day to record another moment!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQI-GB-ik3">
-                                        <rect key="frame" x="15" y="211" width="270" height="33"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="15" y="200" width="270" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Enter in your daily gratitude text and press Submit." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkt-Xg-VWX">
-                                        <rect key="frame" x="15" y="82" width="270" height="33"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="15" y="77" width="270" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -119,20 +119,20 @@
                                     <constraint firstItem="pkt-Xg-VWX" firstAttribute="width" secondItem="G5s-F2-5J7" secondAttribute="width" id="7vz-xg-XZS"/>
                                     <constraint firstItem="QoE-6Z-krC" firstAttribute="width" secondItem="8cd-ep-Kex" secondAttribute="width" id="AKC-35-bRh"/>
                                     <constraint firstItem="QoE-6Z-krC" firstAttribute="width" secondItem="zQI-GB-ik3" secondAttribute="width" id="AqS-Ej-zVK"/>
-                                    <constraint firstItem="pkt-Xg-VWX" firstAttribute="top" secondItem="G5s-F2-5J7" secondAttribute="bottom" constant="10" id="Aun-cs-vsO"/>
-                                    <constraint firstItem="zQI-GB-ik3" firstAttribute="top" secondItem="8cd-ep-Kex" secondAttribute="bottom" constant="10" id="CBn-dd-nvB"/>
+                                    <constraint firstItem="pkt-Xg-VWX" firstAttribute="top" secondItem="G5s-F2-5J7" secondAttribute="bottom" constant="5" id="Aun-cs-vsO"/>
+                                    <constraint firstItem="zQI-GB-ik3" firstAttribute="top" secondItem="8cd-ep-Kex" secondAttribute="bottom" constant="5" id="CBn-dd-nvB"/>
                                     <constraint firstAttribute="centerX" secondItem="QoE-6Z-krC" secondAttribute="centerX" id="CCQ-Sq-KOH"/>
                                     <constraint firstItem="G5s-F2-5J7" firstAttribute="width" secondItem="QoE-6Z-krC" secondAttribute="width" id="Fj8-NZ-OUu"/>
                                     <constraint firstItem="8cd-ep-Kex" firstAttribute="width" secondItem="G5s-F2-5J7" secondAttribute="width" id="G2N-Zs-cnw"/>
                                     <constraint firstItem="G5s-F2-5J7" firstAttribute="top" secondItem="hrm-PV-C5q" secondAttribute="bottom" constant="10" id="G5K-vl-TRY"/>
-                                    <constraint firstItem="QoE-6Z-krC" firstAttribute="top" secondItem="pkt-Xg-VWX" secondAttribute="bottom" constant="10" id="Nyj-67-4a2"/>
+                                    <constraint firstItem="QoE-6Z-krC" firstAttribute="top" secondItem="pkt-Xg-VWX" secondAttribute="bottom" constant="5" id="Nyj-67-4a2"/>
                                     <constraint firstItem="QoE-6Z-krC" firstAttribute="height" secondItem="pkt-Xg-VWX" secondAttribute="height" id="Pvv-PL-YAG"/>
                                     <constraint firstItem="hrm-PV-C5q" firstAttribute="width" secondItem="G5s-F2-5J7" secondAttribute="width" id="QUV-jV-tWN"/>
                                     <constraint firstAttribute="centerX" secondItem="hrm-PV-C5q" secondAttribute="centerX" id="QsL-E0-lgo"/>
-                                    <constraint firstItem="8cd-ep-Kex" firstAttribute="top" secondItem="QoE-6Z-krC" secondAttribute="bottom" constant="10" id="Rmz-9L-e9k"/>
+                                    <constraint firstItem="8cd-ep-Kex" firstAttribute="top" secondItem="QoE-6Z-krC" secondAttribute="bottom" constant="5" id="Rmz-9L-e9k"/>
                                     <constraint firstItem="QoE-6Z-krC" firstAttribute="height" secondItem="zQI-GB-ik3" secondAttribute="height" id="Vjp-Hc-eAA"/>
                                     <constraint firstAttribute="width" constant="300" id="a62-NK-zVi"/>
-                                    <constraint firstItem="QoE-6Z-krC" firstAttribute="top" secondItem="pkt-Xg-VWX" secondAttribute="bottom" constant="10" id="dRy-Gb-u9R"/>
+                                    <constraint firstItem="QoE-6Z-krC" firstAttribute="top" secondItem="pkt-Xg-VWX" secondAttribute="bottom" constant="5" id="dRy-Gb-u9R"/>
                                     <constraint firstAttribute="centerX" secondItem="pkt-Xg-VWX" secondAttribute="centerX" id="gFy-mp-Hs7"/>
                                     <constraint firstAttribute="centerX" secondItem="01v-no-MmW" secondAttribute="centerX" id="kVj-no-ouv"/>
                                     <constraint firstAttribute="centerX" secondItem="zQI-GB-ik3" secondAttribute="centerX" id="mCP-Mx-z3M"/>

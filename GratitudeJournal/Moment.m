@@ -10,12 +10,14 @@
 
 @implementation Moment
 
+//Encode moment object.
 - (void)encodeWithCoder:(NSCoder*)aCoder {
     [aCoder encodeObject:self.text forKey:@"text"];
     [aCoder encodeObject:self.date forKey:@"date"];
     [aCoder encodeObject:self.image forKey:@"image"];
 }
 
+//Decode moment object.
 - (id) initWithCoder:(NSCoder*)aDecoder {
     self = [super init];
     

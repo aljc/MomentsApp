@@ -22,8 +22,6 @@
     [super viewDidLoad];
 }
 
-//**use viewdidload to initalize all views and layouts, etc, but puteverything that takes time (image processing, etc) in either viewwillappear viewdidappear.
-
 - (void)viewWillAppear:(BOOL)animated {
     //load image and label text
     if (self.moment != nil) {
@@ -88,32 +86,14 @@
         NSLog(@"Created and added color button");
     }
 
-//    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
-//    [self.imageContainerView removeFromSuperview];
-//    [self.imageContainerView setFrame:CGRectMake(0, 0, width, width)];
-//    [self.view addSubview:self.imageContainerView];
-//    [self.imageView setFrame:CGRectMake(0, 0, 10, 10)];
-//    //need to adjust leading space constraint for date label if running on
-//    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-//    
-//    //need to adjust bottom space constraints if app is running older iPhone models to get all
-//    //subviews to fit within the info view
-//    if (screenBounds.size.height <= 480) {
-//        NSLog(@"Running on a 4S");
-//        self.infoViewBottomSpaceConstraint.constant = 50.0;
-//        self.infoViewButtonBottomSpaceConstraint.constant = 15.0;
-//    }
-//    else if (screenBounds.size.height <= 568) {
-//        NSLog(@"Running on a 5 or 5S");
-//        self.infoViewBottomSpaceConstraint.constant = 100.0;
-//    }
-    
-
 }
 
 #pragma mark - Target Actions
 
+//Once the user has chosen a font, apply that font to the moment text.
 - (IBAction)chooseFont:(UIButton *)sender {
+    NSLog(@"Button pressed target action: chose font");
+    
     int chosenFontIndex = (int)sender.tag-100;
     NSLog(@"Chose font #%d", chosenFontIndex);
     [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:chosenFontIndex] size:25.0]];
@@ -121,7 +101,9 @@
     [self.momentTextLabel sizeToFit];
 }
 
+//Once the user has chosen a text color, apply the color to the moment and date text.
 - (IBAction)chooseColor:(UIButton *)sender {
+    NSLog(@"Button pressed target action: chose color");
     int chosenColorIndex = (int)sender.tag-200;
     NSLog(@"Chose color #%d", chosenColorIndex);
     self.momentTextLabel.textColor = [self.colors objectAtIndex:chosenColorIndex];
@@ -159,7 +141,6 @@
         //take a screenshot of the main image view, to capture the added text
         UIImage *imageWithText = [self snapshot:self.imageContainerView];
         
-        
         self.moment.image = imageWithText;
         
         //pass updated Moment object with text overlay to MomentsCollectionViewController
@@ -170,8 +151,10 @@
 
 #pragma mark - Gesture Recognizers
 
+//Add rotation, pinch, and pan gesture recognizers to moment text.
 - (void)addGestureRecognizersToPiece:(UIView *)piece
 {
+    NSLog(@"Adding gesture recognizers to moment text");
     UIRotationGestureRecognizer *rotationGesture = [[UIRotationGestureRecognizer alloc]
                                                     initWithTarget:self action:@selector(rotatePiece:)];
     [piece addGestureRecognizer:rotationGesture];

@@ -5,6 +5,7 @@
 //  Created by ajchang on 3/15/15.
 //  Copyright (c) 2015 ajchang. All rights reserved.
 //
+/* Collection View Controller for presenting the user's past moments. */
 
 #import <UIKit/UIKit.h>
 #import "Moment.h"

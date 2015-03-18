@@ -10,12 +10,6 @@
 #import "MomentsCollectionViewController.h"
 #import "FilterImageViewController.h"
 
-/* TODOS
- instagram integration!!
- collage/gif scroller (50 happy days, etc)
- 
- */
-
 @interface HomeViewController ()
 
 @property NSMutableArray *placeholderArray;
@@ -28,10 +22,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //[self resetNSUserDefaults];
+}
 
-    
+- (void)viewDidAppear:(BOOL)animated {
+    //If splash screen has not already been presented, then present the splash screen upon launch.
+    if (!self.didPresentSplashScreen) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController* splashScreen = [storyboard instantiateViewControllerWithIdentifier:@"splashScreen"];
+        
+        [self.tabBarController presentViewController:splashScreen animated:NO completion:nil];
+        self.didPresentSplashScreen = YES;
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    //Initialize auto-generated random placeholder text
     self.placeholderArray = [[NSMutableArray alloc] init];
     [self.placeholderArray addObject:@"What made you smile today?"];
     [self.placeholderArray addObject:@"Little things count too!"];
@@ -51,21 +56,9 @@
     self.submitButton.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1]; /*#a091ed*/
     
     self.infoViewButton.layer.cornerRadius = 10;
-
+    
     self.infoView.layer.cornerRadius = 10;
-}
 
-- (void)viewDidAppear:(BOOL)animated {
-    if (!self.didPresentSplashScreen) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController* splashScreen = [storyboard instantiateViewControllerWithIdentifier:@"splashScreen"];
-        
-        [self.tabBarController presentViewController:splashScreen animated:NO completion:nil];
-        self.didPresentSplashScreen = YES;
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     //need to adjust bottom space constraints if app is running older iPhone models to get all
@@ -96,9 +89,9 @@
     if ([[segue identifier] isEqualToString:@"showMoments"])
     {
         NSLog(@"Performing showMoments segue");
-        //every time you submit a new moment, automatically update the moments array in the table view controller
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         MomentsCollectionViewController *mvc = [segue destinationViewController];
+        //Update the saved moments array in the Moments collection view
         mvc.savedMoments = [defaults objectForKey:@"moments"];
     }
     else if ([[segue identifier] isEqualToString:@"showFilters"])
@@ -106,7 +99,7 @@
         NSLog(@"Performing showFilters segue");
         //pass Moment object to Filter Image View Controller
         //Note: this segue goes to the navigation controller, not the filters view controller, in order to show the nav bar.
-        //BUT, in order to pass along the image to the FVC itself, we can retrieve the FVC from the NVC by using nvc.topViewController.
+        //In order to pass along the image to the FVC itself, we can retrieve the FVC from the NVC by using nvc.topViewController.
         UINavigationController *nvc = [segue destinationViewController];
         FilterImageViewController *fvc = (FilterImageViewController*) nvc.topViewController; //NOW you can pass along the moment to this view controller's property
         fvc.moment = self.moment;
@@ -115,7 +108,7 @@
 
 #pragma mark - Saving Moments
 
-//for testing purposes - reset user defaults
+//Reset NSUserDefaults - for testing purposes.
 //Source: http://stackoverflow.com/questions/6358737/nsuserdefaults-reset
 - (void)resetNSUserDefaults {
     NSDictionary *defaultsDictionary = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
@@ -124,18 +117,18 @@
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
 }
 
 #pragma mark - Target Action
 
+//Upon info button click, present the info view if it is not already showing.
 - (IBAction)presentInfo:(UIButton *)sender {
-    //show the info view if it is not already showing
-    if (self.infoView.hidden==YES) {
-        
+    NSLog(@"Button pressed target action: present info");
+    if (self.infoView.hidden) {
         self.infoView.alpha = 0;
         self.infoView.hidden = NO;
         
+        //Fade in animation
         [UIView animateWithDuration:0.5 animations:
          ^{
              self.infoView.alpha = 1.0;
@@ -143,7 +136,9 @@
     }
 }
 
+//Upon info view button click, dismiss the info view.
 - (IBAction)dismissInfo:(UIButton *)sender {
+    NSLog(@"Button pressed target action: dismiss info");
     [UIView animateWithDuration:0.5 animations:
      ^{
          self.infoView.alpha = 0;
@@ -152,13 +147,15 @@
      }];
 }
 
+//Load the image picker so user can choose a photo from gallery upon submitting gratitude text.
+//TODO: Later versions will allow user to take a photo as well.
 - (IBAction)loadImagePicker:(UIButton *)sender {
+    NSLog(@"Button pressed target action: load image picker");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.modalPresentationStyle = UIModalPresentationCurrentContext;
     picker.delegate = self;
     picker.allowsEditing = YES;
     
-    //default to choose photo from gallery
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
     {
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
@@ -170,7 +167,7 @@
 
 #pragma mark - Image picker delegate methods
 
-//Source: http://www.raywenderlich.com/13541/how-to-create-an-app-like-instagram-with-a-web-service-backend-part-22
+//Once user has chosen an image, crop the image to a square if they have not done so already.
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
      NSLog(@"Did finish picking image");
@@ -198,7 +195,7 @@
         }
     }
     
-    //after user has selected a photo, we must create the moment and segue to Filters
+    //after user has selected a photo, create the moment and segue to Filters
     [picker dismissViewControllerAnimated:YES completion:^{
         Moment *todaysMoment = [[Moment alloc] init];
         todaysMoment.text = self.dailyQuestion.text;
@@ -211,22 +208,25 @@
         todaysMoment.image = chosenImage;
         
         self.moment = todaysMoment;
-        //[self addMomentToDefaults];
         [self performSegueWithIdentifier:@"showFilters" sender:self];
     }];
     
     NSLog(@"dismissed picker");
 }
 
+//If user presses cancel on the image picker view, dismiss the image picker controller.
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITextField Delegate
+
+//Return YES when user has begun editing the text field.
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     return YES;
 }
 
+//Return YES when user has finished editing the text field.
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;

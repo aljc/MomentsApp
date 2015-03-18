@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 ajchang. All rights reserved.
 //
 
+/* Cell for MomentsCollectionViewController */
+
 #import <UIKit/UIKit.h>
 
 @interface MomentsCollectionViewCell : UICollectionViewCell

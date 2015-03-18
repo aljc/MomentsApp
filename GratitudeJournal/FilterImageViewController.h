@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 ajchang. All rights reserved.
 //
 
+/* Allow user to apply filters to their photo. */
+
 #import <UIKit/UIKit.h>
 #import "Moment.h"
 

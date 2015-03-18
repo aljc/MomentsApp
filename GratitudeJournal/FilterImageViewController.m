@@ -22,20 +22,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
     //navigation bar should not cover top of view
     self.navigationController.navigationBar.translucent = NO;
     
     self.imageFullSize = [self imageWithImage:self.moment.image scaledToSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)]; //resize the image that was passed from the segue to the bounds of the imageView
     self.imageThumbnail = [self imageWithImage:self.imageFullSize scaledToSize:CGSizeMake(100, 100)]; //create the filter preview thumbnail version of the image
     
+    //initialize properties
     self.prevChosenFilterIndex = -1;
     self.doubleTapped = NO;
     
     self.filterScrollView.contentSize = CGSizeMake(832, 120);
     self.filters = [NSArray arrayWithObjects:@"CIPhotoEffectChrome", @"CIPhotoEffectFade", @"CIPhotoEffectInstant", @"CIPhotoEffectNoir", @"CIPhotoEffectMono", @"CIPhotoEffectProcess", @"CIPhotoEffectTransfer", @"CIVignetteEffect", nil];
     self.filterLabels = [NSArray arrayWithObjects:@"Chrome", @"Fade", @"Instant", @"Noir", @"Mono", @"Process", @"Transfer", @"Vignette", nil];
-
+    
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.clipsToBounds = YES;
     self.imageView.backgroundColor = [UIColor whiteColor];
@@ -58,7 +61,7 @@
         CIImage *filterThumbnailData = [filter valueForKey:@"outputImage"];
         //create filtered UIImage with filtered CIImage
         UIImage *filterThumbnail = [UIImage imageWithCIImage:filterThumbnailData];
-  
+        
         //create a button to overlay over the frame of the image
         UIButton *filterButton = [[UIButton alloc] initWithFrame:CGRectMake(i*100 + i*4, 0, 100, 100)];
         filterButton.tag = i + 100;
@@ -87,10 +90,11 @@
 
 #pragma mark - Filter Actions
 
-//http://ajourneywithios.blogspot.com/2012/03/resizing-uiimage-in-ios.html
-- (UIImage*)imageWithImage:(UIImage*)image
-scaledToSize:(CGSize)newSize
+//Resize an image.
+//Source: http://ajourneywithios.blogspot.com/2012/03/resizing-uiimage-in-ios.html
+- (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
 {
+    NSLog(@"Resizing the image");
     UIGraphicsBeginImageContext( newSize );
     [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -99,10 +103,9 @@ scaledToSize:(CGSize)newSize
     return newImage;
 }
 
+//Once user has chosen a filter, apply it to the full-sized image.
 - (IBAction)chooseFilter:(UIButton *)sender {
-    
-    //i've got a tag to refer to each button and to know which button was pressed.  can map to index of my
-    //filter name array and apply that filter to the full image.
+    NSLog(@"Button pressed target action: chose filter");
     
     int chosenFilterIndex = (int)sender.tag-100;
     NSLog(@"Chose %@ filter", [self.filters objectAtIndex:chosenFilterIndex]);

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Moment.h"
 
+/* Allow user to apply text effects to the image. */
+
 @interface TextEffectsViewController : UIViewController
 
 
