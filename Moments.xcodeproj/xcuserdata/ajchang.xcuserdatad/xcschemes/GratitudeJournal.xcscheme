@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "31D2C2271AA503C100130173"
-               BuildableName = "GratitudeJournal.app"
-               BlueprintName = "GratitudeJournal"
-               ReferencedContainer = "container:GratitudeJournal.xcodeproj">
+               BuildableName = "Moments.app"
+               BlueprintName = "Moments"
+               ReferencedContainer = "container:Moments.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "31D2C2431AA503C100130173"
-               BuildableName = "GratitudeJournalTests.xctest"
-               BlueprintName = "GratitudeJournalTests"
-               ReferencedContainer = "container:GratitudeJournal.xcodeproj">
+               BuildableName = "MomentsTests.xctest"
+               BlueprintName = "MomentsTests"
+               ReferencedContainer = "container:Moments.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "31D2C2431AA503C100130173"
-               BuildableName = "GratitudeJournalTests.xctest"
-               BlueprintName = "GratitudeJournalTests"
-               ReferencedContainer = "container:GratitudeJournal.xcodeproj">
+               BuildableName = "MomentsTests.xctest"
+               BlueprintName = "MomentsTests"
+               ReferencedContainer = "container:Moments.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "31D2C2271AA503C100130173"
-            BuildableName = "GratitudeJournal.app"
-            BlueprintName = "GratitudeJournal"
-            ReferencedContainer = "container:GratitudeJournal.xcodeproj">
+            BuildableName = "Moments.app"
+            BlueprintName = "Moments"
+            ReferencedContainer = "container:Moments.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "31D2C2271AA503C100130173"
-            BuildableName = "GratitudeJournal.app"
-            BlueprintName = "GratitudeJournal"
-            ReferencedContainer = "container:GratitudeJournal.xcodeproj">
+            BuildableName = "Moments.app"
+            BlueprintName = "Moments"
+            ReferencedContainer = "container:Moments.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "31D2C2271AA503C100130173"
-            BuildableName = "GratitudeJournal.app"
-            BlueprintName = "GratitudeJournal"
-            ReferencedContainer = "container:GratitudeJournal.xcodeproj">
+            BuildableName = "Moments.app"
+            BlueprintName = "Moments"
+            ReferencedContainer = "container:Moments.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

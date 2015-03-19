@@ -46,7 +46,7 @@
 		31C2D65F1AAE438200D0B5E8 /* Moment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moment.m; sourceTree = "<group>"; };
 		31C98BB51AB4F00F00651E13 /* TextEffectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEffectsViewController.h; sourceTree = "<group>"; };
 		31C98BB61AB4F00F00651E13 /* TextEffectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEffectsViewController.m; sourceTree = "<group>"; };
-		31D2C2281AA503C100130173 /* GratitudeJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GratitudeJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D2C2281AA503C100130173 /* Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D2C22C1AA503C100130173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D2C22D1AA503C100130173 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		31D2C22F1AA503C100130173 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		31D2C2391AA503C100130173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31D2C23B1AA503C100130173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		31D2C23E1AA503C100130173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		31D2C2441AA503C100130173 /* GratitudeJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GratitudeJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D2C2441AA503C100130173 /* MomentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MomentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D2C2491AA503C100130173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D2C24A1AA503C100130173 /* GratitudeJournalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GratitudeJournalTests.m; sourceTree = "<group>"; };
 		31FF6D301AB61F39007A8F3D /* MomentsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsCollectionViewController.h; sourceTree = "<group>"; };
@@ -94,8 +94,8 @@
 		31D2C2291AA503C100130173 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				31D2C2281AA503C100130173 /* GratitudeJournal.app */,
-				31D2C2441AA503C100130173 /* GratitudeJournalTests.xctest */,
+				31D2C2281AA503C100130173 /* Moments.app */,
+				31D2C2441AA503C100130173 /* MomentsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,9 +157,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		31D2C2271AA503C100130173 /* GratitudeJournal */ = {
+		31D2C2271AA503C100130173 /* Moments */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31D2C24E1AA503C100130173 /* Build configuration list for PBXNativeTarget "GratitudeJournal" */;
+			buildConfigurationList = 31D2C24E1AA503C100130173 /* Build configuration list for PBXNativeTarget "Moments" */;
 			buildPhases = (
 				31D2C2241AA503C100130173 /* Sources */,
 				31D2C2251AA503C100130173 /* Frameworks */,
@@ -169,14 +169,14 @@
 			);
 			dependencies = (
 			);
-			name = GratitudeJournal;
+			name = Moments;
 			productName = GratitudeJournal;
-			productReference = 31D2C2281AA503C100130173 /* GratitudeJournal.app */;
+			productReference = 31D2C2281AA503C100130173 /* Moments.app */;
 			productType = "com.apple.product-type.application";
 		};
-		31D2C2431AA503C100130173 /* GratitudeJournalTests */ = {
+		31D2C2431AA503C100130173 /* MomentsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31D2C2511AA503C100130173 /* Build configuration list for PBXNativeTarget "GratitudeJournalTests" */;
+			buildConfigurationList = 31D2C2511AA503C100130173 /* Build configuration list for PBXNativeTarget "MomentsTests" */;
 			buildPhases = (
 				31D2C2401AA503C100130173 /* Sources */,
 				31D2C2411AA503C100130173 /* Frameworks */,
@@ -187,9 +187,9 @@
 			dependencies = (
 				31D2C2461AA503C100130173 /* PBXTargetDependency */,
 			);
-			name = GratitudeJournalTests;
+			name = MomentsTests;
 			productName = GratitudeJournalTests;
-			productReference = 31D2C2441AA503C100130173 /* GratitudeJournalTests.xctest */;
+			productReference = 31D2C2441AA503C100130173 /* MomentsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 31D2C2231AA503C100130173 /* Build configuration list for PBXProject "GratitudeJournal" */;
+			buildConfigurationList = 31D2C2231AA503C100130173 /* Build configuration list for PBXProject "Moments" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,8 +223,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				31D2C2271AA503C100130173 /* GratitudeJournal */,
-				31D2C2431AA503C100130173 /* GratitudeJournalTests */,
+				31D2C2271AA503C100130173 /* Moments */,
+				31D2C2431AA503C100130173 /* MomentsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,7 +280,7 @@
 /* Begin PBXTargetDependency section */
 		31D2C2461AA503C100130173 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 31D2C2271AA503C100130173 /* GratitudeJournal */;
+			target = 31D2C2271AA503C100130173 /* Moments */;
 			targetProxy = 31D2C2451AA503C100130173 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -389,7 +389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GratitudeJournal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Moments;
 			};
 			name = Debug;
 		};
@@ -399,7 +399,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GratitudeJournal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Moments;
 			};
 			name = Release;
 		};
@@ -417,8 +417,8 @@
 				);
 				INFOPLIST_FILE = GratitudeJournalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GratitudeJournal.app/GratitudeJournal";
+				PRODUCT_NAME = MomentsTests;
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -432,15 +432,16 @@
 				);
 				INFOPLIST_FILE = GratitudeJournalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GratitudeJournal.app/GratitudeJournal";
+				PRODUCT_NAME = MomentsTests;
+				TEST_HOST = "";
+				"TEST_HOST[sdk=*]" = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		31D2C2231AA503C100130173 /* Build configuration list for PBXProject "GratitudeJournal" */ = {
+		31D2C2231AA503C100130173 /* Build configuration list for PBXProject "Moments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				31D2C24C1AA503C100130173 /* Debug */,
@@ -449,7 +450,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		31D2C24E1AA503C100130173 /* Build configuration list for PBXNativeTarget "GratitudeJournal" */ = {
+		31D2C24E1AA503C100130173 /* Build configuration list for PBXNativeTarget "Moments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				31D2C24F1AA503C100130173 /* Debug */,
@@ -458,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		31D2C2511AA503C100130173 /* Build configuration list for PBXNativeTarget "GratitudeJournalTests" */ = {
+		31D2C2511AA503C100130173 /* Build configuration list for PBXNativeTarget "MomentsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				31D2C2521AA503C100130173 /* Debug */,
