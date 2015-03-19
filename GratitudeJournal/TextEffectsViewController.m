@@ -163,17 +163,18 @@
     NSLog(@"Adding gesture recognizers to moment text");
     UIRotationGestureRecognizer *rotationGesture = [[UIRotationGestureRecognizer alloc]
                                                     initWithTarget:self action:@selector(rotatePiece:)];
+    [rotationGesture setDelegate:self]; //allows multiple types of gestures to be simultaneously recognized!
     [piece addGestureRecognizer:rotationGesture];
     
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc]
                                               initWithTarget:self action:@selector(scalePiece:)];
-    //[pinchGesture setDelegate:self];
+    [pinchGesture setDelegate:self];
     [piece addGestureRecognizer:pinchGesture];
     
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(panPiece:)];
     [panGesture setMaximumNumberOfTouches:2];
-    //[panGesture setDelegate:self];
+    [panGesture setDelegate:self];
     [piece addGestureRecognizer:panGesture];
 }
 
@@ -190,10 +191,16 @@
     if ([gestureRecognizer state] == UIGestureRecognizerStateBegan ||
         [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
         CGPoint translation = [gestureRecognizer translationInView:[piece superview]];
-        [piece setCenter:CGPointMake([piece center].x + translation.x,
-                                     [piece center].y + translation.y)];
-        [gestureRecognizer setTranslation:CGPointZero inView:[piece superview]];
-    } 
+        
+        //make sure the panning stays within bounds of the image view
+        if (CGRectContainsPoint(self.imageView.frame, CGPointMake([piece center].x + translation.x,
+                                                                  [piece center].y + translation.y))) {
+            [piece setCenter:CGPointMake([piece center].x + translation.x,
+                                         [piece center].y + translation.y)];
+            [gestureRecognizer setTranslation:CGPointZero inView:[piece superview]];
+        }
+    }
+    
 }
 
 // rotate the piece by the current rotation
@@ -207,8 +214,8 @@
         [gestureRecognizer view].transform =
         CGAffineTransformRotate([[gestureRecognizer view] transform],
                                 [gestureRecognizer rotation]);
-        [gestureRecognizer setRotation:0]; 
-    } 
+        [gestureRecognizer setRotation:0];
+    }
 }
 
 // scale the piece by the current scale
@@ -222,8 +229,9 @@
         [gestureRecognizer view].transform =
         CGAffineTransformScale([[gestureRecognizer view] transform],
                                [gestureRecognizer scale], [gestureRecognizer scale]);
-        [gestureRecognizer setScale:1]; 
-    } 
+        
+        [gestureRecognizer setScale:1];
+    }
 }
 
 // scale and rotation transforms are applied relative to the layer's anchor point
@@ -239,8 +247,16 @@
         piece.layer.anchorPoint = CGPointMake(locationInView.x /
                                               piece.bounds.size.width, locationInView.y / piece.bounds.size.height);
         
-        piece.center = locationInSuperview; 
-    } 
+        piece.center = locationInSuperview;
+    }
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+//Allow for multiple gesture recognition.
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 @end

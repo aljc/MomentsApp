@@ -11,7 +11,7 @@
 
 /* Allow user to apply text effects to the image. */
 
-@interface TextEffectsViewController : UIViewController
+@interface TextEffectsViewController : UIViewController <UIGestureRecognizerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIView *imageContainerView;
