@@ -14,7 +14,6 @@
 
 @property NSMutableArray *placeholderArray;
 @property NSMutableArray *moments;
-@property BOOL didPresentSplashScreen;
 
 @end
 
@@ -22,17 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    //If splash screen has not already been presented, then present the splash screen upon launch.
-    if (!self.didPresentSplashScreen) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController* splashScreen = [storyboard instantiateViewControllerWithIdentifier:@"splashScreen"];
-        
-        [self.tabBarController presentViewController:splashScreen animated:NO completion:nil];
-        self.didPresentSplashScreen = YES;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

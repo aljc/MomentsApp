@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3103C1B21AB375D000EE0F65 /* FilterImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3103C1B11AB375D000EE0F65 /* FilterImageViewController.m */; };
-		311BE7CB1AB7819600F11697 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 311BE7CA1AB7819600F11697 /* SplashScreenViewController.m */; };
 		31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31581A8D1AA6D799002F73A5 /* HomeViewController.m */; };
 		3197A8021AB6915F00B5A932 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3197A8011AB6915F00B5A932 /* Settings.bundle */; };
 		31C2D6601AAE438200D0B5E8 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C2D65F1AAE438200D0B5E8 /* Moment.m */; };
@@ -36,8 +35,6 @@
 /* Begin PBXFileReference section */
 		3103C1B01AB375D000EE0F65 /* FilterImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterImageViewController.h; sourceTree = "<group>"; };
 		3103C1B11AB375D000EE0F65 /* FilterImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterImageViewController.m; sourceTree = "<group>"; };
-		311BE7C91AB7819600F11697 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
-		311BE7CA1AB7819600F11697 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		31581A8C1AA6D799002F73A5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		31581A8D1AA6D799002F73A5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3174D4FC1AB12D5500AE8A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -107,8 +104,6 @@
 				31D2C2301AA503C100130173 /* AppDelegate.m */,
 				31581A8C1AA6D799002F73A5 /* HomeViewController.h */,
 				31581A8D1AA6D799002F73A5 /* HomeViewController.m */,
-				311BE7C91AB7819600F11697 /* SplashScreenViewController.h */,
-				311BE7CA1AB7819600F11697 /* SplashScreenViewController.m */,
 				3197A8011AB6915F00B5A932 /* Settings.bundle */,
 				3103C1B01AB375D000EE0F65 /* FilterImageViewController.h */,
 				3103C1B11AB375D000EE0F65 /* FilterImageViewController.m */,
@@ -257,7 +252,6 @@
 			files = (
 				31D2C2311AA503C100130173 /* AppDelegate.m in Sources */,
 				3103C1B21AB375D000EE0F65 /* FilterImageViewController.m in Sources */,
-				311BE7CB1AB7819600F11697 /* SplashScreenViewController.m in Sources */,
 				31C98BB71AB4F00F00651E13 /* TextEffectsViewController.m in Sources */,
 				31581A8E1AA6D799002F73A5 /* HomeViewController.m in Sources */,
 				31D2C22E1AA503C100130173 /* main.m in Sources */,

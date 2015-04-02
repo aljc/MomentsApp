@@ -19,6 +19,7 @@
     // Override point for customization after application launch.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:@"Alice Sea" forKey:@"Developer"];
+    [defaults setValue:@"1.0" forKey:@"Version"];
     [defaults setValue:[NSDate date] forKey:@"Initial Launch"];
     
     NSNumber *launchNumber = [defaults objectForKey:@"Launch Number"];
@@ -32,6 +33,7 @@
     [defaults synchronize];
     
     NSLog(@"Developer: %@", [defaults objectForKey:@"Developer"]);
+    NSLog(@"Version: %@", [defaults objectForKey:@"Version"]);
     NSLog(@"Initial Launch: %@", [defaults objectForKey:@"Initial Launch"]);
     NSNumber *launchNumberNow = [defaults objectForKey:@"Launch Number"];
     NSLog(@"Launch Number: %@", launchNumberNow);
