@@ -110,14 +110,14 @@ static NSString * const reuseIdentifier = @"Cell";
     comeBackTomorrow.backgroundColor = [UIColor colorWithRed:0.627 green:0.569 blue:0.929 alpha:1];
     comeBackTomorrow.alpha = 0;
     
-    UILabel *mainText = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, comeBackTomorrow.frame.size.width, 30)];
+    UILabel *mainText = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, comeBackTomorrow.frame.size.width, 30)];
     mainText.text = @"Great job!";
     [mainText setFont:[UIFont fontWithName:@"Avenir-Heavy" size:25.0]];
     mainText.textColor = [UIColor whiteColor];
     mainText.textAlignment = NSTextAlignmentCenter;
-    UILabel *subtext = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, comeBackTomorrow.frame.size.width-15, 60)];
-    subtext.text = @"Come back tomorrow to record another moment!";
-    subtext.numberOfLines = 2;
+    UILabel *subtext = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, comeBackTomorrow.frame.size.width-15, 60)];
+    subtext.text = @"Keep going, or come back tomorrow to record another moment!";
+    subtext.numberOfLines = 3;
     [subtext setFont:[UIFont fontWithName:@"Avenir" size:14.0]];
     subtext.textColor = [UIColor whiteColor];
     subtext.textAlignment = NSTextAlignmentCenter;
