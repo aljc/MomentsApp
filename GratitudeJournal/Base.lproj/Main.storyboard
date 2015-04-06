@@ -289,10 +289,18 @@
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Moments" image="hearttab" id="pS9-LU-g75"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Moments" id="lsc-Yq-UXT">
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="8uG-7k-M7K">
+                            <connections>
+                                <segue destination="Vtl-hz-XVb" kind="unwind" unwindAction="unwindToHome:" id="5Yk-6Q-WP7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhf-K4-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Vtl-hz-XVb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="341" y="-211"/>
+            <point key="canvasLocation" x="165" y="-529"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hep-QW-Bve">

@@ -19,6 +19,14 @@
 
 @implementation HomeViewController
 
+- (IBAction)unwindToHome:(UIStoryboardSegue *)segue
+{
+    UIViewController *svc = [segue sourceViewController];
+    NSLog(@"%@", svc);
+    //clear text field so that placeholder text will reappear
+    self.dailyQuestion.text = @"";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
@@ -30,9 +38,7 @@
     [self.placeholderArray addObject:@"Little things count too!"];
     [self.placeholderArray addObject:@"What made you happy today?"];
     
-    NSString *placeholderText = [self.placeholderArray objectAtIndex:arc4random_uniform((int)[self.placeholderArray count])];
-    
-    self.dailyQuestion.placeholder = placeholderText;
+    [self generateDailyQuestion];
     
     self.moments = [[NSMutableArray alloc] init];
     
@@ -65,6 +71,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)generateDailyQuestion {
+    NSLog(@"Generating daily question");
+    NSString *placeholderText = [self.placeholderArray objectAtIndex:arc4random_uniform((int)[self.placeholderArray count])];
+    self.dailyQuestion.placeholder = placeholderText;
 }
 
 #pragma mark - Navigation
