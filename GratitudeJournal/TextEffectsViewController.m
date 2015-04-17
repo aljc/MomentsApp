@@ -105,8 +105,6 @@
     int chosenFontIndex = (int)sender.tag-100;
     NSLog(@"Chose font #%d", chosenFontIndex);
     [self.momentTextLabel setFont:[UIFont fontWithName:[self.fonts objectAtIndex:chosenFontIndex] size:25.0]];
-    //after changing font, auto-resize UILabel
-    [self.momentTextLabel sizeToFit];
 }
 
 //Once the user has chosen a text color, apply the color to the moment text.

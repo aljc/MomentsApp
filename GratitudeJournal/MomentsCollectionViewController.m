@@ -240,12 +240,12 @@ static NSString * const reuseIdentifier = @"Cell";
     zoomImage.alpha = 0.2;
     
     //Create back button to return to grid view
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 60, 25)];
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 70, 30)];
     backButton.tag = 304;
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
     backButton.layer.cornerRadius = 10;
     backButton.clipsToBounds = YES;
-    backButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    backButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [[backButton layer] setBorderWidth:1.0f];
     [[backButton layer] setBorderColor:[UIColor whiteColor].CGColor];
@@ -257,12 +257,12 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:backButton];
     
     //Create share button to allow user to post selected image to Facebook
-    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-70, 20, 60, 25)];
+    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-70, 20, 70, 30)];
     shareButton.tag = 305;
     [shareButton setTitle:@"Share" forState:UIControlStateNormal];
     shareButton.layer.cornerRadius = 10;
     shareButton.clipsToBounds = YES;
-    shareButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    shareButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     shareButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [[shareButton layer] setBorderWidth:1.0f];
     [[shareButton layer] setBorderColor:[UIColor whiteColor].CGColor];
