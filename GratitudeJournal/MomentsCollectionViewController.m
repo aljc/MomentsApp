@@ -25,6 +25,18 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Refresh control
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tag = 303;
+    refreshControl.tintColor = [UIColor grayColor];
+    [refreshControl addTarget:self action:@selector(refreshCollection) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    self.collectionView.alwaysBounceVertical = YES;
+    
+    [self.collectionView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.savedMoments = [defaults objectForKey:@"moments"];
     
@@ -46,14 +58,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSLog(@"Updating savedMoments");
     self.savedMoments = [defaults objectForKey:@"moments"];
-    
-    //Refresh control
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.tag = 303;
-    refreshControl.tintColor = [UIColor grayColor];
-    [refreshControl addTarget:self action:@selector(refreshCollection) forControlEvents:UIControlEventValueChanged];
-    [self.collectionView addSubview:refreshControl];
-    self.collectionView.alwaysBounceVertical = YES;
     
     [self.collectionView reloadData];
 }
