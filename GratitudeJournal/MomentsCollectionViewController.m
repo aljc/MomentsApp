@@ -157,39 +157,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 //define the size of each cell rendered by the collection view
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(140, 140);
-}
-
-//Adjust the edge insets of the cells based on the device type and model.
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    NSLog(@"Adjusting edge insets");
-
-    UIEdgeInsets edgeInsets;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        NSLog(@"Current device is an iPad");
-        
-        edgeInsets = UIEdgeInsetsMake(50, 50, 50, 50);
-    }
-    else {
-        NSLog(@"Current device is an iPhone");
-        
-        CGRect screenBounds = [[UIScreen mainScreen] bounds];
-        
-        //return these edge inset values for iPhone 5S or older
-        if (screenBounds.size.height <= 568) {
-            edgeInsets = UIEdgeInsetsMake(30,15,30,15);
-        }
-        //iPhone 6 and 6+
-        else if (screenBounds.size.height <= 736) {
-            edgeInsets = UIEdgeInsetsMake(50, 30, 50, 30);
-        }
-        else {
-            edgeInsets = UIEdgeInsetsMake(50, 50, 50, 50);
-        }
-    }
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
-    return edgeInsets;
+    //return these edge inset values for iPhone 5S or older
+    if (screenBounds.size.height <= 568) {
+        NSLog(@"Current device is iPhone 5S or older");
+        return CGSizeMake(130, 130);
+    }
+    return CGSizeMake(150, 150);
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -219,6 +195,8 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView.clipsToBounds = YES;
     [cell.imageView setImage:currentMomentDecoded.image];
+    
+    cell.layer.cornerRadius = 3;
     
     return cell;
 }

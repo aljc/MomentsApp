@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you grateful for today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bok-Gm-Yc9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you grateful for today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bok-Gm-Yc9">
                                 <rect key="frame" x="16" y="171" width="568" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -54,10 +54,10 @@
                                 </connections>
                             </button>
                             <view hidden="YES" clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-ko-aCr">
-                                <rect key="frame" x="150" y="100" width="300" height="301"/>
+                                <rect key="frame" x="150" y="100" width="300" height="251"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01v-no-MmW">
-                                        <rect key="frame" x="100" y="236" width="100" height="30"/>
+                                        <rect key="frame" x="100" y="186" width="100" height="30"/>
                                         <color key="backgroundColor" red="0.38344871831477878" green="0.25292171174289335" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="D93-hR-hEY"/>
@@ -96,7 +96,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Come back the next day to record another moment!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQI-GB-ik3">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Keep going, or come back tomorrow to record another moment!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQI-GB-ik3">
                                         <rect key="frame" x="15" y="200" width="270" height="36"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,7 +147,7 @@
                         <constraints>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="7dv-GG-aSG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u6F-fb-HyN" secondAttribute="trailing" id="Bka-gt-YID"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="7xP-ko-aCr" secondAttribute="bottom" constant="150" id="DSs-Aw-KwV"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="7xP-ko-aCr" secondAttribute="bottom" constant="200" id="DSs-Aw-KwV"/>
                             <constraint firstItem="bok-Gm-Yc9" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ETa-3j-I9k"/>
                             <constraint firstItem="u6F-fb-HyN" firstAttribute="top" secondItem="bok-Gm-Yc9" secondAttribute="bottom" constant="24" id="Ebh-kI-q6b"/>
                             <constraint firstAttribute="centerY" secondItem="u6F-fb-HyN" secondAttribute="centerY" constant="38" id="Gxa-dL-LVt"/>
@@ -253,14 +253,14 @@
         <scene sceneID="A3v-LS-3Io">
             <objects>
                 <collectionViewController id="9u4-vB-mVr" customClass="MomentsCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" tag="301" contentMode="scaleToFill" dataMode="prototypes" id="1Am-cH-Agi">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" tag="301" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="1Am-cH-Agi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pPD-Vw-glK">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cQw-QG-GZT">
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="momentsCell" id="DR5-MM-cYW" customClass="MomentsCollectionViewCell">
@@ -290,7 +290,9 @@
                     <tabBarItem key="tabBarItem" title="Moments" image="hearttab" id="pS9-LU-g75"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Moments" id="lsc-Yq-UXT">
-                        <barButtonItem key="rightBarButtonItem" title="Home" id="8uG-7k-M7K">
+                        <barButtonItem key="rightBarButtonItem" image="home" style="done" id="8uG-7k-M7K">
+                            <inset key="imageInsets" minX="7" minY="5" maxX="7" maxY="5"/>
+                            <color key="tintColor" red="0.53675059599999997" green="0.53386910489999995" blue="0.86270805029999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Vtl-hz-XVb" kind="unwind" unwindAction="unwindToHome:" id="5Yk-6Q-WP7"/>
                             </connections>
@@ -300,7 +302,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhf-K4-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Vtl-hz-XVb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="165" y="-529"/>
+            <point key="canvasLocation" x="277" y="-335"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hep-QW-Bve">
