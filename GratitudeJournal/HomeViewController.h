@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "Moment.h"
 
-@interface HomeViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface HomeViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UITextField *dailyQuestion;
@@ -24,6 +24,6 @@
 
 - (IBAction)presentInfo:(UIButton *)sender;
 - (IBAction)dismissInfo:(UIButton *)sender;
-- (IBAction)loadImagePicker:(UIButton *)sender;
+- (IBAction)showActionSheet:(UIButton *)sender;
 
 @end

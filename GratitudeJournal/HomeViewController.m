@@ -52,7 +52,7 @@
     self.infoViewButton.layer.cornerRadius = 10;
     
     self.infoView.layer.cornerRadius = 10;
-
+    
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     //need to adjust bottom space constraints if app is running older iPhone models to get all
@@ -147,22 +147,56 @@
      }];
 }
 
+-(void)takePhotoWithCamera {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+-(void)choosePhotoFromLibrary {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
 //Load the image picker so user can choose a photo from gallery upon submitting gratitude text.
-//TODO: Later versions will allow user to take a photo as well.
-- (IBAction)loadImagePicker:(UIButton *)sender {
+- (IBAction)showActionSheet:(UIButton *)sender {
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select a moment"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Camera", @"Select from Library", nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+        [actionSheet showInView:self.view];
+    } else {
+        [self choosePhotoFromLibrary];
+    }
+}
+
+#pragma mark - UIActionSheet delegate methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSLog(@"Button pressed target action: load image picker");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.modalPresentationStyle = UIModalPresentationCurrentContext;
     picker.delegate = self;
     picker.allowsEditing = YES;
-    
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
-    {
-        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        NSLog(@"show image picker: photo gallery available");
+    if (buttonIndex == 0) {
+        [self takePhotoWithCamera];
+        
+    } else if (buttonIndex == 1) {
+        [self choosePhotoFromLibrary];
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-    
-    [self presentViewController:picker animated:YES completion:nil];
 }
 
 #pragma mark - Image picker delegate methods
@@ -170,7 +204,7 @@
 //Once user has chosen an image, crop the image to a square if they have not done so already.
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-     NSLog(@"Did finish picking image");
+    NSLog(@"Did finish picking image");
     
     //get the image from the dictionary
     UIImage *chosenImage = [info objectForKey:UIImagePickerControllerEditedImage]; //save the EDITED, cropped image!
@@ -188,8 +222,8 @@
             CGFloat heightOffset = (height - newDimension) / 2;
             UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
             [chosenImage drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
-                      blendMode:kCGBlendModeCopy
-                          alpha:1.];
+                           blendMode:kCGBlendModeCopy
+                               alpha:1.];
             chosenImage = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
         }
@@ -230,5 +264,4 @@
     [textField resignFirstResponder];
     return YES;
 }
-
 @end
