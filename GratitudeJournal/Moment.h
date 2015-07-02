@@ -2,8 +2,8 @@
 //  Moment.h
 //  GratitudeJournal
 //
-//  Created by ajchang on 3/9/15.
-//  Copyright (c) 2015 ajchang. All rights reserved.
+//  Created by Alice Chang on 3/9/15.
+//  Copyright (c) 2015 Alice Chang. All rights reserved.
 //
 
 /* Model object for a moment, compliant with NSCoding */

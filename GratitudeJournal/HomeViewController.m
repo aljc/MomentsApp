@@ -2,8 +2,8 @@
 //  HomeViewController.m
 //  GratitudeJournal
 //
-//  Created by ajchang on 3/4/15.
-//  Copyright (c) 2015 ajchang. All rights reserved.
+//  Created by Alice Chang on 3/4/15.
+//  Copyright (c) 2015 Alice Chang. All rights reserved.
 //
 
 #import "HomeViewController.h"
@@ -165,7 +165,8 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-//Load the image picker so user can choose a photo from gallery upon submitting gratitude text.
+// Upon pressing submit, show the action sheet so users can either take a photo or choose a photo
+// from their library.
 - (IBAction)showActionSheet:(UIButton *)sender {
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

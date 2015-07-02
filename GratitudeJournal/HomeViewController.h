@@ -2,8 +2,8 @@
 //  HomeViewController.h
 //  GratitudeJournal
 //
-//  Created by ajchang on 3/4/15.
-//  Copyright (c) 2015 ajchang. All rights reserved.
+//  Created by Alice Chang on 3/4/15.
+//  Copyright (c) 2015 Alice Chang. All rights reserved.
 //
 
 /* Show the home view embedded in a tab bar controller that allows the user to switch between Home and Moments. */
