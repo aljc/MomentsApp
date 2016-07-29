@@ -193,7 +193,7 @@
 		31D2C2201AA503C100130173 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = ajchang;
 				TargetAttributes = {
 					31D2C2271AA503C100130173 = {
@@ -320,6 +320,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -382,12 +383,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GratitudeJournal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sea.alice.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Moments;
-				PROVISIONING_PROFILE = "57d288a7-dd30-4779-afb6-74957bb67f43";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -396,12 +398,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GratitudeJournal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sea.alice.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Moments;
-				PROVISIONING_PROFILE = "57d288a7-dd30-4779-afb6-74957bb67f43";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -420,6 +423,7 @@
 				);
 				INFOPLIST_FILE = GratitudeJournalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.uchicago.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MomentsTests;
 				TEST_HOST = "";
 			};
@@ -435,6 +439,7 @@
 				);
 				INFOPLIST_FILE = GratitudeJournalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.uchicago.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MomentsTests;
 				TEST_HOST = "";
 				"TEST_HOST[sdk=*]" = "";

@@ -14,6 +14,7 @@
 
 @property NSMutableArray *placeholderArray;
 @property NSMutableArray *moments;
+@property UIImagePickerController *picker;
 
 @end
 
@@ -29,6 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.picker = [[UIImagePickerController alloc] init];
+    self.picker.modalPresentationStyle = UIModalPresentationCurrentContext;
+    self.picker.delegate = self;
+    self.picker.allowsEditing = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -147,24 +152,6 @@
      }];
 }
 
--(void)takePhotoWithCamera {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
--(void)choosePhotoFromLibrary {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
 // Upon pressing submit, show the action sheet so users can either take a photo or choose a photo
 // from their library.
 - (IBAction)showActionSheet:(UIButton *)sender {
@@ -179,7 +166,10 @@
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [actionSheet showInView:self.view];
     } else {
-        [self choosePhotoFromLibrary];
+        self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self presentViewController:self.picker animated:YES completion:nil];
+        }];
     }
 }
 
@@ -187,17 +177,15 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSLog(@"Button pressed target action: load image picker");
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
-    picker.delegate = self;
-    picker.allowsEditing = YES;
     if (buttonIndex == 0) {
-        [self takePhotoWithCamera];
-        
-    } else if (buttonIndex == 1) {
-        [self choosePhotoFromLibrary];
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self presentViewController:self.picker animated:YES completion:nil];
+    }];
 }
 
 #pragma mark - Image picker delegate methods
